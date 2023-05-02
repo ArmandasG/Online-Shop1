@@ -1,5 +1,3 @@
-import './styles/reset.css';
-import './styles/App.css';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Header from './components/layout/Header';
