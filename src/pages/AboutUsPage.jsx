@@ -1,8 +1,8 @@
 function AboutUsPage() {
   return (
-    <div className="container">
+    <div>
       <img className="w-full" src="/src/icons/Touched_by_His_Noodly_Appendage_HD.jpg" alt="" />
-      <h3 className="text-center p-4 text-3xl">Flying Spaghetti Monster</h3>
+      <h3 className="text-3xl pt-4 pb-4 font-bold">Flying Spaghetti Monster</h3>
       <p className="text-2xl">
         The "Flying Spaghetti Monster" was first described in a satirical open
         letter written by Bobby Henderson in 2005 to protest the Kansas State

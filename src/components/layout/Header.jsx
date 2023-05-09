@@ -3,7 +3,7 @@ import Sandwich from './Sandwich';
 
 function Header() {
   return (
-    <header className='container flex justify-between pt-4 pb-4 align-middle'>
+    <header className='flex justify-between pt-4 pb-4 align-middle'>
       {/* <nav className='hidden'>
         <NavLink to={'/about'}>About Us</NavLink>
         <NavLink to={'/clothes'}>Clothes</NavLink>

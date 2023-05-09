@@ -11,7 +11,7 @@ import SingleClothesPage from './pages/SingleClothesPage';
 
 function App() {
   return (
-    <div className="bg-site bg-no-repeat bg-cover overflow-hidden">
+    <div className="bg-site bg-no-repeat bg-cover overflow-hidden container">
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
