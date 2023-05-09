@@ -6,15 +6,19 @@ import ClothesPage from './pages/ClothesPage';
 import ContactUsPage from './pages/ContactUsPage';
 import CheckOutPage from './pages/CheckOutPage';
 import Footer from './components/layout/Footer';
+import AddClothesPage from './pages/AddClothesPage';
+import SingleClothesPage from './pages/SingleClothesPage';
 
 function App() {
   return (
-    <div className="container">
+    <div className="bg-site bg-no-repeat bg-cover overflow-hidden">
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/clothes" element={<ClothesPage />} />
+        <Route path="/clothes/new" element={<AddClothesPage />} />
+        <Route path="/clothes/:clothesUid" element={<SingleClothesPage />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/checkout" element={<CheckOutPage />} />
       </Routes>
