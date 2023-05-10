@@ -6,7 +6,7 @@ function Footer() {
     <Link to={'/contact'}>Contact Us</Link>
     <Link to={'/about'}>About Us</Link>
     </div>
-  <div className="flex justify-center mt-11">Copyright 2023 &copy; </div>
+  <div className="flex justify-center mt-11">&copy; 2023 all rights reserved</div>
   </footer>
 }
 

@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import Sandwich from './Sandwich';
+import Sandwich from '../Sandwich';
 
 function Header() {
   return (
