@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import Sandwich from '../Sandwich';
+import CheckOutPage from '../../pages/CheckOutPage';
 
 function Header() {
   return (
@@ -14,9 +15,7 @@ function Header() {
       <div>
         <Link className='text-4xl' to={'/'}>Shoper</Link>
       </div>
-      <div className='text-2xl'>
-        CART
-      </div>
+      <CheckOutPage/>
     </header>
   );
 }

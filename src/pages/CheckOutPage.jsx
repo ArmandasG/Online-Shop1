@@ -1,5 +1,7 @@
 function CheckOutPage() {
-  return <div></div>;
+  return <div className='text-2xl'>
+    CART(amount)
+  </div>;
 }
 
 export default CheckOutPage;
