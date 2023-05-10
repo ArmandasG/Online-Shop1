@@ -27,6 +27,18 @@ font-size: 62.5%;
   transition: 0.5s;
 }
 
+.cartOverlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  top: 0;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
 .container {
   max-width: 80rem;
   margin: 0 auto;
