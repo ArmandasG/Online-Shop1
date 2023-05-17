@@ -3,19 +3,6 @@ import { NavLink } from 'react-router-dom'
 import { Disclosure, Transition  } from '@headlessui/react'
 
 function Sandwich() {
-  const [activeDisclosurePanel, setActiveDisclosurePanel] = useState(null)
-
-  function togglePanels(newPanel) {
-    if (activeDisclosurePanel) {
-      if (activeDisclosurePanel.key !== newPanel.key && activeDisclosurePanel.open) {
-        activeDisclosurePanel.close()
-      }
-    }
-    setActiveDisclosurePanel({
-      ...panel,
-      open: !panel.open
-    })
-  }
 
     function openNav () {
         document.getElementById("myNav").style.width = "100%";
@@ -31,8 +18,8 @@ function Sandwich() {
     <section id='myNav' className='overlay flex-col'>
         <div onClick={closeNav} className='closeBtn cursor-pointer ml-4 container mt-4'><img src="/src/icons/Group 1419.svg" alt="" /></div>
         <div className='mt-2 ml-2 container flex flex-col items-start'>
-        <Disclosure as='div'>
-          {({ open }) => (<>
+        <Disclosure id='disc1'>
+          {({ open, close }) => (<>
         <Disclosure.Button className='text-4xl'>Clothes</Disclosure.Button>
         <Transition
         enter="transition duration-300 ease-out"
@@ -54,8 +41,8 @@ function Sandwich() {
         </>
         )}
         </Disclosure> 
-        <Disclosure>
-          {({ open }) => (<>
+        <Disclosure id='disc2'>
+          {({ open, close }) => (<>
         <Disclosure.Button className='text-4xl'>Campaigns</Disclosure.Button>
         <Transition
         enter="transition duration-300 ease-out"
@@ -75,8 +62,8 @@ function Sandwich() {
         </>
         )}
         </Disclosure> 
-        <Disclosure>
-          {({ open }) => (<>
+        <Disclosure id='disc3'>
+          {({ open, close }) => (<>
         <Disclosure.Button className='text-4xl'>Press</Disclosure.Button>
         <Transition
         enter="transition duration-300 ease-out"
