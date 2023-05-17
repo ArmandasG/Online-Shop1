@@ -2,7 +2,7 @@ import React from 'react'
 
 function Cart({myCartNav, onClose}) {
   return (
-    <div className='cartOverlay' id={myCartNav}>
+    <div className='cartOverlay pt-4 pl-4' id={myCartNav}>
         <h3>
         Cart
         </h3>
