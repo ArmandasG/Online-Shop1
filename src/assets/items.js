@@ -9,6 +9,7 @@ export const clothes = [
     brand: "blackIt",
     img: "/public/images/clothes/shirts/shirt1.jpg",
     stock: 2,
+    addDate: new Date ('2023-02-04'),
   },
   {
     category: "shirts",
@@ -20,6 +21,7 @@ export const clothes = [
     brand: "forestUp",
     img: "/public/images/clothes/shirts/shirt2.jpg",
     stock: 1,
+    addDate: new Date ('2023-03-04'),
   },
   {
     category: "shirts",
@@ -31,6 +33,7 @@ export const clothes = [
     brand: "whiteNat",
     img: "/public/images/clothes/shirts/shirt3.jpg",
     stock: 3,
+    addDate: new Date ('2023-03-05'),
   },
   {
     category: "shirts",
@@ -42,6 +45,7 @@ export const clothes = [
     brand: "clothesDown",
     img: "/public/images/clothes/shirts/shirt4.jpg",
     stock: 1,
+    addDate: new Date ('2023-02-24'),
   },
   {
     category: "pants",
@@ -53,6 +57,7 @@ export const clothes = [
     brand: "whiteNat",
     img: "/public/images/clothes/pants/pants2.jpg",
     stock: 3,
+    addDate: new Date ('2023-03-14'),
   },
   {
     category: "pants",
@@ -64,6 +69,7 @@ export const clothes = [
     brand: "forestUp",
     img: "/public/images/clothes/pants/pants1.jpg",
     stock: 2,
+    addDate: new Date ('2022-08-01'),
   },
   {
     category: "pants",
@@ -75,6 +81,7 @@ export const clothes = [
     brand: "clothesDown",
     img: "/public/images/clothes/pants/pants3.jpg",
     stock: 1,
+    addDate: new Date ('2023-05-04'),
   },
   {
     category: "pants",
@@ -86,6 +93,7 @@ export const clothes = [
     brand: "forestUp",
     img: "/public/images/clothes/pants/pants4.jpg",
     stock: 5,
+    addDate: new Date ('2023-05-14'),
   },
   {
     category: "jackets",
@@ -97,6 +105,7 @@ export const clothes = [
     brand: "forestUp",
     img: "/public/images/clothes/jackets/jacket1.jpg",
     stock: 2,
+    addDate: new Date ('2023-04-29'),
   },
   {
     category: "jackets",
@@ -108,6 +117,7 @@ export const clothes = [
     brand: "blackIt",
     img: "/public/images/clothes/jackets/jacket2.jpg",
     stock: 3,
+    addDate: new Date ('2023-04-24'),
   },
   {
     category: "jackets",
@@ -119,6 +129,7 @@ export const clothes = [
     brand: "whiteNat",
     img: "/public/images/clothes/jackets/jacket3.jpg",
     stock: 1,
+    addDate: new Date ('2023-01-08'),
   },
   {
     category: "jackets",
@@ -130,6 +141,7 @@ export const clothes = [
     brand: "blackIt",
     img: "/public/images/clothes/jackets/jacket4.jpg",
     stock: 3,
+    addDate: new Date ('2023-02-14'),
   },
   {
     category: "shoes",
@@ -141,6 +153,7 @@ export const clothes = [
     brand: "clothesDown",
     img: "/public/images/clothes/shoes/shoes1.jpg",
     stock: "",
+    addDate: new Date ('2023-01-26'),
   },
   {
     category: "shoes",
@@ -152,6 +165,7 @@ export const clothes = [
     brand: "blackIt",
     img: "/public/images/clothes/shoes/shoes2.jpg",
     stock: 1,
+    addDate: new Date ('2023-05-21'),
   },
   {
     category: "shoes",
@@ -163,6 +177,7 @@ export const clothes = [
     brand: "blackIt",
     img: "/public/images/clothes/shoes/shoes3.jpg",
     stock: 2,
+    addDate: new Date ('2022-10-25'),
   },
   {
     category: "shoes",
@@ -174,5 +189,6 @@ export const clothes = [
     brand: "forestUp",
     img: "/public/images/clothes/shoes/shoes4.jpg",
     stock: 3,
+    addDate: new Date ('2022-10-24'),
   },
 ];
