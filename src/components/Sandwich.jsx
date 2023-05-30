@@ -1,6 +1,14 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { Disclosure, Transition  } from '@headlessui/react'
+
+const selectOptions = [
+  'All',
+  'Jackets',
+  'Shirts',
+  'Pants',
+  'Shoes',
+]
 
 function Sandwich() {
 
@@ -11,7 +19,9 @@ function Sandwich() {
         document.getElementById("myNav").style.width = "0%";
     }
     // console.log('document.getElementById("myNav").style.width ===', document.getElementById("myNav").style.width);
+    
 
+    
   return (
   <div>
     <span className='cursor-pointer'><img onClick={openNav} src="./icons/Group 6.svg" alt="" /></span>
@@ -30,11 +40,10 @@ function Sandwich() {
         leaveTo="transform scale-y-95 opacity-0"
       >
         <Disclosure.Panel>
-        <ul className={`pl-2 pt-2 transition-all duration-300`}>
-        <li>Jackets</li>
-        <li>Shirts</li>
-        <li>Pants</li>
-        <li>Shoes</li>
+        <ul className={`pl-2 pt-2 flex-col transition-all duration-300`}>
+        {selectOptions.map((sObj) => (
+          <Link className='block' to={'/clothes'} onClick={closeNav} key={sObj}>{sObj}</Link>
+        ))}
         </ul>
         </Disclosure.Panel>
         </Transition>
