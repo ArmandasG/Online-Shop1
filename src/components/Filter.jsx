@@ -25,13 +25,13 @@ function Filter({ clothesArr, setClothesArr }) {
     <div className="flex justify-between">
       <span>Filter(amount)</span>
       <div>
-        <div onClick={sortByLatest} className={noShow}>
+        <div onClick={sortByLatest} className={`${noShow} cursor-pointer`}>
           {" "}
           <span className="pr-3">Sort by latest</span>
           <i className="fa fa-angle-down" aria-hidden="true"></i>{" "}
         </div>
         {sortItem && (
-          <div onClick={sortByOldest} className={noShow2}>
+          <div onClick={sortByOldest} className={`${noShow2} cursor-pointer`}>
             {" "}
             <span className="pr-3">Sort by oldest</span>
             <i className="fa fa-angle-up" aria-hidden="true"></i>{" "}
