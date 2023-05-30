@@ -14,9 +14,9 @@ function Sandwich() {
 
   return (
   <div>
-    <span className='cursor-pointer'><img onClick={openNav} src="/src/icons/Group 6.svg" alt="" /></span>
+    <span className='cursor-pointer'><img onClick={openNav} src="./icons/Group 6.svg" alt="" /></span>
     <section id='myNav' className='overlay flex-col'>
-        <div onClick={closeNav} className='closeBtn cursor-pointer ml-4 container mt-4'><img src="/src/icons/Group 1419.svg" alt="" /></div>
+        <div onClick={closeNav} className='closeBtn cursor-pointer ml-4 container mt-4'><img src="./icons/Group 1419.svg" alt="" /></div>
         <div className='mt-2 ml-2 container flex flex-col items-start'>
         <Disclosure id='disc1'>
           {({ open, close }) => (<>

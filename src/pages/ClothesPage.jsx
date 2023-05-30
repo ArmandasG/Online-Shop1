@@ -1,7 +1,7 @@
 import Filter from "../components/Filter";
 
 function ClothesPage() {
-  return <div>
+  return <div className="min-h-screen">
     <div className="filterBar">
       <Filter />
       <div>element 1</div>

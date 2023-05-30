@@ -2,7 +2,7 @@ import React from 'react'
 
 function SingleClothesPage() {
   return (
-    <div>SingleClothesPage</div>
+    <div className='min-h-screen'>SingleClothesPage</div>
   )
 }
 

@@ -1,7 +1,7 @@
 function AboutUsPage() {
   return (
-    <div>
-      <img className="w-full" src="/src/icons/Touched_by_His_Noodly_Appendage_HD.jpg" alt="" />
+    <div className="min-h-screen">
+      <img className="w-full" src="./icons/Touched_by_His_Noodly_Appendage_HD.jpg" alt="" />
       <h3 className="text-3xl pt-4 pb-4 font-bold">Flying Spaghetti Monster</h3>
       <p className="text-2xl">
         The "Flying Spaghetti Monster" was first described in a satirical open
