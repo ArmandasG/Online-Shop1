@@ -5,10 +5,11 @@ import { useEffect, useState } from "react";
 
 function ClothesPage() {
   const [clothesArr, setClothesArr] = useState([])
-  useEffect(() => {setClothesArr(clothes)}, [clothes])
+  useEffect(() => {setClothesArr(clothes)}, [])
+  console.log('clothes ===', clothes);
   return <div className="min-h-screen">
     <div className="filterBar">
-      <Filter clothes={clothes} />
+      <Filter clothesArr={clothesArr} setClothesArr={setClothesArr} />
     </div>
     <div className="grid grid-cols-2">
     {clothesArr.map((cObj) => (

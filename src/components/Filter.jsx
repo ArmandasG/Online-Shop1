@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-function Filter({ clothes }) {
-  const sorted = [...clothes];
+function Filter({ clothesArr, setClothesArr }) {
+  const sorted = [...clothesArr]
   const [sortItem, setSortItem] = useState(false);
   const [sortItem2, setSortItem2] = useState(false);
   const noShow = sortItem === false ? "" : "hidden";
@@ -9,16 +9,16 @@ function Filter({ clothes }) {
 
   function sortByLatest() {
     sorted.sort((a, b) => b.addDate.getTime() - a.addDate.getTime());
-    console.log("sorted ===", sorted);
     setSortItem(true);
     setSortItem2(false);
+    setClothesArr(sorted)
   }
 
   function sortByOldest() {
     sorted.sort((a, b) => a.addDate.getTime() - b.addDate.getTime());
-    console.log("sorted ===", sorted);
     setSortItem2(true);
     setSortItem(false);
+    setClothesArr(sorted)
   }
 
   return (
