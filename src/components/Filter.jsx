@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 
+const filterOptions = [
+  'Type',
+  'Color',
+  'Size',
+  'Price Range',
+]
+
 function Filter({ clothesArr, setClothesArr }) {
   const sorted = [...clothesArr]
   const [sortItem, setSortItem] = useState(false);
@@ -21,9 +28,27 @@ function Filter({ clothesArr, setClothesArr }) {
     setClothesArr(sorted)
   }
 
+  function openFilter () {
+    document.getElementById("filterEl").style.height = "100%";
+    document.getElementById("filterEl").style.bottom = '0';
+  }
+  function closeFilter () {
+    document.getElementById("filterEl").style.height = "0%";
+    document.getElementById("filterEl").style.bottom = '100%';
+  }
+
   return (
     <div className="flex justify-between">
-      <span>Filter(amount)</span>
+      <div>
+      <span className="cursor-pointer" onClick={openFilter}>Filter(amount)</span>
+      <div className="filterOverlay container" id='filterEl'>
+      <div onClick={closeFilter} className='closeBtn cursor-pointer mt-4'><img src="./icons/Group 1419.svg" alt="" /></div>
+<h3>Filter</h3>
+{filterOptions.map((fObj) => (
+          <span className='block' onClick={''} key={fObj}>{fObj}<i className="fa fa-angle-down pl-2" aria-hidden="true"></i></span>
+        ))}
+      </div>
+      </div>
       <div>
         <div onClick={sortByLatest} className={`${noShow} cursor-pointer`}>
           {" "}
