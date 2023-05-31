@@ -45,7 +45,7 @@ function Filter({ clothesArr, setClothesArr }) {
       <div onClick={closeFilter} className='closeBtn cursor-pointer mt-4'><img src="./icons/Group 1419.svg" alt="" /></div>
 <h3>Filter</h3>
 {filterOptions.map((fObj) => (
-          <span className='block' onClick={''} key={fObj}>{fObj}<i className="fa fa-angle-down pl-2" aria-hidden="true"></i></span>
+          <span className='block' key={fObj}>{fObj}<i className="fa fa-angle-down pl-2" aria-hidden="true"></i></span>
         ))}
       </div>
       </div>
