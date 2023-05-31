@@ -47,6 +47,7 @@ function Filter({ clothesArr, setClothesArr }) {
 {filterOptions.map((fObj) => (
           <span className='block' key={fObj}>{fObj}<i className="fa fa-angle-down pl-2" aria-hidden="true"></i></span>
         ))}
+        <button>Apply filter</button>
       </div>
       </div>
       <div>
