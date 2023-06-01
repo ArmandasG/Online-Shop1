@@ -1,10 +1,23 @@
 import { useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { types } from '../../assets/selections'
+import { colors } from '../../assets/selections'
+import { sizes } from '../../assets/selections'
+import { brands } from '../../assets/selections'
+import { genders } from '../../assets/selections'
+
+const colectedFilters = {
+    type: [],
+    color: [],
+    size: [],
+    brand: [],
+    gender: [],
+    price: [],
+}
 
 export function FilterType({fObj}) {
     const [selectedType, setSelectedType] = useState([])
-    const [selectedFiltersAll, setSelectedFiltersAll] = useState()
+    const [selectedFiltersAll, setSelectedFiltersAll] = useState(colectedFilters)
   
     return (
       <Listbox value={selectedType} onChange={setSelectedType} multiple>
@@ -14,14 +27,14 @@ export function FilterType({fObj}) {
         {selectedType.length !== 0 ? selectedType.join(', ') : fObj}
         {/* {selectedType.join(', ')} */}
         </Listbox.Button>
-        {/* <Transition
+        <Transition
         enter="transition duration-100 ease-out"
         enterFrom="transform scale-95 opacity-0"
         enterTo="transform scale-100 opacity-100"
         leave="transition duration-75 ease-out"
         leaveFrom="transform scale-100 opacity-100"
         leaveTo="transform scale-95 opacity-0"
-      > */}
+      >
         {open && (<div>
         <Listbox.Options static>
           {types.map((types) => (
@@ -32,7 +45,7 @@ export function FilterType({fObj}) {
           ))}
         </Listbox.Options>
         </div>)}
-        {/* </Transition> */}
+        </Transition>
         </>
         )}
       </Listbox>
