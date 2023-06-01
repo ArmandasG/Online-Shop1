@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import { Listbox } from '@headlessui/react'
 
 const filterOptions = [
   'Type',
   'Color',
   'Size',
+  'Brand',
+  'Gender',
   'Price Range',
 ]
 
 function Filter({ clothesArr, setClothesArr }) {
+  const [filters, setFilters] = useState([])
   const sorted = [...clothesArr]
   const [sortItem, setSortItem] = useState(false);
   const [sortItem2, setSortItem2] = useState(false);
