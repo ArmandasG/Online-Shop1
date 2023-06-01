@@ -4,7 +4,7 @@ export const color = ["white", "black", "brown", "yellow", "blue", "grey"];
 
 export const size = ["XS", "S", "M", "L", "XL", "XXL"];
 
-export const brand = ["blackIt", "forestUp", "whiteNat", "clothesDown"];
+export const brand = ["blackIt" , "clothesDown"];
 
 export const gender
  = ["men", "women", "uni"];

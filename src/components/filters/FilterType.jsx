@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
-import { types } from '../../assets/selections'
-import { colors } from '../../assets/selections'
-import { sizes } from '../../assets/selections'
-import { brands } from '../../assets/selections'
-import { genders } from '../../assets/selections'
+import { type } from '../../assets/selections'
+import { color } from '../../assets/selections'
+import { size } from '../../assets/selections'
+import { brand } from '../../assets/selections'
+import { gender } from '../../assets/selections'
 
 const colectedFilters = {
     type: [],
@@ -37,9 +37,9 @@ export function FilterType({fObj}) {
       >
         {open && (<div>
         <Listbox.Options static>
-          {types.map((types) => (
-            <Listbox.Option className='border cursor-pointer' key={types} value={types}>
-              {types}
+          {type.map((type) => (
+            <Listbox.Option className='border cursor-pointer' key={type} value={type}>
+              {type}
               {/* bandyti padaryti su if*/}
             </Listbox.Option>
           ))}

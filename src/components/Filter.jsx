@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Listbox } from '@headlessui/react'
-import { types } from "../assets/selections";
+import { type } from "../assets/selections";
 import { FilterType } from "./filters/filterType";
 
 const filterOptions = [
@@ -14,7 +14,7 @@ const filterOptions = [
 
 function Filter({ clothesArr, setClothesArr }) {
   const [filters, setFilters] = useState([])
-  const [selectedFilter, setSelectedFilter] = useState(types[0])
+  const [selectedFilter, setSelectedFilter] = useState(type[0])
   const sorted = [...clothesArr]
   const [sortItem, setSortItem] = useState(false);
   const [sortItem2, setSortItem2] = useState(false);
