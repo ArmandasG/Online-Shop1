@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Listbox } from '@headlessui/react'
+import { types } from "../assets/selections";
+import { FilterType } from "./filters/filterType";
 
 const filterOptions = [
   'Type',
@@ -12,6 +14,7 @@ const filterOptions = [
 
 function Filter({ clothesArr, setClothesArr }) {
   const [filters, setFilters] = useState([])
+  const [selectedFilter, setSelectedFilter] = useState(types[0])
   const sorted = [...clothesArr]
   const [sortItem, setSortItem] = useState(false);
   const [sortItem2, setSortItem2] = useState(false);
@@ -49,9 +52,9 @@ function Filter({ clothesArr, setClothesArr }) {
       <div onClick={closeFilter} className='closeBtn cursor-pointer mt-4'><img src="./icons/Group 1419.svg" alt="" /></div>
 <h3>Filter</h3>
 {filterOptions.map((fObj) => (
-          <span className='block' key={fObj}>{fObj}<i className="fa fa-angle-down pl-2" aria-hidden="true"></i></span>
+          <FilterType className='block' key={fObj} fObj={fObj}>{fObj}<i className="fa fa-angle-down pl-2" aria-hidden="true"></i></FilterType>
         ))}
-        <button>Apply filter</button>
+        <button className="mr-4">Apply filter</button> <button className="ml-4"><i className="fa fa-refresh" aria-hidden="true"></i></button>
       </div>
       </div>
       <div>
