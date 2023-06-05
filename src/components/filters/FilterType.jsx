@@ -5,20 +5,18 @@ import { color } from '../../assets/selections'
 import { size } from '../../assets/selections'
 import { brand } from '../../assets/selections'
 import { gender } from '../../assets/selections'
+import { priceRange } from '../../assets/selections'
 
 const colectedFilters = {
-    type: [],
-    color: [],
-    size: [],
-    brand: [],
-    gender: [],
-    price: [],
+    color, size, brand, gender, type, priceRange
 }
 
 export function FilterType({fObj}) {
     const [selectedType, setSelectedType] = useState([])
     const [selectedFiltersAll, setSelectedFiltersAll] = useState(colectedFilters)
   
+console.log('fObj ===', fObj);
+
     return (
       <Listbox value={selectedType} onChange={setSelectedType} multiple>
         {({ open }) => (
@@ -37,7 +35,7 @@ export function FilterType({fObj}) {
       >
         {open && (<div>
         <Listbox.Options static>
-          {type.map((type) => (
+          {colectedFilters[fObj].map((type) => (
             <Listbox.Option className='border cursor-pointer' key={type} value={type}>
               {type}
               {/* bandyti padaryti su if*/}

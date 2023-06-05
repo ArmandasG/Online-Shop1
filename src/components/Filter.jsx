@@ -3,14 +3,25 @@ import { Listbox } from '@headlessui/react'
 import { type } from "../assets/selections";
 import { FilterType } from "./filters/filterType";
 
+// const colectedFilters = {
+//   Type: ["jackets", "pants", "shirts", "shoes"],
+//   Color: ["white", "black", "brown", "yellow", "blue", "grey"],
+//   Size: ["XS", "S", "M", "L", "XL", "XXL"],
+//   Brand: ["blackIt", "clothesDown", "forestUp", "whiteNat"],
+//   Gender: ["men", "women", "uni"],
+//   Price: ['0-150'],
+// }
+
 const filterOptions = [
-  'Type',
-  'Color',
-  'Size',
-  'Brand',
-  'Gender',
-  'Price Range',
+  'type',
+  'color',
+  'size',
+  'brand',
+  'gender',
+  'priceRange',
 ]
+
+
 
 function Filter({ clothesArr, setClothesArr }) {
   const [filters, setFilters] = useState([])
