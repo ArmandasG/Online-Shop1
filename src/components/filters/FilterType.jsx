@@ -38,7 +38,6 @@ console.log('fObj ===', fObj);
           {colectedFilters[fObj].map((type) => (
             <Listbox.Option className='border cursor-pointer' key={type} value={type}>
               {type}
-              {/* bandyti padaryti su if*/}
             </Listbox.Option>
           ))}
         </Listbox.Options>
