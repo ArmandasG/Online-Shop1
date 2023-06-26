@@ -2,7 +2,7 @@ import { useFormik } from 'formik'
 import React from 'react'
 import * as Yup from "yup";
 
-function SearchBar() {
+function SearchBar({searchValue}) {
     const formik = useFormik({
         initialValues: {
             searchResult: '',
@@ -14,7 +14,7 @@ function SearchBar() {
     <div className='pt-4'>
         <form onSubmit={formik.handleSubmit}>
             <div className='border-b'>
-            <input className='pl-4 pr-24 focus:outline-0' id='searchResult' type="text" name='searchResult' onChange={formik.handleChange} placeholder='Looking for something ?' />
+            <input className='pl-4 pr-24 focus:outline-0' id='searchResult' type="text" name='searchResult' onChange={formik.handleChange} placeholder='Looking for something ?' value={formik.values.searchResult} />
             <button type='submit'><i className="fa fa-search" aria-hidden="true"></i></button>
             </div>
         </form>

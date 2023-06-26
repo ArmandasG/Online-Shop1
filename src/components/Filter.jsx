@@ -38,7 +38,7 @@ function Filter({ clothesArr, setClothesArr }) {
   }
 
   function openFilter () {
-    document.getElementById("filterEl").style.height = "100vh";
+    document.getElementById("filterEl").style.height = "100%";
     document.getElementById("filterEl").style.bottom = '0';
     document.getElementById("filterEl").style.position = 'fixed';
 

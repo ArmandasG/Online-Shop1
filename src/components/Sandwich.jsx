@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { Disclosure, Transition  } from '@headlessui/react'
 import SearchBar from './SearchBar';
 
@@ -12,6 +12,7 @@ const selectOptions = [
 ]
 
 function Sandwich() {
+  const navigate = useNavigate()
 
     function openNav () {
         document.getElementById("myNav").style.width = "100%";
@@ -21,7 +22,10 @@ function Sandwich() {
     }
     // console.log('document.getElementById("myNav").style.width ===', document.getElementById("myNav").style.width);
     
-
+    async function searchEl(newSearchEl) {
+      
+navigate("/clothes")
+    }
     
   return (
   <div>
@@ -93,7 +97,7 @@ function Sandwich() {
         </>
         )}
         </Disclosure> 
-        <SearchBar/>
+        <SearchBar searchValue={searchEl}/>
         </div>
     </section>
     </div>
