@@ -39,7 +39,7 @@ useEffect(() => {
   setClothesArr(filteredClothes)
 }, [query]);
 
-    async function searchEl(newSearchEl) {
+    function searchEl(newSearchEl) {
       const searchElement = newSearchEl.toLowerCase()
       setQuery(searchElement)
     navigate("/clothes");
