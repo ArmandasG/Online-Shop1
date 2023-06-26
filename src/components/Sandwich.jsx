@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { Disclosure, Transition  } from '@headlessui/react'
 import SearchBar from './SearchBar';
+import { useItemsCtx } from '../store/ItemsContextProvider';
 
 const selectOptions = [
   'All',
@@ -13,6 +14,7 @@ const selectOptions = [
 
 function Sandwich() {
   const navigate = useNavigate()
+  const { clothesArr, setClothesArr } = useItemsCtx()
 
     function openNav () {
         document.getElementById("myNav").style.width = "100%";
@@ -22,9 +24,22 @@ function Sandwich() {
     }
     // console.log('document.getElementById("myNav").style.width ===', document.getElementById("myNav").style.width);
     
+const [searchedEl, setSearchedEl] = useState([])
+const searchResults = []
+
     async function searchEl(newSearchEl) {
-      
+    clothesArr.map((clothes) => { if (
+        clothes.category.toLowerCase().includes((newSearchEl.searchResult).toLowerCase()) || 
+        clothes.color.toLowerCase().includes((newSearchEl.searchResult).toLowerCase()) ||
+        clothes.brand.toLowerCase().includes((newSearchEl.searchResult).toLowerCase()) )
+        {
+          searchResults.push(clothes)
+        }
+      });
+      setSearchedEl(searchResults)
 navigate("/clothes")
+document.getElementById("myNav").style.width = "0%";
+console.log('searchedEl ===', searchedEl);
     }
     
   return (

@@ -8,7 +8,7 @@ function SearchBar({searchValue}) {
             searchResult: '',
         },
         validationSchema: Yup.object({searchResult: Yup.string()}),
-        onSubmit: (values) => {values},
+        onSubmit: (values) => searchValue(values.searchResult),
     })
   return (
     <div className='pt-4'>
