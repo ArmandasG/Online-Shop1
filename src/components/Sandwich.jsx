@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Disclosure, Transition  } from '@headlessui/react'
+import SearchBar from './SearchBar';
 
 const selectOptions = [
   'All',
@@ -92,6 +93,7 @@ function Sandwich() {
         </>
         )}
         </Disclosure> 
+        <SearchBar/>
         </div>
     </section>
     </div>
