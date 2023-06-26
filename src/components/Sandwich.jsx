@@ -28,8 +28,7 @@ function Sandwich() {
 // const [searchedEl, setSearchedEl] = useState([])
 
 useEffect(() => {
-  resetClothes()
-  if (!query) {return}
+  if (!query) {return resetClothes()}
   const filteredClothes = clothesArr.filter((clothes) => {
     return (
       clothes.category.toLowerCase().includes(query) ||
