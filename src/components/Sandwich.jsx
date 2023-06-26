@@ -45,6 +45,7 @@ useEffect(() => {
       setQuery(searchElement)
     navigate("/clothes");
 document.getElementById("myNav").style.width = "0%";
+resetClothes()
     }
     
   return (
