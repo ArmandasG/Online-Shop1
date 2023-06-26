@@ -21,6 +21,8 @@ const ItemsContextProvider = ({ children }) => {
         clothesArr.map((item) => (item.id === itemId ? updatedItem : item))
       );
     };
+
+    const resetClothes = () => {setClothesArr(clothes)}
   
     const contextValue = {
       clothesArr,
@@ -28,6 +30,7 @@ const ItemsContextProvider = ({ children }) => {
       addClothes,
       removeClothes,
       updateClothes,
+      resetClothes,
     };
   
     return (
