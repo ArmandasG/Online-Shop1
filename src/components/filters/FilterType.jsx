@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { type } from '../../assets/selections'
 import { color } from '../../assets/selections'
@@ -11,11 +11,53 @@ const colectedFilters = {
     color, size, brand, gender, type, priceRange
 }
 
-export function FilterType({fObj}) {
+export function FilterType({fObj, onFilter}) {
     const [selectedType, setSelectedType] = useState([])
-    const [selectedFiltersAll, setSelectedFiltersAll] = useState(colectedFilters)
+    // const [selectedFiltersAll, setSelectedFiltersAll] = useState(colectedFilters)
+    const [currentFilters, setCurrentFilters] = useState([])
+    const [allSelectedOptions, setAllSelectedOptions] = useState([]);
   
-console.log('fObj ===', fObj);
+// console.log('selectedType ===', selectedType);
+
+useEffect(() => {
+  const categories = [];
+
+  // Loop through all the colectedFilters
+  Object.values(colectedFilters).forEach((filter) => {
+    filter.forEach((option) => {
+      // Check if the option is selected
+      if (selectedType.includes(option)) {
+        categories.push(option);
+      }
+    });
+  });
+
+  setCurrentFilters(categories);
+}, [selectedType]);
+
+useEffect(() => {
+  // Gather all the selected options from currentFilters
+  const allOptions = Object.values(currentFilters).flatMap((filterOptions) => filterOptions);
+
+  setAllSelectedOptions(allOptions);
+}, [currentFilters]);
+
+// console.log('selectedType ===', selectedType);
+// console.log('currentFilters ===', currentFilters);
+// console.log('allSelectedOptions ===', allSelectedOptions);
+
+// ...
+
+// Handle the click event for the separate button
+function handleGatherAllOptions () {
+  const gatheredOptions = Object.values(colectedFilters).flatMap((filterOptions) => filterOptions);
+  console.log('Gathered Options ===', gatheredOptions);
+  console.log('allSelectedOptions ===', allSelectedOptions);
+};
+
+useEffect(() => {
+  onFilter(() => handleGatherAllOptions())
+}, [])
 
     return (
       <Listbox value={selectedType} onChange={setSelectedType} multiple>
