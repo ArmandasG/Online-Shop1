@@ -49,7 +49,6 @@ function Filter({ clothesArr, setClothesArr }) {
   // STRIGIMO VIETA
   const gatherFilters = () => {
     console.log('gathered filters');
-    console.log('obj ===', obj);
   }
 
   function refreshFilters() {

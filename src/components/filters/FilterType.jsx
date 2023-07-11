@@ -13,51 +13,25 @@ const colectedFilters = {
 
 export function FilterType({fObj, onFilter}) {
     const [selectedType, setSelectedType] = useState([])
-    // const [selectedFiltersAll, setSelectedFiltersAll] = useState(colectedFilters)
     const [currentFilters, setCurrentFilters] = useState([])
     const [allSelectedOptions, setAllSelectedOptions] = useState([]);
-  
-// console.log('selectedType ===', selectedType);
 
 useEffect(() => {
   const categories = [];
 
-  // Loop through all the colectedFilters
   Object.values(colectedFilters).forEach((filter) => {
     filter.forEach((option) => {
-      // Check if the option is selected
       if (selectedType.includes(option)) {
         categories.push(option);
       }
     });
   });
-
+console.log('categories ===', categories);
   setCurrentFilters(categories);
 }, [selectedType]);
 
-useEffect(() => {
-  // Gather all the selected options from currentFilters
-  const allOptions = Object.values(currentFilters).flatMap((filterOptions) => filterOptions);
+console.log('currentFilters ===', currentFilters);
 
-  setAllSelectedOptions(allOptions);
-}, [currentFilters]);
-
-// console.log('selectedType ===', selectedType);
-// console.log('currentFilters ===', currentFilters);
-// console.log('allSelectedOptions ===', allSelectedOptions);
-
-// ...
-
-// Handle the click event for the separate button
-function handleGatherAllOptions () {
-  const gatheredOptions = Object.values(colectedFilters).flatMap((filterOptions) => filterOptions);
-  console.log('Gathered Options ===', gatheredOptions);
-  console.log('allSelectedOptions ===', allSelectedOptions);
-};
-
-useEffect(() => {
-  onFilter(() => handleGatherAllOptions())
-}, [])
 
 // STRIGIMO VIETA
 
