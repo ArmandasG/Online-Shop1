@@ -46,9 +46,8 @@ function Filter({ clothesArr, setClothesArr }) {
     document.getElementById("filterEl").style.position = "";
   }
 
-  // STRIGIMO VIETA
   const gatherFilters = () => {
-    console.log('gathered filters');
+    console.log('pritaikyti filtrą-------------');
   }
 
   function refreshFilters() {
@@ -72,7 +71,6 @@ function Filter({ clothesArr, setClothesArr }) {
               <i className="fa fa-angle-down pl-2" aria-hidden="true"></i>
             </FilterType>
           ))}
-            // STRIGIMO VIETA
           <button onClick={gatherFilters} className="mr-4">
             Apply filter
           </button>
