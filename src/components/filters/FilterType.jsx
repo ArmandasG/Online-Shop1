@@ -59,6 +59,8 @@ useEffect(() => {
   onFilter(() => handleGatherAllOptions())
 }, [])
 
+// STRIGIMO VIETA
+
     return (
       <Listbox value={selectedType} onChange={setSelectedType} multiple>
         {({ open }) => (
