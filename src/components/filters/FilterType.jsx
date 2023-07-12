@@ -16,6 +16,8 @@ export function FilterType({fObj, onFilter}) {
     const [currentFilters, setCurrentFilters] = useState([])
     const [allSelectedOptions, setAllSelectedOptions] = useState([]);
 
+// console.log('selectedType ===', selectedType);
+
 useEffect(() => {
   const categories = [];
 
@@ -26,14 +28,16 @@ useEffect(() => {
       }
     });
   });
-console.log('categories ===', categories);
+// console.log('categories ===', categories);
   setCurrentFilters(categories);
 }, [selectedType]);
 
-console.log('currentFilters ===', currentFilters);
+function moveObj (selection) {
+  setAllSelectedOptions((prev) => [...prev, selection])
+}
 
+// console.log('allSelectedOptions ===', allSelectedOptions);
 
-// STRIGIMO VIETA
 
     return (
       <Listbox value={selectedType} onChange={setSelectedType} multiple>
@@ -53,9 +57,9 @@ console.log('currentFilters ===', currentFilters);
       >
         {open && (<div>
         <Listbox.Options static>
-          {colectedFilters[fObj].map((type) => (
-            <Listbox.Option className='border cursor-pointer' key={type} value={type}>
-              {type}
+          {colectedFilters[fObj].map((selection) => (
+            <Listbox.Option onClick={() => moveObj(selection)} className='border cursor-pointer' key={selection} value={selection}>
+              {selection}
             </Listbox.Option>
           ))}
         </Listbox.Options>

@@ -61,7 +61,7 @@ function Sandwich() {
   return (
     <div>
       <span className="cursor-pointer">
-        <img onClick={openNav} src="./icons/Group 6.svg" alt="" />
+        <img onClick={openNav} src="./icons/Group6.svg" alt="burger" />
       </span>
       <section id="myNav" className="overlay flex-col">
         <div

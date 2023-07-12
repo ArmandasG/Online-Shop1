@@ -1,12 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function SingleClothes({clothes}) {
   return (
-    <div>
+    <li>
+      <Link to={`/clothes/${clothes.uid}`}>
         <img src={clothes.img} alt={clothes.brand} />
         <h4>{clothes.brand}</h4>
-        <span>{clothes.price}</span>
-    </div>
+        <span>{clothes.price}.00€</span>
+        </Link>
+    </li>
   )
 }
 
