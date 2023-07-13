@@ -20,16 +20,19 @@ function SingleClothesPage() {
   <p className="font-semibold">{currentClothesObj.brand.charAt(0).toUpperCase() + currentClothesObj.brand.slice(1)}</p>
   <p className="text-gray-600 block">Gender: {currentClothesObj.gender.charAt(0).toUpperCase() + currentClothesObj.gender.slice(1)}</p>
   <div className="flex gap-2 text-gray-600">
-    <p>Size: </p>
-  <Listbox value={selectedSize} onChange={setSelectedSize} as='div' className='ml-8 p-1 border border-black pr-1'>
-      <Listbox.Button>{selectedSize}</Listbox.Button>
+    <p className="mt-2">Size: </p>
+  <Listbox value={selectedSize} onChange={setSelectedSize} as='div' className='ml-20 p-1 border border-black pr-1 '>
+      <div className="flex justify-between">
+      <Listbox.Button className='pl-8 pr-60'><span>{selectedSize}</span></Listbox.Button>
+      <i className="fa fa-angle-down" aria-hidden="true"></i>
+      </div>
       
-      <Listbox.Options>
+      <Listbox.Options className='pl-8 pr-60 relative'>
         {[currentClothesObj.size].map((size, sizeIdx) => (
           <Listbox.Option
             key={sizeIdx}
             value={[size]}
-            className='border cursor-pointer'
+            className='cursor-pointer relative'
           >
             {size}
           </Listbox.Option>
@@ -40,7 +43,7 @@ function SingleClothesPage() {
     <div className="flex gap-2 text-gray-600
     ">
     <p>Quantity: </p>
-    <Listbox value={selectedStock} onChange={setSelectedStock} as='div'>
+    <Listbox value={selectedStock} onChange={setSelectedStock} as='div' className='ml-8 p-1 border border-black pr-1'>
       <Listbox.Button>{selectedStock}</Listbox.Button>
       <Listbox.Options>
         {[currentClothesObj.stock].map((stock, stockIdx) => (
