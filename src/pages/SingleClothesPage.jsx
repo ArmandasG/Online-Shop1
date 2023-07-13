@@ -18,6 +18,7 @@ function SingleClothesPage() {
   <img src={currentClothesObj.img} alt={currentClothesObj.brand} />
   <p>{currentClothesObj.category.charAt(0).toUpperCase() + currentClothesObj.category.slice(1)} / Product name </p>
   <p>Brand: {currentClothesObj.brand.charAt(0).toUpperCase() + currentClothesObj.brand.slice(1)}</p>
+  <p>Gender: {currentClothesObj.gender.charAt(0).toUpperCase() + currentClothesObj.gender.slice(1)}</p>
   <div className="flex gap-2">
     <p>Size: </p>
   <Listbox value={selectedSize} onChange={setSelectedSize} as='div'>
@@ -31,23 +32,6 @@ function SingleClothesPage() {
             className='border cursor-pointer'
           >
             {size}
-          </Listbox.Option>
-        ))}
-      </Listbox.Options>
-    </Listbox>
-    </div>
-    <div className="flex gap-2">
-    <p>Gender: </p>
-    <Listbox value={selectedGender} onChange={setSelectedGender} as='div'>
-      <Listbox.Button>{selectedGender}</Listbox.Button>
-      <Listbox.Options>
-        {[currentClothesObj.gender].map((gender, genderIdx) => (
-          <Listbox.Option
-          className='border cursor-pointer'
-            key={genderIdx}
-            value={[gender]}
-          >
-            {gender}
           </Listbox.Option>
         ))}
       </Listbox.Options>
