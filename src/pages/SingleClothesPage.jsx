@@ -1,25 +1,78 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useItemsCtx } from "../store/ItemsContextProvider";
+import { Listbox } from '@headlessui/react'
 
 function SingleClothesPage() {
   const { clothesUid } = useParams();
-  console.log("aba ===", clothesUid);
   const navigate = useNavigate();
-  const [postObj, setPostObj] = useState({});
-  const { clothesArr, setClothesArr } = useItemsCtx()
+  // const [postObj, setPostObj] = useState({});
+  const { clothesArr, setCartArr, cartArr } = useItemsCtx()
   const currentClothesObj = clothesArr.find((product) => product.uid === clothesUid)
+  const [selectedSize, setSelectedSize] = useState(['Select size'])
+  const [selectedGender, setSelectedGender] = useState(['Select Gender'])
+  const [selectedStock, setSelectedStock] = useState([1])
+  console.log('cartArr ===', cartArr);
+
   return (<div className="min-h-screen">
   <img src={currentClothesObj.img} alt={currentClothesObj.brand} />
-  <p>{currentClothesObj.brand}</p>
-  <p>{currentClothesObj.category}</p>
-  <p>{currentClothesObj.color}</p>
-  <p>{currentClothesObj.gender}</p>
-  <p>{currentClothesObj.size}</p>
-  <p>{currentClothesObj.price}</p>
-  <p>{currentClothesObj.stock}</p>
-<button>Back to shopping</button>
-<button>Add to Cart</button>
+  <p>{currentClothesObj.category.charAt(0).toUpperCase() + currentClothesObj.category.slice(1)} / Product name </p>
+  <p>Brand: {currentClothesObj.brand.charAt(0).toUpperCase() + currentClothesObj.brand.slice(1)}</p>
+  <div className="flex gap-2">
+    <p>Size: </p>
+  <Listbox value={selectedSize} onChange={setSelectedSize} as='div'>
+      <Listbox.Button>{selectedSize}</Listbox.Button>
+      
+      <Listbox.Options>
+        {[currentClothesObj.size].map((size, sizeIdx) => (
+          <Listbox.Option
+            key={sizeIdx}
+            value={[size]}
+            className='border cursor-pointer'
+          >
+            {size}
+          </Listbox.Option>
+        ))}
+      </Listbox.Options>
+    </Listbox>
+    </div>
+    <div className="flex gap-2">
+    <p>Gender: </p>
+    <Listbox value={selectedGender} onChange={setSelectedGender} as='div'>
+      <Listbox.Button>{selectedGender}</Listbox.Button>
+      <Listbox.Options>
+        {[currentClothesObj.gender].map((gender, genderIdx) => (
+          <Listbox.Option
+          className='border cursor-pointer'
+            key={genderIdx}
+            value={[gender]}
+          >
+            {gender}
+          </Listbox.Option>
+        ))}
+      </Listbox.Options>
+    </Listbox>
+    </div>
+    <div className="flex gap-2">
+    <p>Quantity: </p>
+    <Listbox value={selectedStock} onChange={setSelectedStock} as='div'>
+      <Listbox.Button>{selectedStock}</Listbox.Button>
+      <Listbox.Options>
+        {[currentClothesObj.stock].map((stock, stockIdx) => (
+          <Listbox.Option
+            key={stockIdx}
+            value={[stock]}
+            className='border cursor-pointer'
+          >
+            {stock}
+          </Listbox.Option>
+        ))}
+      </Listbox.Options>
+    </Listbox>
+    </div>
+  <p>{currentClothesObj.price}.00 Eur</p>
+<button onClick={() => setCartArr((prevItems) => [...prevItems, currentClothesObj])} className="block justify-center">Add to Cart</button>
+<button onClick={() => navigate(-1)} className="block">Back to shopping</button>
   </div>);
 }
 

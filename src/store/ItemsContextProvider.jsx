@@ -7,6 +7,7 @@ ItemsContext.displayName = 'Items'
 
 const ItemsContextProvider = ({ children }) => {
     const [clothesArr, setClothesArr] = useState(clothes);
+    const [cartArr, setCartArr] = useState([])
   
     const addClothes = (singleClothe) => {
         setClothesArr([...clothesArr, singleClothe]);
@@ -31,6 +32,8 @@ const ItemsContextProvider = ({ children }) => {
       removeClothes,
       updateClothes,
       resetClothes,
+      cartArr,
+      setCartArr
     };
   
     return (

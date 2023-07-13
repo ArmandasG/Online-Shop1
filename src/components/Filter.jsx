@@ -62,7 +62,7 @@ function Filter({ clothesArr, setClothesArr }) {
         </span>
         <div className="filterOverlay container" id="filterEl">
           <div onClick={closeFilter} className="closeBtn cursor-pointer mt-4">
-            <img src="./icons/Group 1419.svg" alt="" />
+            <img src="/icons/Group1419.svg" alt="" />
           </div>
           <h3>Filter</h3>
           {filterOptions.map((fObj) => (
