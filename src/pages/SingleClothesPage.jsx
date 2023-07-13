@@ -14,14 +14,14 @@ function SingleClothesPage() {
   const [selectedStock, setSelectedStock] = useState([1])
   console.log('cartArr ===', cartArr);
 
-  return (<div className="min-h-screen">
-  <img src={currentClothesObj.img} alt={currentClothesObj.brand} />
-  <p>{currentClothesObj.category.charAt(0).toUpperCase() + currentClothesObj.category.slice(1)} / Product name </p>
-  <p>Brand: {currentClothesObj.brand.charAt(0).toUpperCase() + currentClothesObj.brand.slice(1)}</p>
-  <p>Gender: {currentClothesObj.gender.charAt(0).toUpperCase() + currentClothesObj.gender.slice(1)}</p>
-  <div className="flex gap-2">
+  return (<div className="min-h-screen text-3xl space-y-10">
+  <img src={currentClothesObj.img} alt={currentClothesObj.brand} className="max-w-1xl" />
+  <p className="text-gray-400">{currentClothesObj.category.charAt(0).toUpperCase() + currentClothesObj.category.slice(1)} / Product name </p>
+  <p className="font-semibold">{currentClothesObj.brand.charAt(0).toUpperCase() + currentClothesObj.brand.slice(1)}</p>
+  <p className="text-gray-600 block">Gender: {currentClothesObj.gender.charAt(0).toUpperCase() + currentClothesObj.gender.slice(1)}</p>
+  <div className="flex gap-2 text-gray-600">
     <p>Size: </p>
-  <Listbox value={selectedSize} onChange={setSelectedSize} as='div'>
+  <Listbox value={selectedSize} onChange={setSelectedSize} as='div' className='ml-8 p-1 border border-black pr-1'>
       <Listbox.Button>{selectedSize}</Listbox.Button>
       
       <Listbox.Options>
@@ -37,7 +37,8 @@ function SingleClothesPage() {
       </Listbox.Options>
     </Listbox>
     </div>
-    <div className="flex gap-2">
+    <div className="flex gap-2 text-gray-600
+    ">
     <p>Quantity: </p>
     <Listbox value={selectedStock} onChange={setSelectedStock} as='div'>
       <Listbox.Button>{selectedStock}</Listbox.Button>
@@ -55,7 +56,7 @@ function SingleClothesPage() {
     </Listbox>
     </div>
   <p>{currentClothesObj.price}.00 Eur</p>
-<button onClick={() => setCartArr((prevItems) => [...prevItems, currentClothesObj])} className="block justify-center">Add to Cart</button>
+<button onClick={() => setCartArr((prevItems) => [...prevItems, currentClothesObj])} className="block justify-center border py-4 px-40 bg-black text-white">Add to Cart</button>
 <button onClick={() => navigate(-1)} className="block">Back to shopping</button>
   </div>);
 }

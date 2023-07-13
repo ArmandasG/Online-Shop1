@@ -19,7 +19,7 @@ function Header() {
       </nav> */}
       <Sandwich />
       <div>
-        <Link className='text-4xl' to={'/'}>Shoper</Link>
+        <Link className='text-4xl font-bold' to={'/'}>SHOPER</Link>
       </div>
       <CheckOutPage onOpen={openCartNav} onClose={closeCartNav}/>
     </header>
