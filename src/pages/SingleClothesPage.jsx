@@ -16,9 +16,9 @@ function SingleClothesPage() {
 
   return (<div className="min-h-screen text-3xl space-y-10">
   <img src={currentClothesObj.img} alt={currentClothesObj.brand} className="max-w-1xl" />
-  <p className="text-gray-400">{currentClothesObj.category.charAt(0).toUpperCase() + currentClothesObj.category.slice(1)} / Product name </p>
-  <p className="font-semibold">{currentClothesObj.brand.charAt(0).toUpperCase() + currentClothesObj.brand.slice(1)}</p>
-  <p className="text-gray-600 block">Gender: {currentClothesObj.gender.charAt(0).toUpperCase() + currentClothesObj.gender.slice(1)}</p>
+  <h3 className="text-gray-400">{currentClothesObj.category.charAt(0).toUpperCase() + currentClothesObj.category.slice(1)} / Product name </h3>
+  <h4 className="font-semibold">{currentClothesObj.brand.charAt(0).toUpperCase() + currentClothesObj.brand.slice(1)}</h4>
+  <p className="text-gray-600">Gender: {currentClothesObj.gender.charAt(0).toUpperCase() + currentClothesObj.gender.slice(1)}</p>
   <div className="flex gap-2 text-gray-600">
     <p className="mt-2">Size: </p>
   <Listbox value={selectedSize} onChange={setSelectedSize} as='div' className='ml-20 p-1 border border-black pr-1 '>
@@ -44,7 +44,8 @@ function SingleClothesPage() {
     ">
     <p>Quantity: </p>
     <Listbox value={selectedStock} onChange={setSelectedStock} as='div' className='ml-8 p-1 border border-black pr-1'>
-      <Listbox.Button>{selectedStock}</Listbox.Button>
+      <Listbox.Button><span>{selectedStock}</span></Listbox.Button>
+      <i className="fa fa-angle-down" aria-hidden="true"></i>
       <Listbox.Options>
         {[currentClothesObj.stock].map((stock, stockIdx) => (
           <Listbox.Option
@@ -59,8 +60,13 @@ function SingleClothesPage() {
     </Listbox>
     </div>
   <p>{currentClothesObj.price}.00 Eur</p>
-<button onClick={() => setCartArr((prevItems) => [...prevItems, currentClothesObj])} className="block justify-center border py-4 px-40 bg-black text-white">Add to Cart</button>
-<button onClick={() => navigate(-1)} className="block">Back to shopping</button>
+  <div className="flex flex-col gap-8 align-items-center">
+<button onClick={() => setCartArr((prevItems) => [...prevItems, currentClothesObj])} className="border py-4 px-40 bg-black text-white">Add to Cart</button>
+<div className="flex gap-2">
+<i className="fa fa-angle-left mt-0.5" aria-hidden="true"></i>
+<button onClick={() => navigate(-1)} className="block mb-10">Back to shopping</button>
+</div>
+</div>
   </div>);
 }
 
