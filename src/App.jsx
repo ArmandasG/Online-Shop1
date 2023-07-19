@@ -8,6 +8,8 @@ import CheckOutPage from './pages/CheckOutPage';
 import Footer from './components/layout/Footer';
 import AddClothesPage from './pages/AddClothesPage';
 import SingleClothesPage from './pages/SingleClothesPage';
+import FindUsPage from './pages/FindUsPage';
+import WhatToKnow from './pages/WhatToKnow';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/clothes/new" element={<AddClothesPage />} />
         <Route path="/clothes/:clothesUid" element={<SingleClothesPage />} />
         <Route path="/contact" element={<ContactUsPage />} />
+        <Route path="/find-us" element={<FindUsPage />} />
+        <Route path="/what-to-know" element={<WhatToKnow />} />
         <Route path="/checkout" element={<CheckOutPage />} />
       </Routes>
       <Footer />

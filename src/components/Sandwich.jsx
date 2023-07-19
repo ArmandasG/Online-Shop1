@@ -58,6 +58,16 @@ function Sandwich() {
     }
   }
 
+  function selectWhatToKnow() {
+    navigate('/what-to-know')
+    closeNav();
+  }
+
+  function selectFindUs() {
+    navigate('/find-us')
+    closeNav();
+  }
+
   return (
     <div className="mb-4">
       <span className="cursor-pointer">
@@ -145,8 +155,9 @@ function Sandwich() {
                 >
                   <Disclosure.Panel>
                     <ul className={`pl-2 pt-2 transition-all duration-300`}>
-                      <li>What to know ?</li>
-                      <li>Where to find us ?</li>
+                      <li className="cursor-pointer" onClick={selectWhatToKnow}>What to know ?</li>
+                      <li className="cursor-pointer" onClick={selectFindUs}>Where to find us ?</li>
+
                     </ul>
                   </Disclosure.Panel>
                 </Transition>
