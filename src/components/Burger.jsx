@@ -25,15 +25,33 @@ function Burger({closeCartNav}) {
 
   useEffect(() => {
     if (!query) {
-      return resetClothes();
+    return resetClothes();
     }
-    const filteredClothes = clothesArr.filter((clothes) => {
-      return (
-        clothes.category.toLowerCase().includes(query) ||
-        clothes.color.toLowerCase().includes(query) ||
-        clothes.brand.toLowerCase().includes(query)
-      );
+  
+    const queryWords = query.toLowerCase().split(' ');
+  
+    const exactMatch = clothesArr.filter((clothes) => {
+      return queryWords.every((word) => {
+        return (
+          clothes.category.toLowerCase().includes(word) ||
+          clothes.color.toLowerCase().includes(word) ||
+          clothes.brand.toLowerCase().includes(word)
+        );
+      });
     });
+  
+    const singleWordMatch = clothesArr.filter((clothes) => {
+      return queryWords.some((word) => {
+        return (
+          clothes.category.toLowerCase().includes(word) ||
+          clothes.color.toLowerCase().includes(word) ||
+          clothes.brand.toLowerCase().includes(word)
+        );
+      });
+    });
+  
+    const filteredClothes = exactMatch.length > 0 ? exactMatch : singleWordMatch;
+  
     setClothesArr(filteredClothes);
   }, [query]);
 
@@ -48,8 +66,10 @@ function Burger({closeCartNav}) {
   function selectedOptionFilter(sObj) {
     if (sObj === "All") {
       resetClothes(), closeNav();
+      setQuery('');
     } else {
       resetClothes();
+      setQuery('')
       const filteredOptions = clothes.filter((clothes) =>
         clothes.category.toLowerCase().includes(sObj.toLowerCase())
       );
