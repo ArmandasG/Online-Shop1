@@ -23,7 +23,7 @@ function Header() {
   }
   
   return (
-    <header className={`${positionFixed} flex justify-between pt-4 pb-4 align-middle`} id='myHeader'>
+    <header className={`flex justify-between pt-4 pb-4 align-middle`} id='myHeader'>
       {/* <nav className='hidden'>
         <NavLink to={'/about'}>About Us</NavLink>
         <NavLink to={'/clothes'}>Clothes</NavLink>

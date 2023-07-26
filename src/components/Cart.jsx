@@ -7,9 +7,6 @@ function Cart({myCartNav, onClose}) {
   return (
     <div className='cartOverlay pt-4 pl-4' id={myCartNav}>
       <div className='ml-8 mt-4 mr-8'>
-        <h3>
-        Cart
-        </h3>
         <div className='flex justify-between border-b'>
           <span>Product</span>
           <div className='flex gap-8 mr-8'>
