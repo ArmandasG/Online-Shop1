@@ -7,7 +7,7 @@ import { clothes } from "../assets/items";
 
 const selectOptions = ["All", "Jackets", "Shirts", "Pants", "Shoes"];
 
-function Sandwich() {
+function Burger() {
   const navigate = useNavigate();
   const { clothesArr, setClothesArr, resetClothes } = useItemsCtx();
   const [query, setQuery] = useState("");
@@ -68,6 +68,16 @@ function Sandwich() {
     closeNav();
   }
 
+  function selectJoinUs() {
+    navigate('/join-us')
+    closeNav();
+  }
+
+  function selectReadMore() {
+    navigate('/read-more')
+    closeNav();
+  }
+
   return (
     <div className="mb-4">
       <span className="cursor-pointer">
@@ -76,7 +86,7 @@ function Sandwich() {
       <section id="myNav" className="overlay flex-col">
         <div
           onClick={closeNav}
-          className="closeBtn cursor-pointer ml-4 container mt-4"
+          className="closeBtn cursor-pointer ml-4 container mt-4 pt-4"
         >
           <img src="/icons/Group1419.svg" alt="" />
         </div>
@@ -84,7 +94,7 @@ function Sandwich() {
           <Disclosure id="disc1">
             {({ open, close }) => (
               <>
-                <Disclosure.Button className="text-4xl">
+                <Disclosure.Button className="text-6xl mt-8">
                   Clothes
                 </Disclosure.Button>
                 <Transition
@@ -97,11 +107,11 @@ function Sandwich() {
                 >
                   <Disclosure.Panel>
                     <ul
-                      className={`pl-2 pt-2 flex-col transition-all duration-300`}
+                      className={`pl-2 pt-2 flex-col transition-all duration-300 text-3xl`}
                     >
                       {selectOptions.map((sObj) => (
                         <Link
-                          className="block"
+                          className="block mb-2"
                           to={"/clothes"}
                           onClick={() => selectedOptionFilter(sObj)}
                           key={sObj}
@@ -118,7 +128,7 @@ function Sandwich() {
           <Disclosure id="disc2">
             {({ open, close }) => (
               <>
-                <Disclosure.Button className="text-4xl">
+                <Disclosure.Button className="text-6xl">
                   Campaigns
                 </Disclosure.Button>
                 <Transition
@@ -130,9 +140,9 @@ function Sandwich() {
                   leaveTo="transform scale-y-95 opacity-0"
                 >
                   <Disclosure.Panel>
-                    <ul className={`pl-2 pt-2 transition-all duration-300`}>
-                      <li>Join us</li>
-                      <li>Read more</li>
+                    <ul className={`pl-2 pt-2 transition-all duration-300 text-3xl`}>
+                      <li onClick={selectJoinUs} className="mb-2 cursor-pointer">Join us</li>
+                      <li onClick={selectReadMore} className="mb-2 cursor-pointer">Read more</li>
                     </ul>
                   </Disclosure.Panel>
                 </Transition>
@@ -142,7 +152,7 @@ function Sandwich() {
           <Disclosure id="disc3">
             {({ open, close }) => (
               <>
-                <Disclosure.Button className="text-4xl">
+                <Disclosure.Button className="text-6xl">
                   Press
                 </Disclosure.Button>
                 <Transition
@@ -154,8 +164,8 @@ function Sandwich() {
                   leaveTo="transform scale-y-95 opacity-0"
                 >
                   <Disclosure.Panel>
-                    <ul className={`pl-2 pt-2 transition-all duration-300`}>
-                      <li className="cursor-pointer" onClick={selectWhatToKnow}>What to know ?</li>
+                    <ul className={`pl-2 pt-2 transition-all duration-300 text-3xl`}>
+                      <li className="cursor-pointer mb-2" onClick={selectWhatToKnow}>What to know ?</li>
                       <li className="cursor-pointer" onClick={selectFindUs}>Where to find us ?</li>
 
                     </ul>
@@ -171,4 +181,4 @@ function Sandwich() {
   );
 }
 
-export default Sandwich;
+export default Burger;

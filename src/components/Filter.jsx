@@ -56,8 +56,8 @@ function Filter({ clothesArr, setClothesArr }) {
 
   return (
     <div className="flex justify-between">
-      <div>
-        <span className="cursor-pointer" onClick={openFilter}>
+      <div className="pt-4 pb-4 pr-4">
+        <span className="cursor-pointer text-2xl" onClick={openFilter}>
           Filter(amount)
         </span>
         <div className="filterOverlay container" id="filterEl">
@@ -80,15 +80,15 @@ function Filter({ clothesArr, setClothesArr }) {
         </div>
       </div>
       <div>
-        <div onClick={sortByLatest} className={`${noShow} cursor-pointer`}>
+        <div onClick={sortByLatest} className={`${noShow} cursor-pointer pt-4 pb-4 pl-4`}>
           {" "}
-          <span className="pr-3">Sort by latest</span>
+          <span className="pr-3 text-2xl">Sort by latest</span>
           <i className="fa fa-angle-down" aria-hidden="true"></i>{" "}
         </div>
         {sortItem && (
-          <div onClick={sortByOldest} className={`${noShow2} cursor-pointer`}>
+          <div onClick={sortByOldest} className={`${noShow2} cursor-pointer pt-4 pb-4 pl-4`}>
             {" "}
-            <span className="pr-3">Sort by oldest</span>
+            <span className="pr-3 text-2xl">Sort by oldest</span>
             <i className="fa fa-angle-up" aria-hidden="true"></i>{" "}
           </div>
         )}

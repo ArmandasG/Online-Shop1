@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import Sandwich from '../Sandwich';
+import Burger from '../Burger';
 import CheckOutPage from '../../pages/CheckOutPage';
 
 function Header() {
@@ -17,9 +17,9 @@ function Header() {
         <NavLink to={'/contact'}>Contact Us</NavLink>
         <NavLink to={'/checkout'}>Check Out</NavLink>
       </nav> */}
-      <Sandwich />
+      <Burger />
       <div>
-        <Link className='text-4xl font-bold' to={'/'}>SHOPER</Link>
+        <Link className='text-4xl ml-11 font-bold text-center' to={'/'}>SHOPER</Link>
       </div>
       <CheckOutPage onOpen={openCartNav} onClose={closeCartNav}/>
     </header>

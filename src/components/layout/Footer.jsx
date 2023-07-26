@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 function Footer() {
-  return <footer className="mt-4">
+  return <footer className="mt-4 text-xl">
     <div className="flex justify-around">
     <Link to={'/contact'}>Contact Us</Link>
     <Link to={'/about'}>About Us</Link>

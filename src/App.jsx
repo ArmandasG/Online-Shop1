@@ -10,6 +10,8 @@ import AddClothesPage from './pages/AddClothesPage';
 import SingleClothesPage from './pages/SingleClothesPage';
 import FindUsPage from './pages/FindUsPage';
 import WhatToKnow from './pages/WhatToKnow';
+import JoinUsPage from './pages/JoinUsPage';
+import ReadMore from './pages/ReadMore';
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/find-us" element={<FindUsPage />} />
         <Route path="/what-to-know" element={<WhatToKnow />} />
+        <Route path="/join-us" element={<JoinUsPage />} />
+        <Route path="/read-more" element={<ReadMore />} />
+
         <Route path="/checkout" element={<CheckOutPage />} />
       </Routes>
       <Footer />

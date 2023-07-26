@@ -23,11 +23,11 @@ function SingleClothesPage() {
     <p className="mt-2">Size: </p>
   <Listbox value={selectedSize} onChange={setSelectedSize} as='div' className='ml-20 p-1 border border-black pr-1 '>
       <div className="flex justify-between">
-      <Listbox.Button className='pl-8 pr-60'><span>{selectedSize}</span></Listbox.Button>
+      <Listbox.Button className='pl-8 pr-55'><span>{selectedSize}</span></Listbox.Button>
       <i className="fa fa-angle-down" aria-hidden="true"></i>
       </div>
       
-      <Listbox.Options className='pl-8 pr-60 relative'>
+      <Listbox.Options className='pl-8 pr-55 relative'>
         {[currentClothesObj.size].map((size, sizeIdx) => (
           <Listbox.Option
             key={sizeIdx}
