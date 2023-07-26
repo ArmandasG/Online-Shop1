@@ -37,6 +37,7 @@ font-size: 62.5%;
   background-color: #FFFFFF;
   overflow-x: hidden;
   transition: 0.5s;
+  margin-top: 39px;
 }
 
 .filterOverlay {

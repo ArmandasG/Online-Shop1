@@ -7,13 +7,14 @@ import { clothes } from "../assets/items";
 
 const selectOptions = ["All", "Jackets", "Shirts", "Pants", "Shoes"];
 
-function Burger() {
+function Burger({closeCartNav}) {
   const navigate = useNavigate();
   const { clothesArr, setClothesArr, resetClothes } = useItemsCtx();
   const [query, setQuery] = useState("");
 
   function openNav() {
     document.getElementById("myNav").style.width = "100%";
+    closeCartNav()
   }
   function closeNav() {
     document.getElementById("myNav").style.width = "0%";
