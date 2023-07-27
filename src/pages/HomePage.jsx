@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 
 function HomePage() {
   const imageUrls = [
-    '/public/icons/front-icon.jpg',
-    '/public/icons/front-icon2.jpg',
-    '/public/icons/front-icon3.jpg',
-    '/public/icons/front-icon4.jpg',
-    '/public/icons/front-icon5.jpg',
-    '/public/icons/front-icon34.jpg'
+    '/icons/front-icon.jpg',
+    '/icons/front-icon2.jpg',
+    '/icons/front-icon3.jpg',
+    '/icons/front-icon4.jpg',
+    '/icons/front-icon5.jpg',
+    '/icons/front-icon34.jpg'
   ];
 
   const [randomImageUrl , setRandomImageUrl] = useState('')

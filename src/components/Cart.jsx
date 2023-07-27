@@ -12,9 +12,9 @@ function Cart({ myCartNav, onClose }) {
   return (
     <div className="cartOverlay pt-4 pl-4" id={myCartNav}>
       <div className="ml-8 mt-4 mr-8">
-        <div className="flex justify-between border-b">
+        <div className="flex justify-between border-b text-gray-500">
           <span>Product</span>
-          <div className="flex gap-8 mr-8">
+          <div className="flex gap-12 mr-8">
             <span>Price</span>
             <span>Quantity</span>
             <span>Total</span>
@@ -25,14 +25,19 @@ function Cart({ myCartNav, onClose }) {
             <SingleCartItem key={index} cartItem={cObj} DeleteOfItem={() => handleDelete(cObj.uid)} />
           ))}
         </ul>
-        <button onClick={() => setCartArr([])} className="block">
+        <p className="text-end mt-8">Subtotal 156123.00Eur</p>
+        <p className="text-end text-gray-500 mb-6">Taxes and shipping calculated at checkout</p>
+        <div className="flex">
+        <button onClick={() => setCartArr([])} className="py-4 px-5 mt-4 border border-black mr-4"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+        <button onClick={() => setCartArr([])} className="tracking-wider font-semibold  border py-4 px-30 bg-black text-white w-full mt-4">
           Check Out
         </button>
+        </div>
         <span
           onClick={onClose}
-          className="text-decoration-line: underline cursor-pointer"
+          className="text-decoration-line: underline cursor-pointer block my-8 text-center"
         >
-          <i className="fa fa-angle-left" aria-hidden="true"></i>Back to
+          <i className="fa fa-angle-left mr-4 text-base" aria-hidden="true"></i>Back to
           Shopping
         </span>
       </div>
