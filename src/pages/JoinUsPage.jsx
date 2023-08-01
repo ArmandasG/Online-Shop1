@@ -14,7 +14,7 @@ function JoinUsPage() {
   return (
     <div className='min-h-screen'>
 
-        <img src="/public/icons/join_us.jpg" alt="join us" />
+        <img src="/icons/join_us.jpg" alt="join us" />
         <h2 className='text-center text-4xl mt-4'>Join Us</h2>
         <p className='text-center p-8 text-2xl'>We are always searching for people who would have ideas on how to improve and could provide us with a breeze of fresh air</p>
         <form className='mt-4 space-y-8 ' onSubmit={formik.handleSubmit}>

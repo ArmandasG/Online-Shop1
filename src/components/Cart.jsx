@@ -28,7 +28,7 @@ function Cart({ myCartNav, onClose }) {
         <p className="text-end mt-8">Subtotal 156123.00Eur</p>
         <p className="text-end text-gray-500 mb-6">Taxes and shipping calculated at checkout</p>
         <div className="flex">
-        <button onClick={() => setCartArr([])} className="py-4 px-5 mt-4 border border-black mr-4"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+        <button onClick={() => setCartArr([])} className="py-4 px-5 mt-4 border border-black mr-4"><i className="fa fa-refresh" aria-hidden="true"></i></button>
         <button onClick={() => setCartArr([])} className="tracking-wider font-semibold  border py-4 px-30 bg-black text-white w-full mt-4">
           Check Out
         </button>
