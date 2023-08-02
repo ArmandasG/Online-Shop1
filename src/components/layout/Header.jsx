@@ -23,7 +23,7 @@ function Header() {
   }
   
   return (
-    <header className={`flex justify-between pt-4 pb-4 align-middle`} id='myHeader'>
+    <header className={`flex justify-between pt-4 pb-4 align-middle w-full ${cartIsOpen ? 'fixed bg-white pr-16' : ''}`} id='myHeader'>
       {/* <nav className='hidden'>
         <NavLink to={'/about'}>About Us</NavLink>
         <NavLink to={'/clothes'}>Clothes</NavLink>
@@ -32,7 +32,7 @@ function Header() {
       </nav> */}
       <Burger closeCartNav={closeCartNav} />
       <div>
-        <Link onClick={closeCartNav} className='text-4xl ml-11 font-bold text-center' to={'/'}>SHOPER</Link>
+        <Link onClick={closeCartNav} className='text-4xl font-bold text-center pl-8' to={'/'}>SHOPER</Link>
       </div>
       <CheckOutPage onOpen={openCartNav} onClose={closeCartNav}/>
     </header>
