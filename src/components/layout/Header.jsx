@@ -23,7 +23,7 @@ function Header() {
   }
   
   return (
-    <header className={`flex justify-between pt-4 pb-4 align-middle w-full ${cartIsOpen ? 'fixed bg-white pr-16' : ''}`} id='myHeader'>
+    <header className={`flex justify-between pt-4 pb-4 ${cartIsOpen ? 'sticky top-0 bg-white' : ''}`} id='myHeader'>
       {/* <nav className='hidden'>
         <NavLink to={'/about'}>About Us</NavLink>
         <NavLink to={'/clothes'}>Clothes</NavLink>

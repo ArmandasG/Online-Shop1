@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Disclosure, Transition } from "@headlessui/react";
 import SearchBar from "./SearchBar";
 import { useItemsCtx } from "../store/ItemsContextProvider";
@@ -8,8 +8,7 @@ import { clothes } from "../assets/items";
 const selectOptions = ["All", "Jackets", "Shirts", "Pants", "Shoes"];
 
 function Burger({closeCartNav}) {
-  const navigate = useNavigate();
-  const { clothesArr, setClothesArr, resetClothes } = useItemsCtx();
+  const { clothesArr, setClothesArr, resetClothes, navigate } = useItemsCtx();
   const [query, setQuery] = useState("");
 
   function openNav() {

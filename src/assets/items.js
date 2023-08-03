@@ -10,7 +10,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "blackIt",
     img: "/images/clothes/shirts/shirt1.jpg",
-    stock: 2,
+    quantity: 2,
     addDate: new Date ('2023-02-04'),
   },
   {
@@ -22,7 +22,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "forestUp",
     img: "/images/clothes/shirts/shirt2.jpg",
-    stock: 1,
+    quantity: 1,
     addDate: new Date ('2023-03-04'),
   },
   {
@@ -34,7 +34,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "whiteNat",
     img: "/images/clothes/shirts/shirt3.jpg",
-    stock: 3,
+    quantity: 3,
     addDate: new Date ('2023-03-05'),
   },
   {
@@ -46,7 +46,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "clothesDown",
     img: "/images/clothes/shirts/shirt4.jpg",
-    stock: 1,
+    quantity: 1,
     addDate: new Date ('2023-02-24'),
   },
   {
@@ -58,7 +58,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "whiteNat",
     img: "/images/clothes/pants/pants2.jpg",
-    stock: 3,
+    quantity: 3,
     addDate: new Date ('2023-03-14'),
   },
   {
@@ -70,7 +70,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "forestUp",
     img: "/images/clothes/pants/pants1.jpg",
-    stock: 2,
+    quantity: 2,
     addDate: new Date ('2022-08-01'),
   },
   {
@@ -82,7 +82,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "clothesDown",
     img: "/images/clothes/pants/pants3.jpg",
-    stock: 1,
+    quantity: 1,
     addDate: new Date ('2023-05-04'),
   },
   {
@@ -94,7 +94,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "forestUp",
     img: "/images/clothes/pants/pants4.jpg",
-    stock: 5,
+    quantity: 5,
     addDate: new Date ('2023-05-14'),
   },
   {
@@ -106,7 +106,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "forestUp",
     img: "/images/clothes/jackets/jacket1.jpg",
-    stock: 2,
+    quantity: 2,
     addDate: new Date ('2023-04-29'),
   },
   {
@@ -118,7 +118,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "blackIt",
     img: "/images/clothes/jackets/jacket2.jpg",
-    stock: 3,
+    quantity: 3,
     addDate: new Date ('2023-04-24'),
   },
   {
@@ -130,7 +130,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "whiteNat",
     img: "/images/clothes/jackets/jacket3.jpg",
-    stock: 1,
+    quantity: 1,
     addDate: new Date ('2023-01-08'),
   },
   {
@@ -142,7 +142,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "blackIt",
     img: "/images/clothes/jackets/jacket4.jpg",
-    stock: 3,
+    quantity: 3,
     addDate: new Date ('2023-02-14'),
   },
   {
@@ -154,7 +154,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "clothesDown",
     img: "/images/clothes/shoes/shoes1.jpg",
-    stock: "",
+    quantity: "",
     addDate: new Date ('2023-01-26'),
   },
   {
@@ -166,7 +166,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "blackIt",
     img: "/images/clothes/shoes/shoes2.jpg",
-    stock: 1,
+    quantity: 1,
     addDate: new Date ('2023-05-21'),
   },
   {
@@ -178,7 +178,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "blackIt",
     img: "/images/clothes/shoes/shoes3.jpg",
-    stock: 2,
+    quantity: 2,
     addDate: new Date ('2022-10-25'),
   },
   {
@@ -190,7 +190,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "forestUp",
     img: "/images/clothes/shoes/shoes4.jpg",
-    stock: 3,
+    quantity: 3,
     addDate: new Date ('2022-10-24'),
   },
 ];

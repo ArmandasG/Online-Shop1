@@ -12,10 +12,11 @@ import FindUsPage from './pages/FindUsPage';
 import WhatToKnow from './pages/WhatToKnow';
 import JoinUsPage from './pages/JoinUsPage';
 import ReadMore from './pages/ReadMore';
+import CartDelivery from './pages/CartDelivery';
 
 function App() {
   return (
-    <div className="bg-site bg-no-repeat bg-cover overflow-hidden container">
+    <div className="bg-site bg-no-repeat bg-cover container">
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -23,6 +24,7 @@ function App() {
         <Route path="/clothes" element={<ClothesPage />} />
         <Route path="/clothes/new" element={<AddClothesPage />} />
         <Route path="/clothes/:clothesUid" element={<SingleClothesPage />} />
+        <Route path='/cart/delivery' element={<CartDelivery />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/find-us" element={<FindUsPage />} />
         <Route path="/what-to-know" element={<WhatToKnow />} />
