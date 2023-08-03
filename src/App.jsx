@@ -13,8 +13,11 @@ import WhatToKnow from './pages/WhatToKnow';
 import JoinUsPage from './pages/JoinUsPage';
 import ReadMore from './pages/ReadMore';
 import CartDelivery from './pages/CartDelivery';
+import { useItemsCtx } from './store/ItemsContextProvider';
+import PleaseAddItems from './pages/PleaseAddItems';
 
 function App() {
+  const { cartArr, navigate } = useItemsCtx();
   return (
     <div className="bg-site bg-no-repeat bg-cover container">
       <Header />
@@ -24,7 +27,7 @@ function App() {
         <Route path="/clothes" element={<ClothesPage />} />
         <Route path="/clothes/new" element={<AddClothesPage />} />
         <Route path="/clothes/:clothesUid" element={<SingleClothesPage />} />
-        <Route path='/cart/delivery' element={<CartDelivery />} />
+        {cartArr.length > 0 ? <Route path='/cart/delivery' element={<CartDelivery />} /> : <Route path='/cart/delivery' element={<PleaseAddItems />} />}
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/find-us" element={<FindUsPage />} />
         <Route path="/what-to-know" element={<WhatToKnow />} />
