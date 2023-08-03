@@ -4,10 +4,8 @@ import { useItemsCtx } from '../store/ItemsContextProvider';
 function SingleCartItem({cartItem, DeleteOfItem}) {
   const { allItems } = useItemsCtx();
 
-  console.log('allItems ===', allItems);
 
   const cartItemEl = allItems.find(sItem => (sItem.uid === cartItem.uid))
-  console.log('cartItemEl ===', cartItemEl);
     
   return (
     <li className='border-b pt-2 pb-2'>

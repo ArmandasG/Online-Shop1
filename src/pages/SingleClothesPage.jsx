@@ -10,7 +10,6 @@ function SingleClothesPage() {
     (product) => product.uid === clothesUid
   );
   const [selectedSize, setSelectedSize] = useState(["Select size"]);
-  console.log("cartArr ===", cartArr);
   
 function addToCart(items) {
   setCartArr(tempCart)

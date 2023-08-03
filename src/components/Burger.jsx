@@ -72,7 +72,6 @@ function Burger({closeCartNav}) {
       const filteredOptions = clothes.filter((clothes) =>
         clothes.category.toLowerCase().includes(sObj.toLowerCase())
       );
-      console.log("filteredOptions ===", filteredOptions);
       setClothesArr(filteredOptions);
       closeNav();
     }

@@ -13,7 +13,6 @@ const ItemsContextProvider = ({ children }) => {
     const [tempCart, setTempCart] = useState([])
     const [cartIsOpen, setCartIsOpen] = useState(false)
     const navigate = useNavigate()
-console.log('tempCart ===', tempCart);
 
     const resetClothes = () => {setClothesArr(clothes)}
 
