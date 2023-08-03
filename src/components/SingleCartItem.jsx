@@ -1,7 +1,7 @@
 import React from 'react'
 import { useItemsCtx } from '../store/ItemsContextProvider';
 
-function SingleCartItem({cartItem, DeleteOfItem}) {
+function SingleCartItem({cartItem, DeleteOfItem, setTempCart}) {
   const { allItems } = useItemsCtx();
 
 
@@ -18,7 +18,7 @@ function SingleCartItem({cartItem, DeleteOfItem}) {
         <span className='border border-black py-2 px-5'>{cartItem.quantity}</span>
         <span className='mt-2 w-18'>{cartItemEl.price * cartItem.quantity}.00 Eur</span>
         </div>
-        <button onClick={DeleteOfItem} className='flex'><img className='h-8' src="/icons/Group1419.svg" alt="remove" /><span className='underline'>Remove</span></button>
+        <button onClick={() => {DeleteOfItem(), setTempCart([])}} className='flex'><img className='h-8' src="/icons/Group1419.svg" alt="remove" /><span className='underline'>Remove</span></button>
         </div>
     </div>
     </li>

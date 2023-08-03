@@ -22,7 +22,7 @@ function Cart({ myCartNav, onClose }) {
         </div>
         <ul className="grid grid-cols-1">
           {cartArr.map((cObj, uid) => (
-            <SingleCartItem key={uid} cartItem={cObj} DeleteOfItem={() => handleDelete(cObj.uid)} />
+            <SingleCartItem key={uid} cartItem={cObj} DeleteOfItem={() => handleDelete(cObj.uid)} setTempCart={setTempCart} />
           ))}
         </ul>
         <p className="text-end mt-8">{cartArr.reduce((total , cartItem) => {

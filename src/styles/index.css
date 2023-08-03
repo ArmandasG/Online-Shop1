@@ -24,7 +24,9 @@ font-size: 62.5%;
   top: 0;
   background-color: #FFFFFF;
   overflow-x: hidden;
-  transition: 0.5s;
+  visibility: visible;
+  transition: width 0.5s, padding-right 0.5s;
+  white-space: nowrap
 }
 
 .cartOverlay {
@@ -38,6 +40,7 @@ font-size: 62.5%;
   overflow-x: hidden;
   transition: 0.5s;
   margin-top: 39px;
+  white-space: nowrap;
 }
 
 .filterOverlay {
