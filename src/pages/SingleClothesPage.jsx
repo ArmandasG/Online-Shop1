@@ -48,21 +48,24 @@ function addToCart(items) {
           value={selectedSize}
           onChange={setSelectedSize}
           as="div"
-          className="ml-20 p-1 border border-black pr-1 "
+          className="ml-36 p-1 border border-black w-52 absolute"
         >
-          <div className="flex justify-between">
-            <Listbox.Button className="pl-8 pr-55">
-              <span>{selectedSize}</span>
+    
+            <Listbox.Button className="w-full pl-4">
+              <div className="flex justify-between">
+              <span className="pr-30">{selectedSize}</span>
+              <div>
+              <i className="fa fa-angle-down ml-2" aria-hidden="true"></i></div>
+              </div>
             </Listbox.Button>
-            <i className="fa fa-angle-down" aria-hidden="true"></i>
-          </div>
+  
 
-          <Listbox.Options className="pl-8 pr-55 relative">
+          <Listbox.Options className="pl-4 pr-20 relative w-52">
             {[currentClothesObj.size].map((size, sizeIdx) => (
               <Listbox.Option
                 key={sizeIdx}
                 value={[size]}
-                className="cursor-pointer relative"
+                className="cursor-pointer relative w-52"
               >
                 {size}
               </Listbox.Option>
@@ -74,7 +77,7 @@ function addToCart(items) {
         className="flex gap-2 text-gray-600
     "
       >
-        <p className="mt-2.5 mr-8">Quantity: </p>
+        <p className="mt-2.5 mr-8 pr-0.5">Quantity: </p>
         <div className="flex border-l border-t border-b border-black">
           {/* <input type="number" className="w-14 text-center" value={null ? getItemQuantity(cartArr.uid) : quanChange} onChange={(event) => {
                   setQuanChange(event.target.value)}} /> */}
