@@ -1,27 +1,38 @@
 import React from "react";
 import { useItemsCtx } from "../../store/ItemsContextProvider";
 import SingleOrderSummary from "./SingleOrderSummary";
+import { Disclosure } from "@headlessui/react";
 
 function OrderSummary() {
   const { cartArr, allItems } = useItemsCtx();
   console.log("cartArr ===", cartArr);
   return (
-    <div>
-      <div className="container">
-        <div className="flex justify-between pt-6">
+    
+
+      <Disclosure>
+        
+{({ open }) => ( <>
+  <div className="py-2">
+      <div className={`${!open ? 'bg-white mx-2 px-6' : 'container'}`}>
+      <Disclosure.Button className="flex justify-between pt-6 w-full">
         <div className="flex">
         <i className="fa fa-shopping-cart mt-1 mr-2" aria-hidden="true"></i>
+        {!open ?
         <div className="flex">
-        <p>Hide order summary</p>
-        <i className="fa fa-angle-up mt-1 text-sm ml-2" aria-hidden="true"></i>
+        <p>Show order summary</p><i className="fa fa-angle-down mt-1 text-sm ml-2" aria-hidden="true"></i>
+        </div> : <div className="flex">
+        <p>Hide order summary</p><i className="fa fa-angle-up mt-1 text-sm ml-3.5" aria-hidden="true"></i>
         </div>
+}
         </div>
         <span className="text-2xl">{cartArr.reduce((total , cartItem) => {
           const item = allItems.find(i => i.uid === cartItem.uid)
           return total + (item?.price || 0) * cartItem.quantity }, 0)
         }.00 Eur</span>
-        </div>
-        <ul className="grid grid-cols-1 pt-4 pb-10">
+        
+      </Disclosure.Button>
+      <Disclosure.Panel className="">
+      <ul className="grid grid-cols-1 pt-4 pb-10">
           {cartArr.map((oObj, uid) => (
             <SingleOrderSummary
               key={uid}
@@ -48,8 +59,23 @@ function OrderSummary() {
           return total + (item?.price || 0) * cartItem.quantity }, 0)
         }.00 Eur</span>
         </div>
+      
+      </Disclosure.Panel>
       </div>
     </div>
+      </>
+      
+          )}
+    </Disclosure>
+
+        
+        
+        
+        
+        
+        
+        
+      
   );
 }
 

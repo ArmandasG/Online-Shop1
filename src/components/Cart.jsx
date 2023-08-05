@@ -10,7 +10,7 @@ function Cart({ myCartNav, onClose }) {
     );
   }
   return (
-    <div className="cartOverlay pt-4 z-50" id={myCartNav}>
+    <div className="cartOverlay pt-4" id={myCartNav}>
       <div className="ml-8 mt-4 mr-8">
         <div className="flex justify-between border-b text-gray-500">
           <span>Product</span>

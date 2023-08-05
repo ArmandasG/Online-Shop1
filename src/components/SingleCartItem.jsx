@@ -10,7 +10,7 @@ function SingleCartItem({cartItem, DeleteOfItem, setTempCart}) {
   return (
     <li className='border-b pt-2 pb-2'>
       <div className='flex'>
-        <img className='h-28 w-28 basis-1/4 mt-2 pr-4' src={cartItemEl.img} alt={cartItemEl.brand} />
+        <img className='h-28 w-28 basis-1/4 mt-2 pr-4 object-contain' src={cartItemEl.img} alt={cartItemEl.brand} />
         <div className='flex flex-col justify-between basis-3/4 gap-3'>
         <h3 className='text-lg text-gray-500 font-bold'>{cartItemEl.brand}, {cartItemEl.category}, {cartItemEl.size}</h3>
         <div className='flex justify-end gap-10'>
