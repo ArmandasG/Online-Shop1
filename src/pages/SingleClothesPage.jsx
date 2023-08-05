@@ -48,7 +48,7 @@ function addToCart(items) {
           value={selectedSize}
           onChange={setSelectedSize}
           as="div"
-          className="ml-36 p-1 border border-black w-52 absolute"
+          className="ml-36 p-1 border border-black w-52 absolute z-0"
         >
     
             <Listbox.Button className="w-full pl-4">
