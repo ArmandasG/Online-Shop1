@@ -1,7 +1,7 @@
 import React from "react";
 import { useItemsCtx } from "../../store/ItemsContextProvider";
 import SingleOrderSummary from "./SingleOrderSummary";
-import { Disclosure } from "@headlessui/react";
+import { Disclosure, Transition } from "@headlessui/react";
 
 function OrderSummary() {
   const { cartArr, allItems } = useItemsCtx();
@@ -19,9 +19,9 @@ function OrderSummary() {
         <i className="fa fa-shopping-cart mt-1 mr-2" aria-hidden="true"></i>
         {!open ?
         <div className="flex">
-        <p>Show order summary</p><i className="fa fa-angle-down mt-1 text-sm ml-2" aria-hidden="true"></i>
+        <p className="text-xl">Show order summary</p><i className="fa fa-angle-down mt-1 text-sm ml-2" aria-hidden="true"></i>
         </div> : <div className="flex">
-        <p>Hide order summary</p><i className="fa fa-angle-up mt-1 text-sm ml-3.5" aria-hidden="true"></i>
+        <p className="text-xl">Hide order summary</p><i className="fa fa-angle-up mt-1 text-sm ml-4" aria-hidden="true"></i>
         </div>
 }
         </div>
@@ -31,7 +31,15 @@ function OrderSummary() {
         }.00 Eur</span>
         
       </Disclosure.Button>
-      <Disclosure.Panel className="">
+      <Transition
+        enter="transition duration-100 ease-out"
+        enterFrom="transform scale-95 opacity-0"
+        enterTo="transform scale-100 opacity-100"
+        leave="transition duration-75 ease-out"
+        leaveFrom="transform scale-100 opacity-100"
+        leaveTo="transform scale-95 opacity-0"
+      >
+      <Disclosure.Panel>
       <ul className="grid grid-cols-1 pt-4 pb-10">
           {cartArr.map((oObj, uid) => (
             <SingleOrderSummary
@@ -61,6 +69,7 @@ function OrderSummary() {
         </div>
       
       </Disclosure.Panel>
+      </Transition>
       </div>
     </div>
       </>
