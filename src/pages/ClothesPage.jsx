@@ -12,7 +12,7 @@ function ClothesPage() {
     <div className="filterBar">
       <Filter clothesArr={clothesArr} setClothesArr={setClothesArr} />
     </div>
-    <ul className="grid grid-cols-2">
+    <ul className="grid grid-cols-2 gap-4 ml-8 mt-10">
     {clothesArr.map((cObj) => (
       <SingleClothes key={cObj.uid} clothes={cObj} />
     ))}

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 function SingleClothes({clothes}) {
   return (
-    <li>
+    <li className='p-4'>
       <Link to={`/clothes/${clothes.uid}`}>
-        <img src={clothes.img} alt={clothes.brand} className='h-60 w-70 min-h-fit' />
+        <img src={clothes.img} alt={clothes.brand} className='w-52 h-52' />
         <h4 className='text-xl'>{clothes.brand}</h4>
         <span className='text-xl'>{clothes.price}.00€</span>
         </Link>

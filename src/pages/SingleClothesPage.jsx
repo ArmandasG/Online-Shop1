@@ -48,7 +48,7 @@ function addToCart(items) {
           value={selectedSize}
           onChange={setSelectedSize}
           as="div"
-          className="ml-36 p-1 border border-black w-52 absolute z-0"
+          className="ml-20 p-1 border border-black w-52"
         >
     
             <Listbox.Button className="w-full pl-4">
@@ -77,7 +77,7 @@ function addToCart(items) {
         className="flex gap-2 text-gray-600
     "
       >
-        <p className="mt-2.5 mr-8 pr-0.5">Quantity: </p>
+        <p className="mt-2.5 mr-7 pr-0.5">Quantity: </p>
         <div className="flex border-l border-t border-b border-black">
           {/* <input type="number" className="w-14 text-center" value={null ? getItemQuantity(cartArr.uid) : quanChange} onChange={(event) => {
                   setQuanChange(event.target.value)}} /> */}
