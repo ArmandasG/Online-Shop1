@@ -56,7 +56,7 @@ font-size: 62.5%;
   transition: 0.5s;
 }
 
-.container:not(.orderSummaryContainer) {
+.container {
   max-width: 80rem;
   margin: 0 auto;
   padding-left: 2rem;

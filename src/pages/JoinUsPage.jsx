@@ -12,7 +12,7 @@ function JoinUsPage() {
         }
     })
   return (
-    <div className='min-h-screen'>
+    <div className='min-h-screen container'>
 
         <img src="/icons/join_us.jpg" alt="join us" />
         <h2 className='text-center text-4xl mt-4'>Join Us</h2>

@@ -1,6 +1,6 @@
 function AboutUsPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen container">
       <img className="w-full" src="./icons/Touched_by_His_Noodly_Appendage_HD.jpg" alt="" />
       <h3 className="text-3xl pt-4 pb-4 font-bold">Flying Spaghetti Monster</h3>
       <p className="text-2xl">

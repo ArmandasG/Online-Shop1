@@ -19,7 +19,7 @@ import PleaseAddItems from './pages/PleaseAddItems';
 function App() {
   const { cartArr, navigate } = useItemsCtx();
   return (
-    <div className="bg-site bg-no-repeat bg-cover container">
+    <div className="bg-site bg-no-repeat bg-cover">
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />

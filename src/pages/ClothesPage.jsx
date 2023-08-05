@@ -8,7 +8,7 @@ function ClothesPage() {
   const { clothesArr, setClothesArr } = useItemsCtx()
   // console.log('clothesArr ===', clothesArr);
 
-  return <div className="min-h-screen">
+  return <div className="min-h-screen container">
     <div className="filterBar">
       <Filter clothesArr={clothesArr} setClothesArr={setClothesArr} />
     </div>

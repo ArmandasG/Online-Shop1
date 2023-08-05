@@ -4,7 +4,7 @@ import OrderSummary from '../components/summary/OrderSummary'
 
 function CartDelivery() {
   return (
-    <div>
+    <div className='bg-neutral-100'>
         <OrderSummary />
         <DeliveryForm />
     </div>
