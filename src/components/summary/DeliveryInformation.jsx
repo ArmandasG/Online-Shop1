@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import React from 'react'
 
-function DeliveryForm() {
+function DeliveryInformation() {
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -19,4 +19,4 @@ function DeliveryForm() {
   )
 }
 
-export default DeliveryForm
+export default DeliveryInformation

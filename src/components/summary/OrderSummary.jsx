@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useItemsCtx } from "../../store/ItemsContextProvider";
 import SingleOrderSummary from "./SingleOrderSummary";
 import { Disclosure, Transition } from "@headlessui/react";
@@ -44,7 +44,7 @@ function OrderSummary() {
       {({ close }) => (
         
      <div> 
-      {cartIsOpen ? close() : ''}
+      
       <ul className="grid grid-cols-1 pt-4 pb-10">
           {cartArr.map((oObj, uid) => (
             <SingleOrderSummary
@@ -54,6 +54,9 @@ function OrderSummary() {
             />
           ))}
         </ul>
+        {useEffect(() => {
+cartIsOpen ? close() : ''
+        }) }
         <div className="flex justify-between py-2 text-gray-500">
           <p className="text-xl">Subtotal</p>
           <span className="text-2xl">{cartArr.reduce((total , cartItem) => {
