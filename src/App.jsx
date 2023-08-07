@@ -12,9 +12,11 @@ import FindUsPage from './pages/FindUsPage';
 import WhatToKnow from './pages/WhatToKnow';
 import JoinUsPage from './pages/JoinUsPage';
 import ReadMore from './pages/ReadMore';
-import CartDelivery from './pages/CartDelivery';
+import CartInformation from './pages/CartInformation';
 import { useItemsCtx } from './store/ItemsContextProvider';
 import PleaseAddItems from './pages/PleaseAddItems';
+import CartShipping from './pages/CartShipping';
+import CartPayment from './pages/CartPayment';
 
 function App() {
   const { cartArr, navigate } = useItemsCtx();
@@ -27,7 +29,9 @@ function App() {
         <Route path="/clothes" element={<ClothesPage />} />
         <Route path="/clothes/new" element={<AddClothesPage />} />
         <Route path="/clothes/:clothesUid" element={<SingleClothesPage />} />
-        {cartArr.length > 0 ? <Route path='/cart/delivery' element={<CartDelivery />} /> : <Route path='/cart/delivery' element={<PleaseAddItems />} />}
+        {cartArr.length > 0 ? <Route path='/cart/delivery' element={<CartInformation />} /> : <Route path='/cart/information' element={<PleaseAddItems />} />}
+        <Route path="/cart/shipping" element={<CartShipping />} />
+        <Route path="/cart/payment" element={<CartPayment />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/find-us" element={<FindUsPage />} />
         <Route path="/what-to-know" element={<WhatToKnow />} />

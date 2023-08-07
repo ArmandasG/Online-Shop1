@@ -13,7 +13,7 @@ function OrderSummary() {
         
 {({ open }) => ( <>
   <div className="py-2">
-      <div className={`${!open ? 'bg-white mx-2 px-6' : 'container'}`}>
+      <div className={`${!open ? 'bg-white mx-2 px-6 container' : 'container'}`}>
       <Disclosure.Button className="flex justify-between pt-6 pb-4 w-full">
         <div className="flex">
         <i className="fa fa-shopping-cart mt-1 mr-2" aria-hidden="true"></i>
