@@ -44,7 +44,9 @@ function OrderSummary() {
       {({ close }) => (
         
      <div> 
-      
+      {useEffect(() => {
+cartIsOpen ? close() : ''
+        }, [cartIsOpen]) }
       <ul className="grid grid-cols-1 pt-4 pb-10">
           {cartArr.map((oObj, uid) => (
             <SingleOrderSummary
@@ -54,9 +56,7 @@ function OrderSummary() {
             />
           ))}
         </ul>
-        {useEffect(() => {
-cartIsOpen ? close() : ''
-        }) }
+        
         <div className="flex justify-between py-2 text-gray-500">
           <p className="text-xl">Subtotal</p>
           <span className="text-2xl">{cartArr.reduce((total , cartItem) => {
