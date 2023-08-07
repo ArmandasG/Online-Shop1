@@ -4,7 +4,7 @@ import SingleOrderSummary from "./SingleOrderSummary";
 import { Disclosure, Transition } from "@headlessui/react";
 
 function OrderSummary() {
-  const { cartArr, allItems } = useItemsCtx();
+  const { cartArr, allItems, cartIsOpen } = useItemsCtx();
   console.log("cartArr ===", cartArr);
   return (
     
@@ -40,6 +40,11 @@ function OrderSummary() {
         leaveTo="transform scale-95 opacity-0"
       >
       <Disclosure.Panel>
+        
+      {({ close }) => (
+        
+     <div> 
+      {cartIsOpen ? close() : ''}
       <ul className="grid grid-cols-1 pt-4 pb-10">
           {cartArr.map((oObj, uid) => (
             <SingleOrderSummary
@@ -67,7 +72,8 @@ function OrderSummary() {
           return total + (item?.price || 0) * cartItem.quantity }, 0)
         }.00 Eur</span>
         </div>
-      
+        </div>
+        )}
       </Disclosure.Panel>
       </Transition>
       </div>
