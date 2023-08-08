@@ -36,13 +36,14 @@ function Cart({ myCartNav, onClose }) {
           Check Out
         </button>
         </div>
+        <div onClick={onClose} className="flex justify-center cursor-pointer">
+        <i className="fa fa-angle-left mr-4 text-base mt-9" aria-hidden="true"></i>
         <span
-          onClick={onClose}
-          className="text-decoration-line: underline cursor-pointer block my-8 text-center"
-        >
-          <i className="fa fa-angle-left mr-4 text-base" aria-hidden="true"></i>Back to
+          className="text-decoration-line: underline my-8 text-center"
+        >Back to
           Shopping
         </span>
+        </div>
       </div>
     </div>
   );
