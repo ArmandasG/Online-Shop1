@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Header from './components/layout/Header';
 import AboutUsPage from './pages/AboutUsPage';
@@ -29,7 +29,12 @@ function App() {
         <Route path="/clothes" element={<ClothesPage />} />
         <Route path="/clothes/new" element={<AddClothesPage />} />
         <Route path="/clothes/:clothesUid" element={<SingleClothesPage />} />
-        {cartArr.length > 0 ? <Route path='/cart/delivery' element={<CartInformation />} /> : <Route path='/cart/information' element={<PleaseAddItems />} />}
+        {cartArr.length > 0 ? 
+          <Route path='/cart/delivery' element={<CartInformation />} /> :
+          <>
+            <Route path='/cart/information' element={<PleaseAddItems />} /> 
+            <Route path='/cart/delivery' element={ <Navigate to="/cart/information" />} /> 
+          </>  }
         <Route path="/cart/shipping" element={<CartShipping />} />
         <Route path="/cart/payment" element={<CartPayment />} />
         <Route path="/contact" element={<ContactUsPage />} />
