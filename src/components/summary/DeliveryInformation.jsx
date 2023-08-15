@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 import React from 'react'
 import Directory from './Directory';
 import { useItemsCtx } from '../../store/ItemsContextProvider';
+import { cities } from '../../assets/cities';
 
 function DeliveryInformation() {
   const countries = ['Lithuania' , 'Great Britain (available soon)']
@@ -16,7 +17,7 @@ function DeliveryInformation() {
     const formik = useFormik({
         initialValues: {
             email: '',
-            keepMeUpdated: '',
+            keepMeUpdated: false,
             mobilePhoneNumber: '',
             toggle: false,
             firstName: '',
@@ -24,9 +25,9 @@ function DeliveryInformation() {
             address: '',
             addressExtra: '',
             city: '',
-            location: 'Location',
+            country: '',
             postalCode: '',
-            saveInformation: '',
+            saveInformation: false,
         },
         onSubmit: (values) => {
             console.log('values ===', values);
@@ -40,7 +41,7 @@ function DeliveryInformation() {
     <form className='mt-4 space-y-4 ' onSubmit={formik.handleSubmit}>
       <input className="p-4 border border-black w-full" placeholder='Email' type="email" id='email' value={formik.values.email} onBlur={formik.handleBlur} onChange={formik.handleChange} />
       <label className='flex'>
-      <input value={formik.values.keepMeUpdated} name='keepMeUpdated' className="mr-2 w-6 h-6 border-2 border-gray appearance-none checked:bg-black" type="checkbox" />
+      <input checked={formik.values.keepMeUpdated} name='keepMeUpdated' className="mr-2 w-6 h-6 border-2 border-gray appearance-none checked:bg-black" type="checkbox" onChange={formik.handleChange} />
       <span className=' text-lg text-gray-500'>Keep me up to date on news and exclusive offers</span>
       </label>
       <input className="p-4 border border-black w-full" placeholder='Mobile phone number' type="phone" id='mobilePhoneNumber' value={formik.values.mobilePhoneNumber} onBlur={formik.handleBlur} onChange={formik.handleChange} />
@@ -52,34 +53,54 @@ function DeliveryInformation() {
         </div>
         <input className="p-4 border border-black w-full" placeholder='Address' type="text" id='address' value={formik.values.address} onBlur={formik.handleBlur} onChange={formik.handleChange} />
         <input className="p-4 border border-black w-full" placeholder='Apartment, suite, etc... (optional)' type="text" id='addressExtra' value={formik.values.addressExtra} onBlur={formik.handleBlur} onChange={formik.handleChange} />
-        <input className="p-4 border border-black w-full" placeholder='City' type="text" id='city' value={formik.values.city} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+        <select
+              className="p-4 border border-black w-full"
+              type="text"
+              id="city"
+              name="city"
+              placeholder="City"
+              value={formik.values.city}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            >
+              <option value="" disabled>
+                Select City
+              </option>
+              {formik.values.country === "Lithuania" ? cities.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              )) : ''}
+              
+            </select>
+        {/* <input className="p-4 border border-black w-full" placeholder='City' type="text" id='city' value={formik.values.city} onBlur={formik.handleBlur} onChange={formik.handleChange} /> */}
         <div className='flex gap-8'>
           {/* <input className="p-4 border border-black w-full" placeholder='Location' type="text" /> */}
           <select
-              className="mt-2 w-full rounded border-2 py-2 pl-4 pr-8 font-normal sm:text-xs"
+              className="p-4 border border-black w-full"
               type="text"
-              id="location"
-              name="location"
-              placeholder="Location"
-              value={formik.values.location}
+              id="country"
+              name="country"
+              placeholder="Country"
+              value={formik.values.country}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             >
               <option value="" disabled>
                 Select Country
               </option>
-                <option value='Lithuania'>
+              
+                <option value="Lithuania">
                 Lithuania
                 </option>
-                <option value='' disabled>
+                <option value="" disabled>
                 Great Britain (available soon)
                 </option>
-              
             </select>
         <input className="p-4 border border-black w-full" placeholder='Postal code' type="number" id='postalCode' value={formik.values.postalCode} onBlur={formik.handleBlur} onChange={formik.handleChange} />
         </div>
         <label className='flex'>
-      <input value={formik.values.saveInformation} name='saveInformation' className="mr-2 w-6 h-6 border-2 border-gray appearance-none checked:bg-black" type="checkbox" />
+      <input checked={formik.values.saveInformation} name='saveInformation' className="mr-2 w-6 h-6 border-2 border-gray appearance-none checked:bg-black" type="checkbox" onChange={formik.handleChange} />
       <span className=' text-lg text-gray-500'>Save this information for next time</span>
       </label>
       </div>
@@ -90,7 +111,7 @@ function DeliveryInformation() {
             Return To Cart
           </button>
         </div>
-      <button className="tracking-wider font-semibold  border py-4 px-40 bg-black text-white w-full" type="submit">SEND</button>
+      <button className="w-full tracking-wider font-semibold border py-4 bg-black text-white" type="submit">{"Continue to shipping".toUpperCase()}</button>
       </div>
     </form>
     </div>
