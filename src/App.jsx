@@ -35,7 +35,7 @@ function App() {
             <Route path='/cart/information404' element={<PleaseAddItems />} /> 
             <Route path='/cart/information' element={ <Navigate to="/cart/information404" />} /> 
           </>  }
-          { cartArr.length > 0  ?
+          { cartArr.length > 0 && shippingInformation.length > 0 ?
         <Route path="/cart/shipping" element={<CartShipping />} /> :
         <>
 <Route path="/cart/information404" element={<PleaseAddItems />} /> 
