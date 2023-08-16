@@ -1,8 +1,11 @@
 import React from 'react'
+import Directory from './Directory'
 
 function PaymentMethod() {
   return (
-    <div>PaymentMethod</div>
+    <div>
+      <Directory />
+    </div>
   )
 }
 
