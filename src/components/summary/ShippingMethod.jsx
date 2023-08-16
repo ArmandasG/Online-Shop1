@@ -1,8 +1,14 @@
 import React from 'react'
+import Directory from './Directory'
 
 function ShippingMethod() {
   return (
-    <div>ShippingMethod</div>
+    <div>
+      <Directory />
+      <div className='container py-8 bg-white'>
+        
+      </div>
+    </div>
   )
 }
 

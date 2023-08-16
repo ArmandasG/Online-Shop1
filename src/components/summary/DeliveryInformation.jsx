@@ -5,8 +5,7 @@ import { useItemsCtx } from '../../store/ItemsContextProvider';
 import { cities } from '../../assets/cities';
 
 function DeliveryInformation() {
-  const countries = ['Lithuania' , 'Great Britain (available soon)']
-  const { setCartIsOpen, cartIsOpen } = useItemsCtx();
+  const { setCartIsOpen, cartIsOpen, navigate, setShippingInformation, shippingInformation } = useItemsCtx();
   function openCartNav () {
     const cartNav = document.getElementById("myCartNav")
     if (cartIsOpen === false) {
@@ -31,6 +30,9 @@ function DeliveryInformation() {
         },
         onSubmit: (values) => {
             console.log('values ===', values);
+            navigate("/cart/shipping")
+            setShippingInformation([values]);
+            console.log('shippingInformation ===', shippingInformation);
         }
     })
   return (
@@ -53,30 +55,7 @@ function DeliveryInformation() {
         </div>
         <input className="p-4 border border-black w-full" placeholder='Address' type="text" id='address' value={formik.values.address} onBlur={formik.handleBlur} onChange={formik.handleChange} />
         <input className="p-4 border border-black w-full" placeholder='Apartment, suite, etc... (optional)' type="text" id='addressExtra' value={formik.values.addressExtra} onBlur={formik.handleBlur} onChange={formik.handleChange} />
-        <select
-              className="p-4 border border-black w-full"
-              type="text"
-              id="city"
-              name="city"
-              placeholder="City"
-              value={formik.values.city}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            >
-              <option value="" disabled>
-                Select City
-              </option>
-              {formik.values.country === "Lithuania" ? cities.map((city) => (
-                <option key={city} value={city}>
-                  {city}
-                </option>
-              )) : ''}
-              
-            </select>
-        {/* <input className="p-4 border border-black w-full" placeholder='City' type="text" id='city' value={formik.values.city} onBlur={formik.handleBlur} onChange={formik.handleChange} /> */}
-        <div className='flex gap-8'>
-          {/* <input className="p-4 border border-black w-full" placeholder='Location' type="text" /> */}
-          <select
+            <select
               className="p-4 border border-black w-full"
               type="text"
               id="country"
@@ -96,6 +75,27 @@ function DeliveryInformation() {
                 <option value="" disabled>
                 Great Britain (available soon)
                 </option>
+            </select>
+        <div className='flex gap-8'>
+        <select
+              className="p-4 border border-black w-full"
+              type="text"
+              id="city"
+              name="city"
+              placeholder="City"
+              value={formik.values.city}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            >
+              <option value="" disabled>
+                Select City
+              </option>
+              {formik.values.country === "Lithuania" ? cities.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              )) : ''}
+              
             </select>
         <input className="p-4 border border-black w-full" placeholder='Postal code' type="number" id='postalCode' value={formik.values.postalCode} onBlur={formik.handleBlur} onChange={formik.handleChange} />
         </div>

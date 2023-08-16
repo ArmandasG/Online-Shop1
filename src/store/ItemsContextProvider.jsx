@@ -10,9 +10,10 @@ const ItemsContextProvider = ({ children }) => {
   const [allItems, setAllItems] = useState(clothes)
     const [clothesArr, setClothesArr] = useState(clothes);
     const [cartArr, setCartArr] = useState([]);
-    const [tempCart, setTempCart] = useState([])
-    const [cartIsOpen, setCartIsOpen] = useState(false)
-    const navigate = useNavigate()
+    const [tempCart, setTempCart] = useState([]);
+    const [cartIsOpen, setCartIsOpen] = useState(false);
+    const navigate = useNavigate();
+    const [shippingInformation, setShippingInformation] = useState([]);
 
     const resetClothes = () => {setClothesArr(clothes)}
 
@@ -67,7 +68,9 @@ const ItemsContextProvider = ({ children }) => {
       decreaseCartQuantity,
       tempCart,
       setTempCart,
-      navigate
+      navigate,
+      shippingInformation,
+      setShippingInformation
     };
   
     return (

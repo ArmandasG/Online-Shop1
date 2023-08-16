@@ -32,7 +32,7 @@ function Cart({ myCartNav, onClose }) {
         <p className="text-end text-gray-500 mb-6">Taxes and shipping calculated at checkout</p>
         <div className="flex">
         <button onClick={() => {setCartArr([]), setTempCart([])}} className="py-4 px-5 mt-4 border border-black mr-4"><i className="fa fa-refresh" aria-hidden="true"></i></button>
-        <button onClick={() => {navigate("/cart/delivery"), onClose()}} className="tracking-wider font-semibold  border py-4 px-30 bg-black text-white w-full mt-4">
+        <button onClick={() => {navigate("/cart/information"), onClose()}} className="tracking-wider font-semibold  border py-4 px-30 bg-black text-white w-full mt-4">
           Check Out
         </button>
         </div>

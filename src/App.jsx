@@ -19,7 +19,7 @@ import CartShipping from './pages/CartShipping';
 import CartPayment from './pages/CartPayment';
 
 function App() {
-  const { cartArr, navigate } = useItemsCtx();
+  const { cartArr, navigate, shippingInformation } = useItemsCtx();
   return (
     <div className="bg-site bg-no-repeat bg-cover">
       <Header />
@@ -30,12 +30,18 @@ function App() {
         <Route path="/clothes/new" element={<AddClothesPage />} />
         <Route path="/clothes/:clothesUid" element={<SingleClothesPage />} />
         {cartArr.length > 0 ? 
-          <Route path='/cart/delivery' element={<CartInformation />} /> :
+          <Route path='/cart/information' element={<CartInformation />} /> :
           <>
-            <Route path='/cart/information' element={<PleaseAddItems />} /> 
-            <Route path='/cart/delivery' element={ <Navigate to="/cart/information" />} /> 
+            <Route path='/cart/information404' element={<PleaseAddItems />} /> 
+            <Route path='/cart/information' element={ <Navigate to="/cart/information404" />} /> 
           </>  }
-        <Route path="/cart/shipping" element={<CartShipping />} />
+          { cartArr.length > 0 || shippingInformation.length > 0 ?
+        <Route path="/cart/shipping" element={<CartShipping />} /> :
+        <>
+<Route path="/cart/information404" element={<PleaseAddItems />} /> 
+<Route path="/cart/shipping" element={<Navigate to='/cart/information404' />} /> 
+        </>
+      }
         <Route path="/cart/payment" element={<CartPayment />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/find-us" element={<FindUsPage />} />
