@@ -30,8 +30,8 @@ function DeliveryInformation() {
         },
         onSubmit: (values) => {
             console.log('values ===', values);
-            navigate("/cart/shipping")
             setShippingInformation([values]);
+            navigate("/cart/shipping");
             console.log('shippingInformation ===', shippingInformation);
         }
     })
@@ -111,7 +111,7 @@ function DeliveryInformation() {
             Return To Cart
           </button>
         </div>
-      <button className="w-full tracking-wider font-semibold border py-4 bg-black text-white" type="submit">{"Continue to shipping".toUpperCase()}</button>
+      <button className="w-full tracking-wider font-semibold border py-4 bg-black text-white text-lg" type="submit">{"Continue to shipping".toUpperCase()}</button>
       </div>
     </form>
     </div>

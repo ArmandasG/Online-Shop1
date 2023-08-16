@@ -14,6 +14,7 @@ const ItemsContextProvider = ({ children }) => {
     const [cartIsOpen, setCartIsOpen] = useState(false);
     const navigate = useNavigate();
     const [shippingInformation, setShippingInformation] = useState([]);
+    const [deliveryFee, setDeliveryFee] = useState(0)
 
     const resetClothes = () => {setClothesArr(clothes)}
 
@@ -70,7 +71,9 @@ const ItemsContextProvider = ({ children }) => {
       setTempCart,
       navigate,
       shippingInformation,
-      setShippingInformation
+      setShippingInformation,
+      deliveryFee,
+      setDeliveryFee
     };
   
     return (
