@@ -37,7 +37,7 @@ function PaymentMethod() {
         <div className='flex justify-between py-5'>
         <h3 className='w-2/12'>Method</h3>
           <span className='w-8/12'>Product Name - 9.68Eur</span>
-          <button onClick={() => navigate('/cart/information')} className='underline'>Change</button>
+          <button onClick={() => navigate('/cart/shipping')} className='underline'>Change</button>
         </div>
       </div>
 <div className='mt-8'>
@@ -68,7 +68,7 @@ function PaymentMethod() {
             Return To Shipping
           </button>
         </div>
-      <button className="w-full tracking-wider font-semibold border py-4 bg-black text-white text-lg" type="submit">{"Continue to payment".toUpperCase()}</button>
+      <button className="w-full tracking-wider font-semibold border py-4 bg-black text-white text-lg" type="submit">{"Finalize payment".toUpperCase()}</button>
       </div>
       </div>
   </form>

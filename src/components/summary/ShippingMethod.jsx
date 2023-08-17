@@ -7,7 +7,7 @@ function ShippingMethod() {
   const { navigate, setDeliveryFee, deliveryFee } = useItemsCtx()
   const formik = useFormik({
     initialValues: {
-      deliveryMethod: 'atsiimt'
+      deliveryMethod: 'pickUp'
     },
     onSubmit: (values) => {
         console.log('values ===', values);
@@ -21,7 +21,7 @@ function ShippingMethod() {
 const handleDeliveryMethodChange = (event) => {
   const { value } = event.target;
   console.log('value ===', value);
-  if (value === 'atsiimt') 
+  if (value === 'pickUp') 
   {setDeliveryFee(0)} else if (value === 'dpdLiet') {setDeliveryFee(9.68)} else if (value === 'LPExpr')
   {setDeliveryFee(9.69)}
   formik.handleChange(event)
@@ -59,8 +59,8 @@ const handleDeliveryMethodChange = (event) => {
 <span>9.69 Eur</span>
 </div>
 <div className='flex justify-between py-4'>
-<input className='appearance-none border w-8 h-8 bg-white checked:bg-black rounded-full' type="radio" value='atsiimt' name='deliveryMethod' id='atsiimti' checked={formik.values.deliveryMethod === 'atsiimt'} onChange={handleDeliveryMethodChange} />
-<label htmlFor="atsiimti">Atsiimti parduotuvėje</label>
+<input className='appearance-none border w-8 h-8 bg-white checked:bg-black rounded-full' type="radio" value='pickUp' name='deliveryMethod' id='pickUp' checked={formik.values.deliveryMethod === 'pickUp'} onChange={handleDeliveryMethodChange} />
+<label htmlFor="pickUp">PICK UP at shop</label>
 <span>0.00 Eur</span>
 </div>
         </div>
