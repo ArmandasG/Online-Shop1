@@ -17,6 +17,7 @@ import { useItemsCtx } from './store/ItemsContextProvider';
 import PleaseAddItems from './pages/PleaseAddItems';
 import CartShipping from './pages/CartShipping';
 import CartPayment from './pages/CartPayment';
+import ThankYou from './pages/ThankYou';
 
 function App() {
   const { cartArr, navigate, shippingInformation } = useItemsCtx();
@@ -43,6 +44,7 @@ function App() {
         </>
       }
         <Route path="/cart/payment" element={<CartPayment />} />
+        <Route path='/thank-you' element={<ThankYou />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/find-us" element={<FindUsPage />} />
         <Route path="/what-to-know" element={<WhatToKnow />} />

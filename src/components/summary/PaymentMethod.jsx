@@ -14,7 +14,7 @@ function PaymentMethod() {
     },
     onSubmit: (values) => {
         console.log('values ===', values);
-        // navigate("/cart/payment")
+        navigate("/thank-you")
     }
 })
   return (
