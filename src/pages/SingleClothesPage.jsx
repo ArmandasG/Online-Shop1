@@ -89,7 +89,7 @@ function addToCart(items) {
           </div>
         </div>
       </div>
-      <p>{currentClothesObj.price}.00 Eur</p>
+      <p>{currentClothesObj.price.toFixed(2)} Eur</p>
       <div className="flex flex-col gap-8 align-items-center">
         <button
           onClick={() =>

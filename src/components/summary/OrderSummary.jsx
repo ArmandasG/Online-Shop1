@@ -27,8 +27,8 @@ function OrderSummary() {
         </div>
         <span className="text-2xl">{cartArr.reduce((total , cartItem) => {
           const item = allItems.find(i => i.uid === cartItem.uid)
-          return total + (item?.price || 0) * cartItem.quantity }, 0)
-        }.00 Eur</span>
+          return (total + (item?.price || 0) * cartItem.quantity).toFixed(2) }, 0)
+        } Eur</span>
         
       </Disclosure.Button>
       <Transition
@@ -61,8 +61,8 @@ cartIsOpen ? close() : ''
           <p className="text-xl">Subtotal</p>
           <span className="text-2xl">{cartArr.reduce((total , cartItem) => {
           const item = allItems.find(i => i.uid === cartItem.uid)
-          return total + (item?.price || 0) * cartItem.quantity }, 0)
-        }.00 Eur</span>
+          return (total + (item?.price || 0) * cartItem.quantity).toFixed(2) }, 0)
+        } Eur</span>
         </div>
         <div className="flex justify-between py-2 border-b-2 text-gray-500">
           <p className="text-xl">Shipping</p>
@@ -72,8 +72,8 @@ cartIsOpen ? close() : ''
         <p className="text-xl">Total</p>
         <span className="text-xl">{cartArr.reduce((total , cartItem) => {
           const item = allItems.find(i => i.uid === cartItem.uid)
-          return total + (item?.price || 0) * cartItem.quantity }, 0)
-        }.00 Eur</span>
+          return (total + (item?.price || 0) * cartItem.quantity).toFixed(2) }, 0)
+        } Eur</span>
         </div>
         </div>
         )}
