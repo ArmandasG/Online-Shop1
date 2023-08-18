@@ -4,11 +4,9 @@ import SingleOrderSummary from "./SingleOrderSummary";
 import { Disclosure, Transition } from "@headlessui/react";
 
 function OrderSummary() {
-  const { cartArr, allItems, cartIsOpen } = useItemsCtx();
-  console.log("cartArr ===", cartArr);
+  const { cartArr, allItems, cartIsOpen, deliveryFee } = useItemsCtx();
+        
   return (
-    
-
       <Disclosure>
         
 {({ open }) => ( <>
@@ -66,7 +64,7 @@ cartIsOpen ? close() : ''
         </div>
         <div className="flex justify-between py-2 border-b-2 text-gray-500">
           <p className="text-xl">Shipping</p>
-          <span className="text-xl">Calculated at next step</span>
+          <span className="text-xl">{deliveryFee.length && cartArr.length > 0 ? deliveryFee : 'Calculated at next step'}</span>
         </div>
         <div className="py-4 flex justify-between font-bold">
         <p className="text-xl">Total</p>

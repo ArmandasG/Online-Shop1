@@ -6,7 +6,7 @@ function Cart({ myCartNav, onClose }) {
   const { cartArr, setCartArr, setTempCart, navigate, allItems } = useItemsCtx();
   function handleDelete(id) {
     setCartArr((prevItem) =>
-      [...prevItem].filter((filtered) => filtered.uid !== id, console.log('prevItem ===', prevItem))
+      [...prevItem].filter((filtered) => filtered.uid !== id)
     );
   }
   return (

@@ -1,4 +1,4 @@
-import { useState, createContext, useContext } from "react";
+import { useState, createContext, useContext, useEffect } from "react";
 import {clothes} from '../assets/items'
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +14,16 @@ const ItemsContextProvider = ({ children }) => {
     const [cartIsOpen, setCartIsOpen] = useState(false);
     const navigate = useNavigate();
     const [shippingInformation, setShippingInformation] = useState([]);
-    const [deliveryFee, setDeliveryFee] = useState(0)
+    const [deliveryFee, setDeliveryFee] = useState([])
+
+    useEffect(() => {
+      function isCartEmptyForDelivery () {
+        if (cartArr.length === 0) {
+          setDeliveryFee([])}
+      }
+      isCartEmptyForDelivery()
+    }, [cartArr])
+    
 
     const resetClothes = () => {setClothesArr(clothes)}
 

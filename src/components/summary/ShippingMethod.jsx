@@ -1,29 +1,31 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Directory from './Directory'
 import { useItemsCtx } from '../../store/ItemsContextProvider'
 import { useFormik } from 'formik'
 
 function ShippingMethod() {
-  const { navigate, setDeliveryFee, deliveryFee } = useItemsCtx()
+  const { navigate, setDeliveryFee, deliveryFee, cartArr } = useItemsCtx()
   const formik = useFormik({
     initialValues: {
-      deliveryMethod: 'pickUp'
+      deliveryMethod: ''
     },
-    onSubmit: (values) => {
+    onSubmit: (values, {resetForm}) => {
         console.log('values ===', values);
         navigate("/cart/payment")
+        resetForm()
         // setPaymentInformation([values]);
         // console.log('shippingInformation ===', shippingInformation);
         console.log('deliveryFee ===', deliveryFee);
     }
+    
 })
 
 const handleDeliveryMethodChange = (event) => {
   const { value } = event.target;
   console.log('value ===', value);
   if (value === 'pickUp') 
-  {setDeliveryFee(0)} else if (value === 'dpdLiet') {setDeliveryFee(9.68)} else if (value === 'LPExpr')
-  {setDeliveryFee(9.69)}
+  {setDeliveryFee([0])} else if (value === 'dpdLiet') {setDeliveryFee([9.68])} else if (value === 'LPExpr')
+  {setDeliveryFee([9.69])}
   formik.handleChange(event)
 };
   return (
