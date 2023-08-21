@@ -5,7 +5,11 @@ import { Disclosure, Transition } from "@headlessui/react";
 
 function OrderSummary() {
   const { cartArr, allItems, cartIsOpen, deliveryFee } = useItemsCtx();
-        
+  const allCartItemsPrice = cartArr.reduce((total , cartItem) => {
+    const item = allItems.find(i => i.uid === cartItem.uid)
+    return total + (item?.price || 0) * cartItem.quantity }, 0)
+    const allCartItemsPriceWithDeliveryFee = deliveryFee.map((fObj) => (fObj + allCartItemsPrice).toFixed(2))
+  
   return (
       <Disclosure>
         
@@ -23,10 +27,7 @@ function OrderSummary() {
         </div>
 }
         </div>
-        <span className="text-2xl">{cartArr.reduce((total , cartItem) => {
-          const item = allItems.find(i => i.uid === cartItem.uid)
-          return (total + (item?.price || 0) * cartItem.quantity).toFixed(2) }, 0)
-        } Eur</span>
+        <span className="text-2xl">{deliveryFee.length === 0 ? allCartItemsPrice.toFixed(2) : allCartItemsPriceWithDeliveryFee} Eur</span>
         
       </Disclosure.Button>
       <Transition
@@ -57,21 +58,15 @@ cartIsOpen ? close() : ''
         
         <div className="flex justify-between py-2 text-gray-500">
           <p className="text-xl">Subtotal</p>
-          <span className="text-2xl">{cartArr.reduce((total , cartItem) => {
-          const item = allItems.find(i => i.uid === cartItem.uid)
-          return (total + (item?.price || 0) * cartItem.quantity).toFixed(2) }, 0)
-        } Eur</span>
+          <span className="text-2xl">{allCartItemsPrice.toFixed(2)} Eur</span>
         </div>
         <div className="flex justify-between py-2 border-b-2 text-gray-500">
           <p className="text-xl">Shipping</p>
-          <span className="text-xl">{deliveryFee.length && cartArr.length > 0 ? deliveryFee : 'Calculated at next step'}</span>
+          <span className="text-xl">{deliveryFee.length && cartArr.length > 0 ? `${deliveryFee.map((fObj) => fObj.toFixed(2))} Eur` : 'Calculated at next step'}</span>
         </div>
         <div className="py-4 flex justify-between font-bold">
         <p className="text-xl">Total</p>
-        <span className="text-xl">{cartArr.reduce((total , cartItem) => {
-          const item = allItems.find(i => i.uid === cartItem.uid)
-          return (total + (item?.price || 0) * cartItem.quantity).toFixed(2) }, 0)
-        } Eur</span>
+        <span className="text-xl">{deliveryFee.length === 0 ? allCartItemsPrice.toFixed(2) : allCartItemsPriceWithDeliveryFee} Eur</span>
         </div>
         </div>
         )}

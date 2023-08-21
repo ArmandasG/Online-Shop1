@@ -15,6 +15,7 @@ const ItemsContextProvider = ({ children }) => {
     const navigate = useNavigate();
     const [shippingInformation, setShippingInformation] = useState([]);
     const [deliveryFee, setDeliveryFee] = useState([])
+    const [deliveryMethod, setDeliveryMethod] = useState([])
 
     useEffect(() => {
       function isCartEmptyForDelivery () {
@@ -82,7 +83,9 @@ const ItemsContextProvider = ({ children }) => {
       shippingInformation,
       setShippingInformation,
       deliveryFee,
-      setDeliveryFee
+      setDeliveryFee,
+      deliveryMethod,
+      setDeliveryMethod
     };
   
     return (

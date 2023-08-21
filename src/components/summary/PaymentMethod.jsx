@@ -4,7 +4,7 @@ import { useFormik } from 'formik'
 import { useItemsCtx } from '../../store/ItemsContextProvider'
 
 function PaymentMethod() {
-  const { navigate } = useItemsCtx()
+  const { navigate, deliveryFee, deliveryMethod } = useItemsCtx()
   const formik = useFormik({
     initialValues: {
       cardNumber: '',
@@ -36,7 +36,7 @@ function PaymentMethod() {
         </div>
         <div className='flex justify-between py-5'>
         <h3 className='w-2/12'>Method</h3>
-          <span className='w-8/12'>Product Name - 9.68Eur</span>
+          <span className='w-8/12'>{deliveryMethod} {deliveryFee} Eur</span>
           <button onClick={() => navigate('/cart/shipping')} className='underline'>Change</button>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { useItemsCtx } from '../../store/ItemsContextProvider'
 import { useFormik } from 'formik'
 
 function ShippingMethod() {
-  const { navigate, setDeliveryFee, deliveryFee, cartArr } = useItemsCtx()
+  const { navigate, setDeliveryFee, deliveryFee, cartArr, setDeliveryMethod } = useItemsCtx()
   const formik = useFormik({
     initialValues: {
       deliveryMethod: ''
@@ -12,10 +12,8 @@ function ShippingMethod() {
     onSubmit: (values, {resetForm}) => {
         console.log('values ===', values);
         navigate("/cart/payment")
+        setDeliveryMethod(values.deliveryMethod)
         resetForm()
-        // setPaymentInformation([values]);
-        // console.log('shippingInformation ===', shippingInformation);
-        console.log('deliveryFee ===', deliveryFee);
     }
     
 })
@@ -23,8 +21,8 @@ function ShippingMethod() {
 const handleDeliveryMethodChange = (event) => {
   const { value } = event.target;
   console.log('value ===', value);
-  if (value === 'pickUp') 
-  {setDeliveryFee([0])} else if (value === 'dpdLiet') {setDeliveryFee([9.68])} else if (value === 'LPExpr')
+  if (value === 'Pick Up At Shop') 
+  {setDeliveryFee([0])} else if (value === 'DPD Lietuva') {setDeliveryFee([9.68])} else if (value === 'LP Express')
   {setDeliveryFee([9.69])}
   formik.handleChange(event)
 };
@@ -51,17 +49,17 @@ const handleDeliveryMethodChange = (event) => {
         <h2 className='mb-4'>{'Shipping Method'.toUpperCase()}</h2>
         <div className='border px-4 flex flex-col divide-y-2 divide-gray-400 border-black'>
           <div className='flex justify-between py-4'>
-<input className='appearance-none border w-8 h-8 bg-white checked:bg-black rounded-full' type="radio" value='dpdLiet' name='deliveryMethod' id='dpd' checked={formik.values.deliveryMethod === 'dpdLiet'} onChange={handleDeliveryMethodChange} />
+<input className='appearance-none border w-8 h-8 bg-white checked:bg-black rounded-full' type="radio" value='DPD Lietuva' name='deliveryMethod' id='dpd' checked={formik.values.deliveryMethod === 'DPD Lietuva'} onChange={handleDeliveryMethodChange} />
 <label htmlFor="dpd">DPD Lietuva</label>
 <span>9.68 Eur</span>
 </div>
 <div className='flex justify-between py-4'>
-<input className='appearance-none border w-8 h-8 bg-white checked:bg-black rounded-full' type="radio" value='LPExpr' name='deliveryMethod' id='lpexp' checked={formik.values.deliveryMethod === 'LPExpr'} onChange={handleDeliveryMethodChange} />
+<input className='appearance-none border w-8 h-8 bg-white checked:bg-black rounded-full' type="radio" value='LP Express' name='deliveryMethod' id='lpexp' checked={formik.values.deliveryMethod === 'LP Express'} onChange={handleDeliveryMethodChange} />
 <label htmlFor="lpexp">LP EXPRESS</label>
 <span>9.69 Eur</span>
 </div>
 <div className='flex justify-between py-4'>
-<input className='appearance-none border w-8 h-8 bg-white checked:bg-black rounded-full' type="radio" value='pickUp' name='deliveryMethod' id='pickUp' checked={formik.values.deliveryMethod === 'pickUp'} onChange={handleDeliveryMethodChange} />
+<input className='appearance-none border w-8 h-8 bg-white checked:bg-black rounded-full' type="radio" value='Pick Up At Shop' name='deliveryMethod' id='pickUp' checked={formik.values.deliveryMethod === 'Pick Up At Shop'} onChange={handleDeliveryMethodChange} />
 <label htmlFor="pickUp">PICK UP at shop</label>
 <span>0.00 Eur</span>
 </div>
