@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useItemsCtx } from "../store/ItemsContextProvider";
-import { Listbox } from "@headlessui/react";
+import { size } from "../assets/selections";
 
 function SingleClothesPage() {
   const { clothesUid } = useParams();
@@ -9,7 +9,10 @@ function SingleClothesPage() {
   const currentClothesObj = clothesArr.find(
     (product) => product.uid === clothesUid
   );
-  const [selectedSize, setSelectedSize] = useState(["Select size"]);
+  const [selectedSize, setSelectedSize] = useState('');
+  const handleSizeChange = (event) => {
+    setSelectedSize(event.target.value)
+  }
   
 function addToCart(items) {
   setCartArr(tempCart)
@@ -43,35 +46,11 @@ function addToCart(items) {
           currentClothesObj.gender.slice(1)}
       </p>
       <div className="flex gap-2 text-gray-600">
-        <p className="mt-2">Size: </p>
-        <Listbox
-          value={selectedSize}
-          onChange={setSelectedSize}
-          as="div"
-          className="ml-20 p-1 border border-black w-52"
-        >
-    
-            <Listbox.Button className="w-full pl-4">
-              <div className="flex justify-between">
-              <span className="pr-30">{selectedSize}</span>
-              <div>
-              <i className="fa fa-angle-down ml-2" aria-hidden="true"></i></div>
-              </div>
-            </Listbox.Button>
-  
-
-          <Listbox.Options className="pl-4 pr-20 relative w-52">
-            {[currentClothesObj.size].map((size, sizeIdx) => (
-              <Listbox.Option
-                key={sizeIdx}
-                value={[size]}
-                className="cursor-pointer relative w-52"
-              >
-                {size}
-              </Listbox.Option>
-            ))}
-          </Listbox.Options>
-        </Listbox>
+        <p className="mt-2 mr-3.5">Size: </p>
+        <select className="ml-16 p-1.5 border border-black text-center" value={selectedSize} type='text' name="size" id="size" onChange={handleSizeChange}>
+          <option disabled value="">Select Size</option>
+        {size.map((sObj) => currentClothesObj.size === sObj ? <option key={sObj} value={sObj}>{sObj}</option> : <option disabled className="text-gray-200" key={sObj} value={sObj}>{sObj}</option> )}
+        </select>
       </div>
       <div
         className="flex gap-2 text-gray-600
@@ -91,7 +70,7 @@ function addToCart(items) {
       </div>
       <p>{currentClothesObj.price.toFixed(2)} €</p>
       <div className="flex flex-col gap-8 align-items-center">
-        <button
+        <button disabled={selectedSize !== currentClothesObj.size}
           onClick={() =>
             addToCart((tempCart) => [...tempCart, currentClothesObj])
           }
