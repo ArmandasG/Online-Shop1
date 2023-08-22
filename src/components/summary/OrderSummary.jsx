@@ -27,7 +27,7 @@ function OrderSummary() {
         </div>
 }
         </div>
-        <span className="text-2xl">{deliveryFee.length === 0 ? allCartItemsPrice.toFixed(2) : allCartItemsPriceWithDeliveryFee} Eur</span>
+        <span className="text-2xl">{deliveryFee.length === 0 ? allCartItemsPrice.toFixed(2) : allCartItemsPriceWithDeliveryFee} €</span>
         
       </Disclosure.Button>
       <Transition
@@ -58,15 +58,15 @@ cartIsOpen ? close() : ''
         
         <div className="flex justify-between py-2 text-gray-500">
           <p className="text-xl">Subtotal</p>
-          <span className="text-2xl">{allCartItemsPrice.toFixed(2)} Eur</span>
+          <span className="text-2xl">{allCartItemsPrice.toFixed(2)} €</span>
         </div>
         <div className="flex justify-between py-2 border-b-2 text-gray-500">
           <p className="text-xl">Shipping</p>
-          <span className="text-xl">{deliveryFee.length && cartArr.length > 0 ? `${deliveryFee.map((fObj) => fObj.toFixed(2))} Eur` : 'Calculated at next step'}</span>
+          <span className="text-xl">{deliveryFee.length && cartArr.length > 0 ? `${deliveryFee.map((fObj) => fObj.toFixed(2))} €` : 'Calculated at next step'}</span>
         </div>
         <div className="py-4 flex justify-between font-bold">
         <p className="text-xl">Total</p>
-        <span className="text-xl">{deliveryFee.length === 0 ? allCartItemsPrice.toFixed(2) : allCartItemsPriceWithDeliveryFee} Eur</span>
+        <span className="text-xl">{deliveryFee.length === 0 ? allCartItemsPrice.toFixed(2) : allCartItemsPriceWithDeliveryFee} €</span>
         </div>
         </div>
         )}

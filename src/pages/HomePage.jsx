@@ -27,7 +27,7 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="pt-8 pb-8 container">
+    <div className="pt-8 pb-8 container items-center">
       <img src={randomImageUrl} alt="cover-photo" />
     </div>
   );

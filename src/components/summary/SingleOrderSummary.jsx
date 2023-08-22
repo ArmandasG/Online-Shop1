@@ -12,7 +12,7 @@ function SingleOrderSummary({ OrderItem, allItems }) {
         <h2>
           {OrderItemEl.brand}, {OrderItemEl.category}, {OrderItemEl.size}
         </h2>
-        <span className="text-2xl text-gray-500">{OrderItemEl.price.toFixed(2)} Eur</span>
+        <span className="text-2xl text-gray-500">{OrderItemEl.price.toFixed(2)} €</span>
       </div>
     </li>
   );

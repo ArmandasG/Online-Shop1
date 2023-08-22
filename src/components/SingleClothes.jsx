@@ -7,7 +7,7 @@ function SingleClothes({clothes}) {
       <Link to={`/clothes/${clothes.uid}`}>
         <img src={clothes.img} alt={clothes.brand} className='w-60 h-60 object-contain' />
         <h4 className='text-xl'>{clothes.brand}</h4>
-        <span className='text-xl'>{clothes.price}.00€</span>
+        <span className='text-xl'>{clothes.price.toFixed(2)} €</span>
         </Link>
     </li>
   )
