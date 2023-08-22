@@ -9,6 +9,9 @@ function Cart({ myCartNav, onClose }) {
       [...prevItem].filter((filtered) => filtered.uid !== id)
     );
   }
+  const allCartItemsPrice = cartArr.reduce((total , cartItem) => {
+    const item = allItems.find(i => i.uid === cartItem.uid)
+    return total + (item?.price || 0) * cartItem.quantity }, 0)
   return (
     <div className="cartOverlay pt-4" id={myCartNav}>
       <div className="ml-8 mt-4 mr-8">
@@ -25,10 +28,7 @@ function Cart({ myCartNav, onClose }) {
             <SingleCartItem key={uid} cartItem={cObj} DeleteOfItem={() => handleDelete(cObj.uid)} setTempCart={setTempCart} />
           ))}
         </ul>
-        <p className="text-end mt-8">{cartArr.reduce((total , cartItem) => {
-          const item = allItems.find(i => i.uid === cartItem.uid)
-          return (total + (item?.price || 0) * cartItem.quantity).toFixed(2) }, 0)
-        } €</p>
+        <p className="text-end mt-8">{allCartItemsPrice.toFixed(2)} €</p>
         <p className="text-end text-gray-500 mb-6">Taxes and shipping calculated at checkout</p>
         <div className="flex">
         <button onClick={() => {setCartArr([]), setTempCart([])}} className="py-4 px-5 mt-4 border border-black mr-4"><i className="fa fa-refresh" aria-hidden="true"></i></button>

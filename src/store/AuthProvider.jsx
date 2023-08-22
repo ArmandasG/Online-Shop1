@@ -1,6 +1,4 @@
-import { useState } from "react";
-import { createContext } from "react";
-import { useContext } from "react";
+import { useEffect, useState, useContext, createContext } from "react";
 
 const AuthContext = createContext({
     user: {},
@@ -25,6 +23,53 @@ function AuthProvider ({children}) {
         msg: '',
         type: '',
     });
+    const [isVisible, setIsVisible] = useState(false)
+
+    const { show, msg } = feedback;
+  useEffect(() => {
+    if (show === true && msg !== "Loading") {
+        setIsVisible(true)
+      setTimeout(() => {
+        setIsVisible(false)
+        setFeedback({
+          show: false,
+          msg: "",
+          type: "",
+        });
+      }, 2000);
+    }
+  }, [show, msg]);
+
+  const ui = {
+    showSuccess(msg = "") {
+      setFeedback({
+        show: true,
+        msg: msg || "Success",
+        type: "success",
+      });
+    },
+    showError(msg = "") {
+      setFeedback({
+        show: true,
+        msg: msg || "Error",
+        type: "error",
+      });
+    },
+    showLoading(msg = "") {
+      setFeedback({
+        show: true,
+        msg: msg || "Loading...",
+        type: "info",
+      });
+    },
+    closeAlert() {
+      setFeedback({
+        show: false,
+        msg: "",
+        type: "",
+      });
+    },
+  };
 
     const isLoggedIn = !!user
 
@@ -33,6 +78,9 @@ function AuthProvider ({children}) {
         isLoading,
         isLoggedIn,
         feedback,
+        ui,
+        isVisible,
+        setIsVisible,
     }
 
 return (

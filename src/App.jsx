@@ -18,11 +18,13 @@ import PleaseAddItems from './pages/PleaseAddItems';
 import CartShipping from './pages/CartShipping';
 import CartPayment from './pages/CartPayment';
 import ThankYou from './pages/ThankYou';
+import Feedback from './components/feedback/Feedback';
 
 function App() {
   const { cartArr, navigate, shippingInformation } = useItemsCtx();
   return (
     <div className="bg-site bg-no-repeat bg-cover">
+      <Feedback />
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
