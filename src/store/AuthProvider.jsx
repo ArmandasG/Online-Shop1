@@ -30,13 +30,12 @@ function AuthProvider ({children}) {
     if (show === true && msg !== "Loading") {
         setIsVisible(true)
       setTimeout(() => {
-        setIsVisible(false)
         setFeedback({
           show: false,
           msg: "",
           type: "",
         });
-      }, 2000);
+      }, 1500);
     }
   }, [show, msg]);
 

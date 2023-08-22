@@ -6,7 +6,7 @@ function Feedback() {
   const { feedback, ui, isVisible, setIsVisible } = useAuthCtx();
   const { show, type, msg } = feedback;
 
-useEffect(() => {setTimeout(() => {setIsVisible(false)}, 1500)}, [isVisible])
+useEffect(() => {setTimeout(() => {setIsVisible(false)}, 1200)}, [isVisible])
 
   return show ? (
     <div className={`feedback-container ${type} ${isVisible ? 'visible' : ''}`}>
