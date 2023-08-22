@@ -72,7 +72,7 @@ function DeliveryInformation() {
         <input className="p-4 border border-black w-full" placeholder='Address' type="text" id='address' value={formik.values.address} onBlur={formik.handleBlur} onChange={formik.handleChange} />
         <input className="p-4 border border-black w-full" placeholder='Apartment, suite, etc... (optional)' type="text" id='addressExtra' value={formik.values.addressExtra} onBlur={formik.handleBlur} onChange={formik.handleChange} />
             <select
-              className="p-4 border border-black w-full"
+              className="p-4 border border-black w-full rounded bg-white text-gray-400"
               type="text"
               id="country"
               name="country"
@@ -94,7 +94,7 @@ function DeliveryInformation() {
             </select>
         <div className='flex gap-8'>
         <select
-              className="p-4 border border-black w-full"
+              className="p-4 border border-black w-full rounded bg-white text-gray-400"
               type="text"
               id="city"
               name="city"
