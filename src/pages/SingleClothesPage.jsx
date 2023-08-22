@@ -47,7 +47,7 @@ function addToCart(items) {
       </p>
       <div className="flex gap-2 text-gray-600">
         <p className="mt-2 mr-3.5">Size: </p>
-        <select className="ml-16 p-1.5 border border-black text-center" value={selectedSize} type='text' name="size" id="size" onChange={handleSizeChange}>
+        <select className="ml-16 p-1.5 border border-black bg-white rounded-none" value={selectedSize} type='text' name="size" id="size" onChange={handleSizeChange}>
           <option disabled value="">Select Size</option>
         {size.map((sObj) => currentClothesObj.size === sObj ? <option key={sObj} value={sObj}>{sObj}</option> : <option disabled className="text-gray-200" key={sObj} value={sObj}>{sObj}</option> )}
         </select>
