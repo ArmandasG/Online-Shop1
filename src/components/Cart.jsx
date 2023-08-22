@@ -1,13 +1,16 @@
 import React from "react";
 import { useItemsCtx } from "../store/ItemsContextProvider";
 import SingleCartItem from "./SingleCartItem";
+import { useAuthCtx } from "../store/AuthProvider";
 
 function Cart({ myCartNav, onClose }) {
   const { cartArr, setCartArr, setTempCart, navigate, allItems } = useItemsCtx();
+  const { ui } = useAuthCtx();
   function handleDelete(id) {
     setCartArr((prevItem) =>
       [...prevItem].filter((filtered) => filtered.uid !== id)
     );
+    ui.showSuccess('Item Deleted Successfully');
   }
   const allCartItemsPrice = cartArr.reduce((total , cartItem) => {
     const item = allItems.find(i => i.uid === cartItem.uid)

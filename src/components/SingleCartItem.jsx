@@ -4,7 +4,6 @@ import { useItemsCtx } from '../store/ItemsContextProvider';
 function SingleCartItem({cartItem, DeleteOfItem, setTempCart}) {
   const { allItems } = useItemsCtx();
 
-
   const cartItemEl = allItems.find(sItem => (sItem.uid === cartItem.uid))
     
   return (

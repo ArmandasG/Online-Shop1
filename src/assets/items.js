@@ -148,7 +148,7 @@ export const clothes = [
   {
     category: "shoes",
     color: "grey",
-    size: 44,
+    size: '44',
     price: 80.00,
     gender: "uni",
     uid: uuidv4(),
@@ -160,7 +160,7 @@ export const clothes = [
   {
     category: "shoes",
     color: "black",
-    size: 37,
+    size: '37',
     price: 120.00,
     gender: "women",
     uid: uuidv4(),
@@ -172,7 +172,7 @@ export const clothes = [
   {
     category: "shoes",
     color: "black",
-    size: 45,
+    size: '45',
     price: 60.00,
     gender: "uni",
     uid: uuidv4(),
@@ -184,7 +184,7 @@ export const clothes = [
   {
     category: "shoes",
     color: "black",
-    size: 46,
+    size: '46',
     price: 90.00,
     gender: "men",
     uid: uuidv4(),
