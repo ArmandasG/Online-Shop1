@@ -4,7 +4,7 @@ import { useItemsCtx } from '../../store/ItemsContextProvider'
 import { useFormik } from 'formik'
 
 function ShippingMethod() {
-  const { navigate, setDeliveryFee, deliveryFee, cartArr, setDeliveryMethod } = useItemsCtx()
+  const { navigate, setDeliveryFee, setDeliveryMethod, shippingInfo } = useItemsCtx()
   const formik = useFormik({
     initialValues: {
       deliveryMethod: ''
@@ -33,14 +33,14 @@ const handleDeliveryMethodChange = (event) => {
         <div className='border border-black px-4'>
         <div className='flex justify-between py-5 border-b-2 border-gray-400'>
           <h3 className='w-2/12'>Contact</h3>
-          <span className='w-8/12'>example@example.com</span>
+          <span className='w-8/12'>{shippingInfo.email}</span>
           <button onClick={() => navigate('/cart/information')} className='underline'>Change</button>
 
 
         </div>
         <div className='flex justify-between py-5'>
         <h3 className='w-2/12'>Ship To</h3>
-          <span className='w-8/12'>Adreso g. 24, Šiauliai, Lithuania</span>
+          <span className='w-8/12'>{shippingInfo.address}{shippingInfo.addressExtra !== '' ? ` - ${shippingInfo.addressExtra}` : '' }, {shippingInfo.city}, {shippingInfo.country} </span>
           <button onClick={() => navigate('/cart/information')} className='underline'>Change</button>
         </div>
       </div>

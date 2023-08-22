@@ -5,12 +5,12 @@ import { useItemsCtx } from '../../store/ItemsContextProvider';
 import { cities } from '../../assets/cities';
 
 function DeliveryInformation() {
-  const { setCartIsOpen, cartIsOpen, navigate, setShippingInformation, shippingInformation } = useItemsCtx();
+  const { setCartIsOpen, cartIsOpen, navigate, setShippingInformation, shippingInformation, setShippingInfo } = useItemsCtx();
   function openCartNav () {
     const cartNav = document.getElementById("myCartNav")
     if (cartIsOpen === false) {
       cartNav.style.width = '100%'
-      setCartIsOpen(true)
+      setCartIsOpen(true);
     }
   };
     const formik = useFormik({
@@ -18,7 +18,6 @@ function DeliveryInformation() {
             email: '',
             keepMeUpdated: false,
             mobilePhoneNumber: '',
-            toggle: false,
             firstName: '',
             lastName: '',
             address: '',
@@ -28,13 +27,30 @@ function DeliveryInformation() {
             postalCode: '',
             saveInformation: false,
         },
-        onSubmit: (values) => {
+        onSubmit: (values, { resetForm, setSubmitting }) => {
             console.log('values ===', values);
             setShippingInformation([values]);
+            saveShippingInfo(values, setSubmitting);
             navigate("/cart/shipping");
             console.log('shippingInformation ===', shippingInformation);
         }
     })
+
+    function saveShippingInfo(ShippingInfoValuesObj) {
+      setShippingInfo({
+        email: ShippingInfoValuesObj.email,
+        keepMeUpdated: ShippingInfoValuesObj.keepMeUpdated,
+        mobilePhoneNumber: ShippingInfoValuesObj.mobilePhoneNumber,
+        firstName: ShippingInfoValuesObj.firstName,
+        lastName: ShippingInfoValuesObj.lastName,
+        address: ShippingInfoValuesObj.address,
+        addressExtra: ShippingInfoValuesObj.addressExtra,
+        city: ShippingInfoValuesObj.city,
+        country: ShippingInfoValuesObj.country,
+        postalCode: ShippingInfoValuesObj.postalCode,
+        saveInformation: ShippingInfoValuesObj.saveInformation,
+      });
+    }
   return (
     <div className="">
       <Directory />
