@@ -18,7 +18,8 @@ function SingleClothesPage() {
   
 function addToCart(items) {
   setCartArr(tempCart);
-  ui.showSuccess('Added to Cart')
+  tempCart.length > 0 ? ui.showSuccess('Added to Cart') : 
+  ui.showError('Please select quantity')
 }
 
 
