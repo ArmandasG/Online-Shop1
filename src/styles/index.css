@@ -80,7 +80,7 @@ font-size: 62.5%;
   color: white;
   text-align: center;
   z-index: 10;
-  width: 20vh;
+  width: 50%;
   border-radius: 1rem;
   transform: translate(50%, -100%);
   transition: transform 0.3s ease-in-out;
