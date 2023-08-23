@@ -8,6 +8,7 @@ const ItemsContext = createContext();
 ItemsContext.displayName = 'Items'
 
 const ItemsContextProvider = ({ children }) => {
+  const { ui } = useAuthCtx()
   const [allItems, setAllItems] = useState(clothes)
     const [clothesArr, setClothesArr] = useState(clothes);
     const [cartArr, setCartArr] = useState([]);
@@ -51,6 +52,7 @@ const ItemsContextProvider = ({ children }) => {
               item.uid === uid ? { ...item, quantity: item.quantity + 1 } : item,
             );
           } else {
+            handleQuantityLimitError()
             return currentItems;
           }
         }
