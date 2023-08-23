@@ -24,7 +24,7 @@ function addToCart(items) {
 
 
   return (
-    <div className="min-h-screen text-3xl space-y-10 container">
+    <div className="min-h-screen text-3xl space-y-10 container flex flex-col">
       <img
         src={currentClothesObj.img}
         alt={currentClothesObj.brand}
