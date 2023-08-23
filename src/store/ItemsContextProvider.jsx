@@ -19,10 +19,33 @@ const ItemsContextProvider = ({ children }) => {
     const [deliveryFee, setDeliveryFee] = useState([]);
     const [deliveryMethod, setDeliveryMethod] = useState([]);
     const [shippingInfo, setShippingInfo] = useState({})
+    const [quantityLimitError, setQuantityLimitError] = useState(false);
+
+// temp solution considering that the quantity element will be remade to an input -
+    const [currentItemUid, setCurrentItemUid] = useState(null);
+
+useEffect(() => {quantityLimitError === true ? handleQuantityLimitError() : ''}, [quantityLimitError])
+
+useEffect(() => {
+  if (currentItemUid !== null) {
+    const currentItem = tempCart.find((item) => item.uid === currentItemUid);
+    if (currentItem) {
+      const availableQty = allItems.find((cObj) => cObj.uid === currentItemUid)?.quantity || 0;
+
+      if (currentItem.quantity === availableQty) {
+        setQuantityLimitError(true);
+      } else {
+        setQuantityLimitError(false);
+      }
+    }
+  }
+}, [tempCart, currentItemUid, quantityLimitError]);
 
     function handleQuantityLimitError() {
       ui.showError("Maximum available quantity reached");
     }
+// temp solution considering that the quantity element will be remade to an input //
+
 
     useEffect(() => {
       function isCartEmptyForDelivery () {
@@ -41,6 +64,7 @@ const ItemsContextProvider = ({ children }) => {
 
     function increaseCartQuantity(uid, availableQty) {
       setTempCart((currentItems) => {
+        setCurrentItemUid(uid)
         const existingItem = currentItems.find((item) => item.uid === uid);
         const currentQuantity = existingItem ? existingItem.quantity : 0;
   
@@ -48,11 +72,13 @@ const ItemsContextProvider = ({ children }) => {
           return [...currentItems, { uid, quantity: currentQuantity + 1 }];
         }  else {
           if (currentQuantity < availableQty) {
+            setQuantityLimitError(false)
             return currentItems.map((item) =>
               item.uid === uid ? { ...item, quantity: item.quantity + 1 } : item,
+              
             );
           } else {
-            handleQuantityLimitError()
+            setQuantityLimitError(true)
             return currentItems;
           }
         }
