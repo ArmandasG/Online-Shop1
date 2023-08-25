@@ -9,8 +9,20 @@ function JoinUsPage() {
         },
         onSubmit: (values) => {
             console.log('values ===', values);
+        },
+        validate: (values) => {
+            const errors = {};
+
+            if (!values.email) {
+                errors.email = "Email is required";
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+                errors.email = 'Invalid email format';
+            }
+
+            return errors
         }
     })
+    
   return (
     <div className='min-h-screen container'>
 

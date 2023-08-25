@@ -6,7 +6,6 @@ import ClothesPage from './pages/ClothesPage';
 import ContactUsPage from './pages/ContactUsPage';
 import CheckOutPage from './pages/CheckOutPage';
 import Footer from './components/layout/Footer';
-import AddClothesPage from './pages/AddClothesPage';
 import SingleClothesPage from './pages/SingleClothesPage';
 import FindUsPage from './pages/FindUsPage';
 import WhatToKnow from './pages/WhatToKnow';
@@ -30,7 +29,6 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/clothes" element={<ClothesPage />} />
-        <Route path="/clothes/new" element={<AddClothesPage />} />
         <Route path="/clothes/:clothesUid" element={<SingleClothesPage />} />
         {cartArr.length > 0 ? 
           <Route path='/cart/information' element={<CartInformation />} /> :
