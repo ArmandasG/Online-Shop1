@@ -58,7 +58,8 @@ const handleDeliveryMethodChange = (event) => {
       <form onSubmit={formik.handleSubmit}>
       <div className='my-8'>
         <h2 className='mb-4'>{'Shipping Method'.toUpperCase()}</h2>
-        <div className='border px-4 flex flex-col divide-y-2 divide-gray-400 border-black'>
+        <div>
+        <div className={`${formik.touched.deliveryMethod && formik.errors.deliveryMethod ? 'border-red-600 focus-visible:outline-red-600' : ''} border px-4 flex flex-col divide-y-2 divide-gray-400 border-black`}>
           <div className='flex justify-between py-4'>
 <input className='appearance-none border w-8 h-8 bg-white checked:bg-black rounded-full' type="radio" value='DPD Lietuva' name='deliveryMethod' id='dpd' checked={formik.values.deliveryMethod === 'DPD Lietuva'} onChange={handleDeliveryMethodChange} />
 <label htmlFor="dpd">DPD Lietuva</label>
@@ -74,6 +75,12 @@ const handleDeliveryMethodChange = (event) => {
 <label htmlFor="pickUp">PICK UP at shop</label>
 <span>0.00 Eur</span>
 </div>
+        </div>
+        <div className="h-1 mt-1">
+    {formik.touched.deliveryMethod && formik.errors.deliveryMethod ? (
+            <div className="text-red-600 text-xl">{formik.errors.deliveryMethod}</div>
+          ) : null}
+    </div>
         </div>
         </div>
         <div className='py-8 bg-white'>
