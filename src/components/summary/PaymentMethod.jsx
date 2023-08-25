@@ -13,7 +13,6 @@ function PaymentMethod() {
       securityCode: '',
     },
     onSubmit: (values) => {
-        console.log('values ===', values);
         navigate("/thank-you")
     }
 })

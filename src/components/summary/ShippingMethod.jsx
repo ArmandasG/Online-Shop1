@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Directory from './Directory'
 import { useItemsCtx } from '../../store/ItemsContextProvider'
 import { useFormik } from 'formik'
+import { validate } from 'uuid'
 
 function ShippingMethod() {
   const { navigate, setDeliveryFee, setDeliveryMethod, shippingInfo } = useItemsCtx()
@@ -14,6 +15,16 @@ function ShippingMethod() {
         navigate("/cart/payment")
         setDeliveryMethod(values.deliveryMethod)
         resetForm()
+    },
+    validate: (values) => {
+      const errors = {};
+
+      if (!values.deliveryMethod) {
+        errors.deliveryMethod = 'Please select a delivery method'
+      }
+
+      return errors
+
     }
     
 })
