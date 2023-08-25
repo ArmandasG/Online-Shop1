@@ -10,7 +10,7 @@ function Cart({ myCartNav, onClose }) {
     setCartArr((prevItem) =>
       [...prevItem].filter((filtered) => filtered.uid !== id)
     );
-    ui.showSuccess('Item Deleted Successfully');
+    ui.showSuccess('Removed From Cart');
   }
   const allCartItemsPrice = cartArr.reduce((total , cartItem) => {
     const item = allItems.find(i => i.uid === cartItem.uid)
