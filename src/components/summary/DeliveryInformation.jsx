@@ -32,7 +32,36 @@ function DeliveryInformation() {
             setShippingInformation([values]);
             saveShippingInfo(values, setSubmitting);
             navigate("/cart/shipping");
-            console.log('shippingInformation ===', shippingInformation);
+        },
+        validate: (values) => {
+          const errors = {};
+
+          if (!values.email) {
+            values.email = 'Email is required';
+          } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+            errors.email = 'Invalid email format';
+          }
+          if (!values.firstName) {
+            errors.firstName = 'First Name is required';
+          }
+          if (!values.lastName) {
+            errors.lastName = 'Last Name is required';
+          }
+          if (!values.address) {
+            errors.address = 'Address is required';
+          }
+          if (!values.city) {
+            errors.city = 'City is required';
+          }
+          if (!values.country) {
+            errors.country = 'Country is required';
+          }
+          if (!values.postalCode) {
+            errors.postalCode = 'Postal Code is required'
+          }
+
+          return errors;
+
         }
     })
 
