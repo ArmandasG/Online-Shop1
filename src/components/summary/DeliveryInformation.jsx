@@ -37,15 +37,15 @@ function DeliveryInformation() {
           const errors = {};
 
           if (!values.email) {
-            values.email = 'Email is required';
+            errors.email = 'Email is required';
           } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
             errors.email = 'Invalid email format';
           }
           if (!values.firstName) {
-            errors.firstName = 'First Name is required';
+            errors.firstName = 'First name is required';
           }
           if (!values.lastName) {
-            errors.lastName = 'Last Name is required';
+            errors.lastName = 'Last name is required';
           }
           if (!values.address) {
             errors.address = 'Address is required';
@@ -85,23 +85,56 @@ function DeliveryInformation() {
       <Directory />
       <div className='container py-8 bg-white'>
       <h2 className='text-2xl text-gray-500'>{"Contact Information".toUpperCase()}</h2>
-    <form className='mt-4 space-y-4 ' onSubmit={formik.handleSubmit}>
-      <input className="p-4 border border-black w-full" placeholder='Email *' type="email" id='email' value={formik.values.email} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+    <form className='mt-4 space-y-6 ' onSubmit={formik.handleSubmit}>
+      <div className='w-full'>
+      <input className={`${formik.touched.email && formik.errors.email ? 'border-red-600 focus-visible:outline-red-600' : ''} p-4 border border-black w-full`} placeholder='Email *' type="email" id='email' value={formik.values.email} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+      <div className="h-1">
+    {formik.touched.email && formik.errors.email ? (
+            <div className="text-red-600 text-base">{formik.errors.email}</div>
+          ) : null}
+    </div>
+      </div>
+      
       <label className='flex'>
       <input checked={formik.values.keepMeUpdated} name='keepMeUpdated' className="mr-2 w-6 h-6 border-2 border-gray appearance-none checked:bg-black" type="checkbox" onChange={formik.handleChange} />
       <span className=' text-lg text-gray-500'>Keep me up to date on news and exclusive offers</span>
       </label>
       <input className="p-4 border border-black w-full" placeholder='Mobile phone number' type="phone" id='mobilePhoneNumber' value={formik.values.mobilePhoneNumber} onBlur={formik.handleBlur} onChange={formik.handleChange} />
-      <div className='pt-8 space-y-4'>
+      <div className='pt-8 space-y-6'>
         <h2 className='text-2xl text-gray-500'>{'Shipping Address'.toUpperCase()}</h2>
         <div className='flex gap-8'>
-        <input className="p-4 border border-black w-full" placeholder='First name *' type="text" id='firstName' value={formik.values.firstName} onBlur={formik.handleBlur} onChange={formik.handleChange} />
-        <input className="p-4 border border-black w-full" placeholder='Last name *' type="text" id='lastName' value={formik.values.lastName} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+          <div className='w-full'>
+        <input className={`${formik.touched.firstName && formik.errors.firstName ?'border-red-600 focus-visible:outline-red-600' : ''} p-4 border border-black w-full`} placeholder='First name *' type="text" id='firstName' value={formik.values.firstName} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+        <div className="h-1">
+    {formik.touched.firstName && formik.errors.firstName ? (
+            <div className="text-red-600 text-base">{formik.errors.firstName}</div>
+          ) : null}
+    </div>
         </div>
-        <input className="p-4 border border-black w-full" placeholder='Address *' type="text" id='address' value={formik.values.address} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+        <div className='w-full'>
+        <input className={`${formik.touched.lastName && formik.errors.lastName ? 'border-red-600 focus-visible:outline-red-600' : ''} p-4 border border-black w-full`} placeholder='Last name *' type="text" id='lastName' value={formik.values.lastName} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+        <div className="h-1">
+    {formik.touched.lastName && formik.errors.lastName ? (
+            <div className="text-red-600 text-base">{formik.errors.lastName}</div>
+          ) : null}
+    </div>
+        </div>
+        </div>
+        <div className='w-full'>
+        <input className={`${formik.touched.address && formik.errors.address ? 'border-red-600 focus-visible:outline-red-600' : ''} p-4 border border-black w-full`} placeholder='Address *' type="text" id='address' value={formik.values.address} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+        <div className="h-1">
+    {formik.touched.address && formik.errors.address ? (
+            <div className="text-red-600 text-base">{formik.errors.address}</div>
+          ) : null}
+    </div>
+        </div>
+        <div className='w-full'>
         <input className="p-4 border border-black w-full" placeholder='Apartment, suite, etc... (optional)' type="text" id='addressExtra' value={formik.values.addressExtra} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+        <div className="h-1"></div>
+        </div>
+           <div className='w-full'> 
             <select
-              className="p-4 border border-black w-full rounded bg-white"
+              className={`${formik.touched.country && formik.errors.country ? 'border-red-600 focus-visible:outline-red-600' : ''} p-4 border border-black w-full rounded bg-white`}
               type="text"
               id="country"
               name="country"
@@ -121,9 +154,16 @@ function DeliveryInformation() {
                 Great Britain (available soon)
                 </option>
             </select>
+            <div className="h-1">
+    {formik.touched.country && formik.errors.country ? (
+            <div className="text-red-600 text-base">{formik.errors.country}</div>
+          ) : null}
+    </div>
+            </div>
         <div className='flex gap-8'>
+          <div className='w-full'>
         <select
-              className="p-4 border border-black w-full rounded bg-white"
+              className={`${formik.touched.city && formik.errors.city ? 'border-red-600 focus-visible:outline-red-600' : ''} p-4 border border-black w-full rounded bg-white`}
               type="text"
               id="city"
               name="city"
@@ -142,7 +182,20 @@ function DeliveryInformation() {
               )) : ''}
               
             </select>
-        <input className="p-4 border border-black w-full" placeholder='Postal code *' type="number" id='postalCode' value={formik.values.postalCode} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+            <div className="h-1">
+    {formik.touched.city && formik.errors.city ? (
+            <div className="text-red-600 text-base">{formik.errors.city}</div>
+          ) : null}
+    </div>
+            </div>
+            <div className='w-full'>
+        <input className={`${formik.touched.postalCode && formik.errors.postalCode ? 'border-red-600 focus-visible:outline-red-600' : ''} p-4 border border-black w-full`} placeholder='Postal code *' type="number" id='postalCode' value={formik.values.postalCode} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+        <div className="h-1">
+    {formik.touched.postalCode && formik.errors.postalCode ? (
+            <div className="text-red-600 text-base">{formik.errors.postalCode}</div>
+          ) : null}
+    </div>
+        </div>
         </div>
         <label className='flex'>
       <input checked={formik.values.saveInformation} name='saveInformation' className="mr-2 w-6 h-6 border-2 border-gray appearance-none checked:bg-black" type="checkbox" onChange={formik.handleChange} />
