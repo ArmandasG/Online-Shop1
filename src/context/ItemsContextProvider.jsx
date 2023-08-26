@@ -2,6 +2,7 @@ import { useState, createContext, useContext, useEffect } from "react";
 import { clothes } from "../assets/items";
 import { useNavigate } from "react-router-dom";
 import { useAuthCtx } from "./AuthProvider";
+import PropTypes from 'prop-types'
 
 const ItemsContext = createContext();
 
@@ -140,4 +141,7 @@ export default ItemsContextProvider;
 
 export function useItemsCtx() {
   return useContext(ItemsContext);
+}
+ItemsContextProvider.propTypes = {
+  children: PropTypes.node,
 }

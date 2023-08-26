@@ -1,9 +1,9 @@
 import React from "react";
-import { useItemsCtx } from "../store/ItemsContextProvider";
+import { useItemsCtx } from "../context/ItemsContextProvider";
+import PropTypes from "prop-types";
 
 function SingleCartItem({ cartItem, DeleteOfItem, setTempCart }) {
   const { allItems } = useItemsCtx();
-
   const cartItemEl = allItems.find((sItem) => sItem.uid === cartItem.uid);
 
   return (
@@ -41,5 +41,14 @@ function SingleCartItem({ cartItem, DeleteOfItem, setTempCart }) {
     </li>
   );
 }
+
+SingleCartItem.propTypes = {
+  cartItem: PropTypes.shape({
+    uid: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+  }),
+  DeleteOfItem: PropTypes.func.isRequired,
+  setTempCart: PropTypes.func.isRequired,
+};
 
 export default SingleCartItem;

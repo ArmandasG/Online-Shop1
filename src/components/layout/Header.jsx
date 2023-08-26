@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Burger from "../Burger";
 import CheckOutPage from "../../pages/CheckOutPage";
-import { useItemsCtx } from "../../store/ItemsContextProvider";
+import { useItemsCtx } from "../../context/ItemsContextProvider";
 
 function Header() {
   const { setCartIsOpen, cartIsOpen } = useItemsCtx();

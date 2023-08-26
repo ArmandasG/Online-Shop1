@@ -1,7 +1,7 @@
 import React from "react";
 import Directory from "../summary/Directory";
 import { useFormik } from "formik";
-import { useItemsCtx } from "../../store/ItemsContextProvider";
+import { useItemsCtx } from "../../context/ItemsContextProvider";
 
 function PaymentMethod() {
   const { navigate, deliveryFee, deliveryMethod, shippingInfo } = useItemsCtx();

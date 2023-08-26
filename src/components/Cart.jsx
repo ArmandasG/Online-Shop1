@@ -1,7 +1,7 @@
 import React from "react";
-import { useItemsCtx } from "../store/ItemsContextProvider";
+import { useItemsCtx } from "../context/ItemsContextProvider";
 import SingleCartItem from "./SingleCartItem";
-import { useAuthCtx } from "../store/AuthProvider";
+import { useAuthCtx } from "../context/AuthProvider";
 import PropTypes from "prop-types"
 
 function Cart({ myCartNav, onClose }) {

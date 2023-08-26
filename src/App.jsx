@@ -12,7 +12,7 @@ import WhatToKnow from './pages/WhatToKnow';
 import JoinUsPage from './pages/JoinUsPage';
 import ReadMore from './pages/ReadMore';
 import CartInformation from './pages/CartInformation';
-import { useItemsCtx } from './store/ItemsContextProvider';
+import { useItemsCtx } from './context/ItemsContextProvider';
 import PleaseAddItems from './pages/PleaseAddItems';
 import CartShipping from './pages/CartShipping';
 import CartPayment from './pages/CartPayment';

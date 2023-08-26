@@ -1,5 +1,6 @@
 import Cart from "../components/Cart";
-import { useItemsCtx } from "../store/ItemsContextProvider";
+import { useItemsCtx } from "../context/ItemsContextProvider";
+import PropTypes from 'prop-types'
 
 function CheckOutPage({ onOpen, onClose }) {
   const { cartArr } = useItemsCtx();
@@ -11,6 +12,11 @@ function CheckOutPage({ onOpen, onClose }) {
       <Cart myCartNav="myCartNav" onClose={onClose} />
     </div>
   );
+}
+
+CheckOutPage.propTypes = {
+  onOpen: PropTypes.func,
+  onClose: PropTypes.func,
 }
 
 export default CheckOutPage;

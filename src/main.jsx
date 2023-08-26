@@ -1,9 +1,10 @@
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import AuthProvider from './store/AuthProvider';
+import AuthProvider from './context/AuthProvider';
 import './styles/index.css'
-import ItemsContextProvider from './store/ItemsContextProvider';
+import ItemsContextProvider from './context/ItemsContextProvider';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>

@@ -1,6 +1,6 @@
 import Filter from "../components/Filter";
 import SingleClothes from "../components/SingleClothes";
-import { useItemsCtx } from "../store/ItemsContextProvider";
+import { useItemsCtx } from "../context/ItemsContextProvider";
 
 function ClothesPage() {
   const { clothesArr, setClothesArr } = useItemsCtx();

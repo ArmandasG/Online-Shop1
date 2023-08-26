@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext, createContext } from "react";
+import PropTypes from 'prop-types'
 
 const AuthContext = createContext({
   user: {},
@@ -91,4 +92,7 @@ export default AuthProvider;
 
 export function useAuthCtx() {
   return useContext(AuthContext);
+}
+AuthProvider.propTypes = {
+  children: PropTypes.node,
 }

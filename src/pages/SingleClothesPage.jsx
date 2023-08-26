@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useItemsCtx } from "../store/ItemsContextProvider";
+import { useItemsCtx } from "../context/ItemsContextProvider";
 import { size, shoeSize } from "../assets/selections";
-import { useAuthCtx } from "../store/AuthProvider";
+import { useAuthCtx } from "../context/AuthProvider";
 
 function SingleClothesPage() {
   const { clothesUid } = useParams();

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'
 
 function SingleClothes({ clothes }) {
   return (
@@ -15,6 +16,21 @@ function SingleClothes({ clothes }) {
       </Link>
     </li>
   );
+}
+
+SingleClothes.propTypes = {
+  clothes: PropTypes.shape({
+    category: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    size: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    gender: PropTypes.string.isRequired,
+    uid: PropTypes.string.isRequired,
+    brand: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+    addDate: PropTypes.instanceOf(Date).isRequired,
+  })
 }
 
 export default SingleClothes;

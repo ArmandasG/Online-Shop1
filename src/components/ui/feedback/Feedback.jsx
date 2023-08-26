@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import "../../../styles/index.css";
-import { useAuthCtx } from "../../../store/AuthProvider";
+import { useAuthCtx } from "../../../context/AuthProvider";
 
 function Feedback() {
   const { feedback, isVisible, setIsVisible } = useAuthCtx();

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Disclosure, Transition } from "@headlessui/react";
 import SearchBar from "./SearchBar";
-import { useItemsCtx } from "../store/ItemsContextProvider";
+import { useItemsCtx } from "../context/ItemsContextProvider";
 import { clothes } from "../assets/items";
 import PropTypes from "prop-types";
 

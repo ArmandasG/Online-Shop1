@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useItemsCtx } from "../../store/ItemsContextProvider";
+import { useItemsCtx } from "../../context/ItemsContextProvider";
 import SingleOrderSummary from "./SingleOrderSummary";
 import { Disclosure, Transition } from "@headlessui/react";
 

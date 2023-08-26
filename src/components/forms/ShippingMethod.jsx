@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Directory from "../summary/Directory";
-import { useItemsCtx } from "../../store/ItemsContextProvider";
+import { useItemsCtx } from "../../context/ItemsContextProvider";
 import { useFormik } from "formik";
 
 function ShippingMethod() {

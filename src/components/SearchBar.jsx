@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import React from "react";
 import * as Yup from "yup";
+import PropTypes from 'prop-types'
 
 function SearchBar({ searchValue }) {
   const formik = useFormik({
@@ -32,6 +33,10 @@ function SearchBar({ searchValue }) {
       </form>
     </div>
   );
+}
+
+SearchBar.propTypes = {
+  searchValue: PropTypes.func.isRequired
 }
 
 export default SearchBar;
