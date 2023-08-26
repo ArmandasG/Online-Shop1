@@ -1,7 +1,9 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
 function SingleOrderSummary({ OrderItem, allItems }) {
   const OrderItemEl = allItems.find((oItem) => oItem.uid === OrderItem.uid);
+  console.log('allItems ===', OrderItem);
   return (
     <li className="flex border-t py-4">
       <div className=" basis-28 my-2 relative mr-8">
@@ -17,5 +19,29 @@ function SingleOrderSummary({ OrderItem, allItems }) {
     </li>
   );
 }
+
+SingleOrderSummary.propTypes = {
+  allItems: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+    PropTypes.shape({
+      category: PropTypes.string,
+      color: PropTypes.string,
+      size: PropTypes.string,
+      price: PropTypes.number,
+      gender: PropTypes.string,
+      uid: PropTypes.string,
+      brand: PropTypes.string,
+      img: PropTypes.string,
+      quantity: PropTypes.number,
+      addDate: PropTypes.instanceOf(Date),
+    }),
+  ])
+  ),
+  OrderItem: PropTypes.shape({
+    uid: PropTypes.string,
+    qunatity: PropTypes.number
+  })
+}
+
 
 export default SingleOrderSummary;
