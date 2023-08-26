@@ -2,10 +2,12 @@ import React from "react";
 import { useItemsCtx } from "../store/ItemsContextProvider";
 import SingleCartItem from "./SingleCartItem";
 import { useAuthCtx } from "../store/AuthProvider";
+import PropTypes from "prop-types"
 
 function Cart({ myCartNav, onClose }) {
   const { cartArr, setCartArr, setTempCart, navigate, allItems } =
     useItemsCtx();
+
   const { ui } = useAuthCtx();
   function handleDelete(id) {
     setCartArr((prevItem) =>
@@ -76,6 +78,11 @@ function Cart({ myCartNav, onClose }) {
       </div>
     </div>
   );
+}
+
+Cart.propTypes = {
+  myCartNav: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
 }
 
 export default Cart;

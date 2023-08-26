@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { type } from "../assets/selections";
 import { FilterType } from "./filters/FilterType";
+import PropTypes from "prop-types";
 
 const filterOptions = [
   "type",
@@ -105,6 +106,24 @@ function Filter({ clothesArr, setClothesArr }) {
       </div>
     </div>
   );
+}
+
+Filter.propTypes = {
+  clothesArr: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.shape({
+      category: PropTypes.string.isRequired,
+        color: PropTypes.string.isRequired,
+        size: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        gender: PropTypes.string.isRequired,
+        uid: PropTypes.string.isRequired,
+        brand: PropTypes.string.isRequired,
+        img: PropTypes.string.isRequired,
+        quantity: PropTypes.number.isRequired,
+        addDate: PropTypes.instanceOf(Date).isRequired,
+    })
+  ])),
+  setClothesArr: PropTypes.func.isRequired
 }
 
 export default Filter;

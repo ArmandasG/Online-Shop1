@@ -4,6 +4,7 @@ import { Disclosure, Transition } from "@headlessui/react";
 import SearchBar from "./SearchBar";
 import { useItemsCtx } from "../store/ItemsContextProvider";
 import { clothes } from "../assets/items";
+import PropTypes from "prop-types";
 
 const selectOptions = ["All", "Jackets", "Shirts", "Pants", "Shoes"];
 
@@ -221,6 +222,10 @@ function Burger({ closeCartNav }) {
       </section>
     </div>
   );
+}
+
+Burger.propTypes= {
+  closeCartNav: PropTypes.func.isRequired,
 }
 
 export default Burger;

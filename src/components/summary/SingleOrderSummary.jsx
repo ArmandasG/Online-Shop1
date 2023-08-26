@@ -31,22 +31,22 @@ SingleOrderSummary.propTypes = {
   allItems: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape({
-        category: PropTypes.string,
-        color: PropTypes.string,
-        size: PropTypes.string,
-        price: PropTypes.number,
-        gender: PropTypes.string,
-        uid: PropTypes.string,
-        brand: PropTypes.string,
-        img: PropTypes.string,
-        quantity: PropTypes.number,
-        addDate: PropTypes.instanceOf(Date),
+        category: PropTypes.string.isRequired,
+        color: PropTypes.string.isRequired,
+        size: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        gender: PropTypes.string.isRequired,
+        uid: PropTypes.string.isRequired,
+        brand: PropTypes.string.isRequired,
+        img: PropTypes.string.isRequired,
+        quantity: PropTypes.number.isRequired,
+        addDate: PropTypes.instanceOf(Date).isRequired,
       }),
     ])
   ),
   OrderItem: PropTypes.shape({
-    uid: PropTypes.string,
-    qunatity: PropTypes.number,
+    uid: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
   }),
 };
 
