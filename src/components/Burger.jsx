@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Disclosure, Transition } from "@headlessui/react";
 import SearchBar from "./SearchBar";
 import { useItemsCtx } from "../store/ItemsContextProvider";
@@ -18,9 +18,6 @@ function Burger({ closeCartNav }) {
   function closeNav() {
     document.getElementById("myNav").style.width = "0%";
   }
-  // console.log('document.getElementById("myNav").style.width ===', document.getElementById("myNav").style.width);
-
-  // const [searchedEl, setSearchedEl] = useState([])
 
   useEffect(() => {
     if (!query) {

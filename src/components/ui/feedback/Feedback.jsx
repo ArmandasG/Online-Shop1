@@ -16,9 +16,6 @@ function Feedback() {
   return show ? (
     <div className={`feedback-container ${type} ${isVisible ? "visible" : ""}`}>
       <p className="msg">{msg}</p>
-      {/* <button className="close-button" onClick={() => ui.closeAlert()}>
-        &times;
-      </button> */}
     </div>
   ) : null;
 }

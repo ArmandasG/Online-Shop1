@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Directory from "../summary/Directory";
 import { useItemsCtx } from "../../store/ItemsContextProvider";
 import { useFormik } from "formik";
-import { validate } from "uuid";
 
 function ShippingMethod() {
   const { navigate, setDeliveryFee, setDeliveryMethod, shippingInfo } =

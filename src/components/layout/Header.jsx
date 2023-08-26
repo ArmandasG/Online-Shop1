@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Burger from "../Burger";
 import CheckOutPage from "../../pages/CheckOutPage";
 import { useItemsCtx } from "../../store/ItemsContextProvider";
@@ -28,12 +28,6 @@ function Header() {
       }`}
       id="myHeader"
     >
-      {/* <nav className='hidden'>
-        <NavLink to={'/about'}>About Us</NavLink>
-        <NavLink to={'/clothes'}>Clothes</NavLink>
-        <NavLink to={'/contact'}>Contact Us</NavLink>
-        <NavLink to={'/checkout'}>Check Out</NavLink>
-      </nav> */}
       <Burger closeCartNav={closeCartNav} />
       <div>
         <Link

@@ -144,19 +144,3 @@ font-size: 62.5%;
       stroke-dashoffset: -124;
     }
   }
-
-
-/* .close-button {
-  position: absolute;
-  top: 50%;
-  right: -2rem;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  color: white;
-  font-size: 4rem;
-  cursor: pointer;
-} */
-  .close-button:hover {
-    opacity: 0.8;
-  }

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Listbox } from "@headlessui/react";
 import { type } from "../assets/selections";
 import { FilterType } from "./filters/FilterType";
 
