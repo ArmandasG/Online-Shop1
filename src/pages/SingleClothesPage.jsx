@@ -6,7 +6,7 @@ import { useAuthCtx } from "../store/AuthProvider";
 
 function SingleClothesPage() {
   const { clothesUid } = useParams();
-  const { clothesArr, setCartArr, cartArr, increaseCartQuantity, decreaseCartQuantity, getItemQuantity, tempCart, navigate } = useItemsCtx();
+  const { clothesArr, setCartArr, increaseCartQuantity, decreaseCartQuantity, getItemQuantity, tempCart, navigate } = useItemsCtx();
   const { ui } = useAuthCtx();
   const currentClothesObj = clothesArr.find(
     (product) => product.uid === clothesUid
@@ -16,7 +16,7 @@ function SingleClothesPage() {
     setSelectedSize(event.target.value)
   }
   
-function addToCart(items) {
+function addToCart() {
   setCartArr(tempCart);
   tempCart.length > 0 ? ui.showSuccess('Added to Cart') : 
   ui.showError('Quantity must be at least 1')

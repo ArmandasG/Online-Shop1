@@ -1,5 +1,5 @@
 import React from 'react'
-import Directory from './Directory'
+import Directory from '../summary/Directory'
 import { useFormik } from 'formik'
 import { useItemsCtx } from '../../store/ItemsContextProvider'
 

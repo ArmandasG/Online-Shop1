@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 function SingleOrderSummary({ OrderItem, allItems }) {
   const OrderItemEl = allItems.find((oItem) => oItem.uid === OrderItem.uid);
-  console.log('allItems ===', OrderItem);
+  console.log('allItems ===', allItems[12]);
   return (
     <li className="flex border-t py-4">
       <div className=" basis-28 my-2 relative mr-8">

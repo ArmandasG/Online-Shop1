@@ -1,6 +1,6 @@
 import React from 'react'
-import PaymentMethod from '../components/summary/PaymentMethod'
 import OrderSummary from '../components/summary/OrderSummary'
+import PaymentMethod from '../components/forms/PaymentMethod'
 
 function CartPayment() {
   return (

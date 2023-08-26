@@ -1,6 +1,6 @@
 import React from 'react'
-import ShippingMethod from '../components/summary/ShippingMethod'
 import OrderSummary from '../components/summary/OrderSummary'
+import ShippingMethod from '../components/forms/ShippingMethod'
 
 function CartShipping() {
   return (

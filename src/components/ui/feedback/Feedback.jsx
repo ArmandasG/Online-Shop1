@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
-import { useAuthCtx } from "../../store/AuthProvider";
-import '../../styles/index.css'
+
+import '../../../styles/index.css'
+import { useAuthCtx } from "../../../store/AuthProvider";
 
 function Feedback() {
-  const { feedback, ui, isVisible, setIsVisible } = useAuthCtx();
+  const { feedback, isVisible, setIsVisible } = useAuthCtx();
   const { show, type, msg } = feedback;
 
 useEffect(() => {setTimeout(() => {setIsVisible(false)}, 1200)}, [isVisible])

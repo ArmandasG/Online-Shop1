@@ -1,5 +1,5 @@
 import React from 'react'
-import DeliveryInformation from '../components/summary/DeliveryInformation'
+import DeliveryInformation from '../components/forms/DeliveryInformation'
 import OrderSummary from '../components/summary/OrderSummary'
 
 function CartInformation() {

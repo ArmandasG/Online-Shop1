@@ -1,11 +1,11 @@
 import { useFormik } from 'formik';
 import React from 'react'
-import Directory from './Directory';
+import Directory from '../summary/Directory';
 import { useItemsCtx } from '../../store/ItemsContextProvider';
 import { cities } from '../../assets/cities';
 
 function DeliveryInformation() {
-  const { setCartIsOpen, cartIsOpen, navigate, setShippingInformation, shippingInformation, setShippingInfo } = useItemsCtx();
+  const { setCartIsOpen, cartIsOpen, navigate, setShippingInformation, setShippingInfo } = useItemsCtx();
   function openCartNav () {
     const cartNav = document.getElementById("myCartNav")
     if (cartIsOpen === false) {

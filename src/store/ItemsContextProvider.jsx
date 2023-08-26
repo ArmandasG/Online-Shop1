@@ -1,5 +1,5 @@
 import { useState, createContext, useContext, useEffect } from "react";
-import {clothes} from '../assets/items'
+import { clothes } from '../assets/items'
 import { useNavigate } from "react-router-dom";
 import { useAuthCtx } from "./AuthProvider";
 

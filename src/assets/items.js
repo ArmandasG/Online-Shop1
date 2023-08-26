@@ -154,7 +154,7 @@ export const clothes = [
     uid: uuidv4(),
     brand: "clothesDown",
     img: "/images/clothes/shoes/shoes1.jpg",
-    quantity: "",
+    quantity: 1,
     addDate: new Date ('2023-01-26'),
   },
   {
