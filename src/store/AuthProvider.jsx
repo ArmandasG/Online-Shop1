@@ -1,34 +1,34 @@
 import { useEffect, useState, useContext, createContext } from "react";
 
 const AuthContext = createContext({
-    user: {},
-    token: {},
-    isLoggedIn: false,
-    isLoading: false,
-    feedback: {
-        show: false,
-        message: '',
-        type: '',
-    },
-    ui: {},
+  user: {},
+  token: {},
+  isLoggedIn: false,
+  isLoading: false,
+  feedback: {
+    show: false,
+    message: "",
+    type: "",
+  },
+  ui: {},
 });
 
-AuthContext.displayName = 'Authentification'
+AuthContext.displayName = "Authentification";
 
-function AuthProvider ({children}) {
-    const [user, setUser] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const [feedback, setFeedback] = useState({
-        show: false,
-        msg: '',
-        type: '',
-    });
-    const [isVisible, setIsVisible] = useState(false)
+function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [feedback, setFeedback] = useState({
+    show: false,
+    msg: "",
+    type: "",
+  });
+  const [isVisible, setIsVisible] = useState(false);
 
-    const { show, msg } = feedback;
+  const { show, msg } = feedback;
   useEffect(() => {
     if (show === true && msg !== "Loading") {
-        setIsVisible(true)
+      setIsVisible(true);
       setTimeout(() => {
         setFeedback({
           show: false,
@@ -70,25 +70,25 @@ function AuthProvider ({children}) {
     },
   };
 
-    const isLoggedIn = !!user
+  const isLoggedIn = !!user;
 
-    const authCtx = {
-        user,
-        isLoading,
-        isLoggedIn,
-        feedback,
-        ui,
-        isVisible,
-        setIsVisible,
-    }
+  const authCtx = {
+    user,
+    isLoading,
+    isLoggedIn,
+    feedback,
+    ui,
+    isVisible,
+    setIsVisible,
+  };
 
-return (
-<AuthContext.Provider value={authCtx}>{children}</AuthContext.Provider>
-);
+  return (
+    <AuthContext.Provider value={authCtx}>{children}</AuthContext.Provider>
+  );
 }
 
 export default AuthProvider;
 
 export function useAuthCtx() {
-    return useContext(AuthContext)
+  return useContext(AuthContext);
 }

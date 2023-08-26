@@ -47,11 +47,11 @@ function Filter({ clothesArr, setClothesArr }) {
   }
 
   const gatherFilters = () => {
-    console.log('pritaikyti filtrą-------------');
-  }
+    console.log("pritaikyti filtrą-------------");
+  };
 
   function refreshFilters() {
-    console.log('atnaujinti filtrai-----------------');
+    console.log("atnaujinti filtrai-----------------");
   }
 
   return (
@@ -66,7 +66,12 @@ function Filter({ clothesArr, setClothesArr }) {
           </div>
           <h3>Filter</h3>
           {filterOptions.map((fObj) => (
-            <FilterType onFilter={gatherFilters} className="block" key={fObj} fObj={fObj}>
+            <FilterType
+              onFilter={gatherFilters}
+              className="block"
+              key={fObj}
+              fObj={fObj}
+            >
               {fObj}
               <i className="fa fa-angle-down pl-2" aria-hidden="true"></i>
             </FilterType>
@@ -80,13 +85,19 @@ function Filter({ clothesArr, setClothesArr }) {
         </div>
       </div>
       <div>
-        <div onClick={sortByLatest} className={`${noShow} cursor-pointer pt-4 pb-4 pl-4`}>
+        <div
+          onClick={sortByLatest}
+          className={`${noShow} cursor-pointer pt-4 pb-4 pl-4`}
+        >
           {" "}
           <span className="pr-3 text-2xl">Sort by latest</span>
           <i className="fa fa-angle-down" aria-hidden="true"></i>{" "}
         </div>
         {sortItem && (
-          <div onClick={sortByOldest} className={`${noShow2} cursor-pointer pt-4 pb-4 pl-4`}>
+          <div
+            onClick={sortByOldest}
+            className={`${noShow2} cursor-pointer pt-4 pb-4 pl-4`}
+          >
             {" "}
             <span className="pr-3 text-2xl">Sort by oldest</span>
             <i className="fa fa-angle-up" aria-hidden="true"></i>{" "}

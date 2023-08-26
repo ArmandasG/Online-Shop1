@@ -7,13 +7,13 @@ import { clothes } from "../assets/items";
 
 const selectOptions = ["All", "Jackets", "Shirts", "Pants", "Shoes"];
 
-function Burger({closeCartNav}) {
+function Burger({ closeCartNav }) {
   const { clothesArr, setClothesArr, resetClothes, navigate } = useItemsCtx();
   const [query, setQuery] = useState("");
 
   function openNav() {
     document.getElementById("myNav").style.width = "100%";
-    closeCartNav()
+    closeCartNav();
   }
   function closeNav() {
     document.getElementById("myNav").style.width = "0%";
@@ -24,11 +24,11 @@ function Burger({closeCartNav}) {
 
   useEffect(() => {
     if (!query) {
-    return resetClothes();
+      return resetClothes();
     }
-  
-    const queryWords = query.toLowerCase().split(' ');
-  
+
+    const queryWords = query.toLowerCase().split(" ");
+
     const exactMatch = clothesArr.filter((clothes) => {
       return queryWords.every((word) => {
         return (
@@ -38,7 +38,7 @@ function Burger({closeCartNav}) {
         );
       });
     });
-  
+
     const singleWordMatch = clothesArr.filter((clothes) => {
       return queryWords.some((word) => {
         return (
@@ -48,9 +48,10 @@ function Burger({closeCartNav}) {
         );
       });
     });
-  
-    const filteredClothes = exactMatch.length > 0 ? exactMatch : singleWordMatch;
-  
+
+    const filteredClothes =
+      exactMatch.length > 0 ? exactMatch : singleWordMatch;
+
     setClothesArr(filteredClothes);
   }, [query]);
 
@@ -65,10 +66,10 @@ function Burger({closeCartNav}) {
   function selectedOptionFilter(sObj) {
     if (sObj === "All") {
       resetClothes(), closeNav();
-      setQuery('');
+      setQuery("");
     } else {
       resetClothes();
-      setQuery('')
+      setQuery("");
       const filteredOptions = clothes.filter((clothes) =>
         clothes.category.toLowerCase().includes(sObj.toLowerCase())
       );
@@ -78,29 +79,34 @@ function Burger({closeCartNav}) {
   }
 
   function selectWhatToKnow() {
-    navigate('/what-to-know')
+    navigate("/what-to-know");
     closeNav();
   }
 
   function selectFindUs() {
-    navigate('/find-us')
+    navigate("/find-us");
     closeNav();
   }
 
   function selectJoinUs() {
-    navigate('/join-us')
+    navigate("/join-us");
     closeNav();
   }
 
   function selectReadMore() {
-    navigate('/read-more')
+    navigate("/read-more");
     closeNav();
   }
 
   return (
     <div className="mb-4">
       <span className="cursor-pointer">
-        <img onClick={openNav} src="/icons/Group6.svg" alt="burger" className="mt-2" />
+        <img
+          onClick={openNav}
+          src="/icons/Group6.svg"
+          alt="burger"
+          className="mt-2"
+        />
       </span>
       <section id="myNav" className="overlay flex-col">
         <div
@@ -159,9 +165,21 @@ function Burger({closeCartNav}) {
                   leaveTo="transform scale-y-95 opacity-0"
                 >
                   <Disclosure.Panel>
-                    <ul className={`pl-2 pt-2 transition-all duration-300 text-3xl`}>
-                      <li onClick={selectJoinUs} className="mb-2 cursor-pointer">Join us</li>
-                      <li onClick={selectReadMore} className="mb-2 cursor-pointer">Read more</li>
+                    <ul
+                      className={`pl-2 pt-2 transition-all duration-300 text-3xl`}
+                    >
+                      <li
+                        onClick={selectJoinUs}
+                        className="mb-2 cursor-pointer"
+                      >
+                        Join us
+                      </li>
+                      <li
+                        onClick={selectReadMore}
+                        className="mb-2 cursor-pointer"
+                      >
+                        Read more
+                      </li>
                     </ul>
                   </Disclosure.Panel>
                 </Transition>
@@ -183,10 +201,18 @@ function Burger({closeCartNav}) {
                   leaveTo="transform scale-y-95 opacity-0"
                 >
                   <Disclosure.Panel>
-                    <ul className={`pl-2 pt-2 transition-all duration-300 text-3xl`}>
-                      <li className="cursor-pointer mb-2" onClick={selectWhatToKnow}>What to know ?</li>
-                      <li className="cursor-pointer" onClick={selectFindUs}>Where to find us ?</li>
-
+                    <ul
+                      className={`pl-2 pt-2 transition-all duration-300 text-3xl`}
+                    >
+                      <li
+                        className="cursor-pointer mb-2"
+                        onClick={selectWhatToKnow}
+                      >
+                        What to know ?
+                      </li>
+                      <li className="cursor-pointer" onClick={selectFindUs}>
+                        Where to find us ?
+                      </li>
                     </ul>
                   </Disclosure.Panel>
                 </Transition>
