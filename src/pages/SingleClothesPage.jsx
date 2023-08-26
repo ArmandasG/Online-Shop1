@@ -6,22 +6,30 @@ import { useAuthCtx } from "../store/AuthProvider";
 
 function SingleClothesPage() {
   const { clothesUid } = useParams();
-  const { clothesArr, setCartArr, increaseCartQuantity, decreaseCartQuantity, getItemQuantity, tempCart, navigate } = useItemsCtx();
+  const {
+    clothesArr,
+    setCartArr,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    getItemQuantity,
+    tempCart,
+    navigate,
+  } = useItemsCtx();
   const { ui } = useAuthCtx();
   const currentClothesObj = clothesArr.find(
     (product) => product.uid === clothesUid
   );
-  const [selectedSize, setSelectedSize] = useState('');
+  const [selectedSize, setSelectedSize] = useState("");
   const handleSizeChange = (event) => {
-    setSelectedSize(event.target.value)
-  }
-  
-function addToCart() {
-  setCartArr(tempCart);
-  tempCart.length > 0 ? ui.showSuccess('Added to Cart') : 
-  ui.showError('Quantity must be at least 1')
-}
+    setSelectedSize(event.target.value);
+  };
 
+  function addToCart() {
+    setCartArr(tempCart);
+    tempCart.length > 0
+      ? ui.showSuccess("Added to Cart")
+      : ui.showError("Quantity must be at least 1");
+  }
 
   return (
     <div className="min-h-screen text-3xl space-y-10 container flex flex-col">
@@ -46,9 +54,50 @@ function addToCart() {
       </p>
       <div className="flex gap-2 text-gray-600">
         <p className="mt-2 mr-3.5">Size: </p>
-        <select className="ml-16 p-1.5 border border-black bg-white rounded-none" value={selectedSize} type='text' name="size" id="size" onChange={handleSizeChange}>
-          <option disabled value="">Select Size</option>
-        {currentClothesObj.category !== 'shoes' ? (size.map((sObj) =>  currentClothesObj.size === sObj ? <option key={sObj} value={sObj}>{sObj}</option> : <option disabled className="text-gray-200" key={sObj} value={sObj}>{sObj}</option> )) : (shoeSize.map((sObj) =>  currentClothesObj.size === sObj ? <option key={sObj} value={sObj}>{sObj}</option> : <option disabled className="text-gray-200" key={sObj} value={sObj}>{sObj}</option> ))}
+        <select
+          className="ml-16 p-1.5 border border-black bg-white rounded-none"
+          value={selectedSize}
+          type="text"
+          name="size"
+          id="size"
+          onChange={handleSizeChange}
+        >
+          <option disabled value="">
+            Select Size
+          </option>
+          {currentClothesObj.category !== "shoes"
+            ? size.map((sObj) =>
+                currentClothesObj.size === sObj ? (
+                  <option key={sObj} value={sObj}>
+                    {sObj}
+                  </option>
+                ) : (
+                  <option
+                    disabled
+                    className="text-gray-200"
+                    key={sObj}
+                    value={sObj}
+                  >
+                    {sObj}
+                  </option>
+                )
+              )
+            : shoeSize.map((sObj) =>
+                currentClothesObj.size === sObj ? (
+                  <option key={sObj} value={sObj}>
+                    {sObj}
+                  </option>
+                ) : (
+                  <option
+                    disabled
+                    className="text-gray-200"
+                    key={sObj}
+                    value={sObj}
+                  >
+                    {sObj}
+                  </option>
+                )
+              )}
         </select>
       </div>
       <div
@@ -59,17 +108,34 @@ function addToCart() {
         <div className="flex border-l border-t border-b border-black">
           {/* <input type="number" className="w-14 text-center" value={null ? getItemQuantity(cartArr.uid) : quanChange} onChange={(event) => {
                   setQuanChange(event.target.value)}} /> */}
-                  <p className="w-14 text-center mt-2.5">{getItemQuantity(currentClothesObj.uid)}</p>
+          <p className="w-14 text-center mt-2.5">
+            {getItemQuantity(currentClothesObj.uid)}
+          </p>
           <div className="flex flex-col">
-            <button onClick={() => increaseCartQuantity(currentClothesObj.uid, currentClothesObj.quantity)} className="text-lg border-l border-r border-b px-2 border-black"><i className="fa fa-arrow-up" aria-hidden="true"></i></button>
-              <button onClick={() => decreaseCartQuantity(currentClothesObj.uid)} className="text-lg border-l border-r px-2 border-black"><i className="fa fa-arrow-down" aria-hidden="true"></i></button>
-              
+            <button
+              onClick={() =>
+                increaseCartQuantity(
+                  currentClothesObj.uid,
+                  currentClothesObj.quantity
+                )
+              }
+              className="text-lg border-l border-r border-b px-2 border-black"
+            >
+              <i className="fa fa-arrow-up" aria-hidden="true"></i>
+            </button>
+            <button
+              onClick={() => decreaseCartQuantity(currentClothesObj.uid)}
+              className="text-lg border-l border-r px-2 border-black"
+            >
+              <i className="fa fa-arrow-down" aria-hidden="true"></i>
+            </button>
           </div>
         </div>
       </div>
       <p>{currentClothesObj.price.toFixed(2)} €</p>
       <div className="flex flex-col gap-8 align-items-center">
-        <button disabled={selectedSize !== currentClothesObj.size}
+        <button
+          disabled={selectedSize !== currentClothesObj.size}
           onClick={() =>
             addToCart((tempCart) => [...tempCart, currentClothesObj])
           }
