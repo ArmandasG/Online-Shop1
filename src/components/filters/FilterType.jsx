@@ -1,11 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
-import { type } from "../../assets/selections";
-import { color } from "../../assets/selections";
-import { size } from "../../assets/selections";
-import { brand } from "../../assets/selections";
-import { gender } from "../../assets/selections";
-import { priceRange } from "../../assets/selections";
+import { type, color, size, brand, gender, priceRange } from "../../assets/selections";
 
 const colectedFilters = {
   color,
@@ -17,39 +12,28 @@ const colectedFilters = {
 };
 
 export function FilterType({ fObj, onFilter }) {
-  const [selectedType, setSelectedType] = useState([]);
-  const [currentFilters, setCurrentFilters] = useState([]);
-  const [allSelectedOptions, setAllSelectedOptions] = useState([]);
+  const [selectedOption, setSelectedOption] = useState([])
+  
+  const handleSelectOption = (option) => {
+    setSelectedOption((prevSelected) =>
+      prevSelected.includes(option)
+        ? prevSelected.filter((item) => item !== option)
+        : [...prevSelected, option]
+    );
 
-  // console.log('selectedType ===', selectedType);
-
-  useEffect(() => {
-    const categories = [];
-
-    Object.values(colectedFilters).forEach((filter) => {
-      filter.forEach((option) => {
-        if (selectedType.includes(option)) {
-          categories.push(option);
-        }
-      });
-    });
-    // console.log('categories ===', categories);
-    setCurrentFilters(categories);
-  }, [selectedType]);
-
-  function moveObj(selection) {
-    setAllSelectedOptions((prev) => [...prev, selection]);
+    onFilter((prevFilters) =>
+      selectedOption.includes(option)
+        ? prevFilters.filter((item) => item !== option)
+        : [...prevFilters, option]
+    );
   }
 
-  // console.log('allSelectedOptions ===', allSelectedOptions);
-
   return (
-    <Listbox value={selectedType} onChange={setSelectedType} multiple>
+    <Listbox value={selectedOption} onChange={setSelectedOption} multiple>
       {({ open }) => (
         <>
-          <Listbox.Button className="border block">
-            {selectedType.length !== 0 ? selectedType.join(", ") : fObj}
-            {/* {selectedType.join(', ')} */}
+          <Listbox.Button className="border-b flex flex-col p-2 w-80 items-center">
+            {selectedOption.length !== 0 ? selectedOption.map(option => option.toUpperCase()).join(", ") : (fObj !== 'priceRange' ? fObj.toUpperCase() : 'PRICE RANGE')}
           </Listbox.Button>
           <Transition
             enter="transition duration-100 ease-out"
@@ -60,16 +44,18 @@ export function FilterType({ fObj, onFilter }) {
             leaveTo="transform scale-95 opacity-0"
           >
             {open && (
-              <div>
+              <div className="flex flex-col w-80 items-center">
                 <Listbox.Options static>
                   {colectedFilters[fObj].map((selection) => (
                     <Listbox.Option
-                      onClick={() => moveObj(selection)}
-                      className="border cursor-pointer"
+                      onClick={() => {
+                        handleSelectOption(selection);
+                      }}
+                      className="cursor-pointer py-1 "
                       key={selection}
                       value={selection}
                     >
-                      {selection}
+                      {selection.toUpperCase()}
                     </Listbox.Option>
                   ))}
                 </Listbox.Options>

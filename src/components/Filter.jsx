@@ -14,7 +14,7 @@ const filterOptions = [
 
 function Filter({ clothesArr, setClothesArr }) {
   const [filters, setFilters] = useState([]);
-  const [selectedFilter, setSelectedFilter] = useState(type[0]);
+  const [selectedFilter, setSelectedFilter] = useState([]);
   const sorted = [...clothesArr];
   const [sortItem, setSortItem] = useState(false);
   const [sortItem2, setSortItem2] = useState(false);
@@ -46,9 +46,14 @@ function Filter({ clothesArr, setClothesArr }) {
     document.getElementById("filterEl").style.position = "";
   }
 
-  const gatherFilters = () => {
-    console.log("pritaikyti filtrą-------------");
+  const gatherFilters = (items) => {
+    setSelectedFilter(items)
+    console.log('items ===', items);
   };
+
+  const applyFilters = (applyItems) => {
+    console.log('applyItems ===', applyItems);
+  }
 
   function refreshFilters() {
     console.log("atnaujinti filtrai-----------------");
@@ -76,7 +81,7 @@ function Filter({ clothesArr, setClothesArr }) {
               <i className="fa fa-angle-down pl-2" aria-hidden="true"></i>
             </FilterType>
           ))}
-          <button onClick={gatherFilters} className="mr-4">
+          <button onClick={() => applyFilters(selectedFilter)} className="mr-4">
             Apply filter
           </button>
           <button onClick={refreshFilters} className="ml-4">
