@@ -69,7 +69,7 @@ function Filter({ clothesArr, setClothesArr }) {
           <div onClick={closeFilter} className="closeBtn cursor-pointer mt-4">
             <img src="/icons/Group1419.svg" alt="" />
           </div>
-          <h3>Filter</h3>
+          <h3 className="text-6xl text-center mb-24 font-bold">Filter</h3>
           {filterOptions.map((fObj) => (
             <FilterType
               onFilter={gatherFilters}
@@ -81,12 +81,14 @@ function Filter({ clothesArr, setClothesArr }) {
               <i className="fa fa-angle-down pl-2" aria-hidden="true"></i>
             </FilterType>
           ))}
-          <button onClick={() => applyFilters(selectedFilter)} className="mr-4">
+          <div className="mt-20 flex justify-between">
+          <button onClick={refreshFilters} className="ml-4 p-3 border w-2/12">
+            <i className="fa fa-refresh text-3xl" aria-hidden="true"></i>
+          </button>
+          <button onClick={() => applyFilters(selectedFilter)} className="p-3 text-5xl w-9/12 border">
             Apply filter
           </button>
-          <button onClick={refreshFilters} className="ml-4">
-            <i className="fa fa-refresh" aria-hidden="true"></i>
-          </button>
+          </div>
         </div>
       </div>
       <div>
