@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { type, color, size, brand, gender, priceRange } from "../../assets/selections";
 
@@ -11,7 +11,7 @@ const colectedFilters = {
   priceRange,
 };
 
-export function FilterType({ fObj, onFilter }) {
+export function FilterType({ fObj, onFilter, resetFilters , setResetFilters, selectedFilter , setSelectedFilter }) {
   const [selectedOption, setSelectedOption] = useState([])
   
   const handleSelectOption = (option) => {
@@ -26,14 +26,22 @@ export function FilterType({ fObj, onFilter }) {
         ? prevFilters.filter((item) => item !== option)
         : [...prevFilters, option]
     );
+
   }
+
+  function resetStates () {
+    setSelectedOption([]);
+    setSelectedFilter([])
+  }
+
+  useEffect(() => {resetFilters === true ? resetStates() : ''}, [resetFilters])
 
   return (
     <Listbox value={selectedOption} onChange={setSelectedOption} multiple>
       {({ open }) => (
         <>
           <Listbox.Button className="border-b flex flex-col p-2 w-full items-center text-5xl">
-            {selectedOption.length !== 0 ? selectedOption.map(option => option.toUpperCase()).join(", ") : (fObj !== 'priceRange' ? fObj.toUpperCase() : 'PRICE RANGE')}
+            {selectedOption.length !== 0 ? selectedOption.map(option => typeof option !== "number" ? option.toUpperCase() : option).join(", ") : (fObj !== 'priceRange' ? fObj.toUpperCase() : 'PRICE RANGE')}
           </Listbox.Button>
           <Transition
             enter="transition duration-100 ease-out"
@@ -55,7 +63,7 @@ export function FilterType({ fObj, onFilter }) {
                       key={selection}
                       value={selection}
                     >
-                      {selection.toUpperCase()}
+                      {typeof selection !== "number" ? selection.toUpperCase() : selection}
                     </Listbox.Option>
                   ))}
                 </Listbox.Options>
