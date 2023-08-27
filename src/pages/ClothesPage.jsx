@@ -1,5 +1,6 @@
-import Filter from "../components/Filter";
+
 import SingleClothes from "../components/SingleClothes";
+import Filter from "../components/filters/Filter";
 import { useItemsCtx } from "../context/ItemsContextProvider";
 
 function ClothesPage() {

@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { type } from "../assets/selections";
-import { FilterType } from "./filters/FilterType";
+import { FilterType } from "./FilterType";
 import PropTypes from "prop-types";
 
 const filterOptions = [
   "type",
   "color",
-  "size",
   "brand",
   "gender",
   "priceRange",

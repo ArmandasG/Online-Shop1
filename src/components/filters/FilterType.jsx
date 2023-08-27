@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
-import { type, color, size, brand, gender, priceRange } from "../../assets/selections";
+import { type, color, brand, gender, priceRange } from "../../assets/selections";
 
 const colectedFilters = {
   color,
-  size,
   brand,
   gender,
   type,

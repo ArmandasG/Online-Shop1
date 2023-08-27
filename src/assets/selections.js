@@ -23,7 +23,7 @@ export const brand = ["blackIt", "clothesDown", "forestUp", "whiteNat"];
 
 export const gender = ["men", "women", "uni"];
 
-export const priceRange = [20, 40, 60, 80, 100];
+export const priceRange = [20, 40, 60, 80, 100, 120];
 
 export const filters = [
   ["jackets", "pants", "shirts", "shoes"],
