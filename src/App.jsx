@@ -18,9 +18,10 @@ import CartShipping from './pages/CartShipping';
 import CartPayment from './pages/CartPayment';
 import ThankYou from './pages/ThankYou';
 import Feedback from './components/ui/feedback/Feedback';
+import NotFound from './pages/NotFound';
 
 function App() {
-  const { cartArr, shippingInformation } = useItemsCtx();
+  const { cartArr, shippingInformation, deliveryMethod } = useItemsCtx();
   return (
     <div className="bg-site bg-no-repeat bg-cover">
       <Feedback />
@@ -43,14 +44,20 @@ function App() {
 <Route path="/cart/shipping" element={<Navigate to='/cart/information404' />} /> 
         </>
       }
-        <Route path="/cart/payment" element={<CartPayment />} />
+      { cartArr.length > 0 && shippingInformation.length > 0 && deliveryMethod.length > 0 ?
+        <Route path="/cart/payment" element={<CartPayment />} /> :
+        <>
+<Route path="/cart/information404" element={<PleaseAddItems />} /> 
+<Route path="/cart/payment" element={<Navigate to='/cart/information404' />} /> 
+        </>
+      }
         <Route path='/thank-you' element={<ThankYou />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/find-us" element={<FindUsPage />} />
         <Route path="/what-to-know" element={<WhatToKnow />} />
         <Route path="/join-us" element={<JoinUsPage />} />
         <Route path="/read-more" element={<ReadMore />} />
-
+        <Route path="*" element={<NotFound />} />
         <Route path="/checkout" element={<CheckOutPage />} />
       </Routes>
       <Footer />
