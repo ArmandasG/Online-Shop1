@@ -62,7 +62,7 @@ function Filter({ clothesArr, setClothesArr }) {
     <div className="flex justify-between">
       <div className="pt-4 pb-4 pr-4">
         <span className="cursor-pointer text-2xl" onClick={openFilter}>
-          Filter(amount)
+          Filter({selectedFilter.length})
         </span>
         <div className="filterOverlay container" id="filterEl">
           <div onClick={closeFilter} className="closeBtn cursor-pointer mt-4">
