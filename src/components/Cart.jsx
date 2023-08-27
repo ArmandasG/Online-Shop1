@@ -5,7 +5,7 @@ import { useAuthCtx } from "../context/AuthProvider";
 import PropTypes from "prop-types"
 
 function Cart({ myCartNav, onClose }) {
-  const { cartArr, setCartArr, setTempCart, navigate, allItems } =
+  const { cartArr, setCartArr, setTempCart, navigate, clothesArr } =
     useItemsCtx();
 
   const { ui } = useAuthCtx();
@@ -16,7 +16,7 @@ function Cart({ myCartNav, onClose }) {
     ui.showSuccess("Removed From Cart");
   }
   const allCartItemsPrice = cartArr.reduce((total, cartItem) => {
-    const item = allItems.find((i) => i.uid === cartItem.uid);
+    const item = clothesArr.find((i) => i.uid === cartItem.uid);
     return total + (item?.price || 0) * cartItem.quantity;
   }, 0);
   return (

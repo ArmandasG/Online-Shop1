@@ -3,8 +3,8 @@ import { useItemsCtx } from "../context/ItemsContextProvider";
 import PropTypes from "prop-types";
 
 function SingleCartItem({ cartItem, DeleteOfItem, setTempCart }) {
-  const { allItems } = useItemsCtx();
-  const cartItemEl = allItems.find((sItem) => sItem.uid === cartItem.uid);
+  const { clothesArr } = useItemsCtx();
+  const cartItemEl = clothesArr.find((sItem) => sItem.uid === cartItem.uid);
 
   return (
     <li className="border-b pt-2 pb-2">

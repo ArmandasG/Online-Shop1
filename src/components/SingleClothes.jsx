@@ -5,14 +5,16 @@ import PropTypes from 'prop-types'
 function SingleClothes({ clothes }) {
   return (
     <li className="p-4">
-      <Link to={`/clothes/${clothes.uid}`}>
+      <Link className="text-center flex flex-col justify-center text-2xl" to={`/clothes/${clothes.uid}`}>
         <img
           src={clothes.img}
           alt={clothes.brand}
-          className="w-60 h-60 object-contain"
+          className="w-60 h-60 object-contain mx-auto"
         />
-        <h4 className="text-xl">{clothes.brand}</h4>
-        <span className="text-xl">{clothes.price.toFixed(2)} €</span>
+        <div className="mr-40">
+        <h4 className="">{clothes.brand}</h4>
+        <span className="">{clothes.price.toFixed(2)} €</span>
+        </div>
       </Link>
     </li>
   );
