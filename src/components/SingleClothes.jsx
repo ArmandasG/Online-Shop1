@@ -31,7 +31,6 @@ SingleClothes.propTypes = {
     brand: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     quantity: PropTypes.number.isRequired,
-    addDate: PropTypes.instanceOf(Date).isRequired,
   })
 }
 
