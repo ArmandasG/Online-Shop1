@@ -11,7 +11,7 @@ const colectedFilters = {
   priceRange,
 };
 
-export function FilterType({ fObj, onFilter, resetFilters , setResetFilters, selectedFilter , setSelectedFilter }) {
+export function FilterType({ fObj, onFilter, resetFilters , setSelectedFilter, setResetFilters }) {
   const [selectedOption, setSelectedOption] = useState([])
   
   const handleSelectOption = (option) => {
@@ -32,6 +32,7 @@ export function FilterType({ fObj, onFilter, resetFilters , setResetFilters, sel
   function resetStates () {
     setSelectedOption([]);
     setSelectedFilter([])
+    setResetFilters(false)
   }
 
   useEffect(() => {resetFilters === true ? resetStates() : ''}, [resetFilters])
