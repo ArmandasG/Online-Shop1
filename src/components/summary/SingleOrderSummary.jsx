@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function SingleOrderSummary({ OrderItem, allItems }) {
-  const OrderItemEl = allItems.find((oItem) => oItem.uid === OrderItem.uid);
+function SingleOrderSummary({ OrderItem, clothesArr }) {
+  const OrderItemEl = clothesArr.find((oItem) => oItem.uid === OrderItem.uid);
   return (
     <li className="flex border-t py-4">
       <div className=" basis-28 my-2 relative mr-8">
@@ -28,7 +28,7 @@ function SingleOrderSummary({ OrderItem, allItems }) {
 }
 
 SingleOrderSummary.propTypes = {
-  allItems: PropTypes.arrayOf(
+  clothesArr: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape({
         category: PropTypes.string.isRequired,

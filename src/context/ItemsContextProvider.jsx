@@ -3,6 +3,7 @@ import { clothes } from "../assets/items";
 import { useNavigate } from "react-router-dom";
 import { useAuthCtx } from "./AuthProvider";
 import PropTypes from 'prop-types'
+import { fetchItemsAndImages } from "../helperFns";
 
 const ItemsContext = createContext();
 
@@ -10,8 +11,8 @@ ItemsContext.displayName = "Items";
 
 const ItemsContextProvider = ({ children }) => {
   const { ui } = useAuthCtx();
-  const [allItems, setAllItems] = useState(clothes);
-  const [clothesArr, setClothesArr] = useState(clothes);
+  const [allItems, setAllItems] = useState([]);
+  const [clothesArr, setClothesArr] = useState(allItems);
   const [cartArr, setCartArr] = useState([]);
   const [tempCart, setTempCart] = useState([]);
   const [cartIsOpen, setCartIsOpen] = useState(false);
@@ -21,9 +22,25 @@ const ItemsContextProvider = ({ children }) => {
   const [deliveryMethod, setDeliveryMethod] = useState([]);
   const [shippingInfo, setShippingInfo] = useState({});
   const [quantityLimitError, setQuantityLimitError] = useState(false);
+  const [loadingClothes, setLoadingClothes] = useState(true)
+
+
+  const [currentItemUid, setCurrentItemUid] = useState(null);
+
+  useEffect(() => {
+    fetchItemsAndImages('clothes')
+    .then((data) => {
+      const clothesObject = Object.values(data);
+      setAllItems(clothesObject);
+      setLoadingClothes(false)
+    })
+    .catch((error) => {
+      console.error('Error fetching clothes', error);
+      setLoadingClothes(false)
+    })
+  }, [])
 
   // temp solution considering that the quantity element will be remade to an input -
-  const [currentItemUid, setCurrentItemUid] = useState(null);
 
   useEffect(() => {
     quantityLimitError === true ? handleQuantityLimitError() : "";
@@ -34,7 +51,7 @@ const ItemsContextProvider = ({ children }) => {
       const currentItem = tempCart.find((item) => item.uid === currentItemUid);
       if (currentItem) {
         const availableQty =
-          allItems.find((cObj) => cObj.uid === currentItemUid)?.quantity || 0;
+        clothesArr.find((cObj) => cObj.uid === currentItemUid)?.quantity || 0;
 
         if (currentItem.quantity === availableQty) {
           setQuantityLimitError(true);
@@ -106,7 +123,6 @@ const ItemsContextProvider = ({ children }) => {
   };
 
   const contextValue = {
-    allItems,
     clothesArr,
     setClothesArr,
     resetClothes,

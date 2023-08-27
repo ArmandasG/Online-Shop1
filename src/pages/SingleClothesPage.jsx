@@ -15,6 +15,7 @@ function SingleClothesPage() {
     tempCart,
     navigate,
   } = useItemsCtx();
+  console.log('tempCart ===', tempCart);
   const { ui } = useAuthCtx();
   const currentClothesObj = clothesArr.find(
     (product) => product.uid === clothesUid

@@ -9,7 +9,7 @@ function SingleClothes({ clothes }) {
         <img
           src={clothes.img}
           alt={clothes.brand}
-          className="w-60 h-60 object-contain"
+          className="w-60 h-60 object-contain mx-auto"
         />
         <div className="mr-24">
         <h4>{clothes.brand}</h4>
