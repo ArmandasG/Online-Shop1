@@ -11,7 +11,6 @@ function ShippingMethod() {
       deliveryMethod: "",
     },
     onSubmit: (values, { resetForm }) => {
-      console.log("values ===", values);
       navigate("/cart/payment");
       setDeliveryMethod(values.deliveryMethod);
       resetForm();
@@ -29,7 +28,6 @@ function ShippingMethod() {
 
   const handleDeliveryMethodChange = (event) => {
     const { value } = event.target;
-    console.log("value ===", value);
     if (value === "Pick Up At Shop") {
       setDeliveryFee([0]);
     } else if (value === "DPD Lietuva") {

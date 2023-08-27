@@ -34,7 +34,6 @@ function DeliveryInformation() {
       saveInformation: false,
     },
     onSubmit: (values, { resetForm, setSubmitting }) => {
-      console.log("values ===", values);
       setShippingInformation([values]);
       saveShippingInfo(values, setSubmitting);
       navigate("/cart/shipping");
