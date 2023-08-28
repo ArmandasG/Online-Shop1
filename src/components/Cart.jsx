@@ -7,7 +7,6 @@ import PropTypes from "prop-types"
 function Cart({ myCartNav, onClose }) {
   const { allItems, cartArr, setCartArr, setTempCart, navigate } =
     useItemsCtx();
-console.log('cartArr ===', cartArr);
   const { ui } = useAuthCtx();
   function handleDelete(id) {
     setCartArr((prevItem) =>

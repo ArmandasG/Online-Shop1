@@ -7,7 +7,6 @@ import Loader from "../components/ui/Loader";
 
 function SingleClothesPage() {
   const { clothesUid } = useParams();
-  console.log('clothesUid ===', clothesUid);
   const {
     clothesArr,
     setCartArr,
@@ -18,7 +17,6 @@ function SingleClothesPage() {
     navigate,
     loadingClothes,
   } = useItemsCtx();
-  console.log('tempCart ===', tempCart);
   const { ui } = useAuthCtx();
   const currentClothesObj = clothesArr.find(
     (product) => product.uid === clothesUid

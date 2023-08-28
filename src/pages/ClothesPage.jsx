@@ -5,7 +5,7 @@ import Loader from "../components/ui/Loader";
 import { useItemsCtx } from "../context/ItemsContextProvider";
 
 function ClothesPage() {
-  const { allItems, clothesArr, setClothesArr, loadingClothes } = useItemsCtx();
+  const { clothesArr, setClothesArr, loadingClothes } = useItemsCtx();
   return (
     <div className="min-h-screen container">
       <div className="filterBar">

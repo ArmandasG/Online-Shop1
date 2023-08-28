@@ -25,19 +25,16 @@ const ItemsContextProvider = ({ children }) => {
 
   // temp solution considering that the quantity element will be remade to an input -
   const [currentItemUid, setCurrentItemUid] = useState(null);
-console.log('allItems ===', allItems);
   useEffect(() => {
-    console.log('Fetching data from Firebase')
     fetchItemsAndImages('clothes')
     .then((data) => {
       const clothesObject = Object.values(data);
       setAllItems(clothesObject)
       setClothesArr(clothesObject)
       setLoadingClothes(false)
-      console.log('clothesObject ===', clothesObject);
     })
     .catch((error) => {
-      console.error('Error fetching latops', error);
+      console.error('Error fetching clothes', error);
       setLoadingClothes(false)
     })
   }, [])

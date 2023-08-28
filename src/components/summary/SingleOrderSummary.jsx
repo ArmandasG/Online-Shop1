@@ -4,7 +4,6 @@ import { useItemsCtx } from "../../context/ItemsContextProvider";
 
 function SingleOrderSummary({ OrderItem, allItems }) {
   const OrderItemEl = allItems.find((oItem) => oItem.uid === OrderItem.uid);
-  console.log('OrderItem ===', OrderItem);
   return (
     <li className="flex border-t py-4">
       <div className=" basis-28 my-2 relative mr-8">
@@ -42,7 +41,7 @@ SingleOrderSummary.propTypes = {
         brand: PropTypes.string.isRequired,
         imgURL: PropTypes.string.isRequired,
         quantity: PropTypes.number.isRequired,
-        addDate: PropTypes.instanceOf(Date).isRequired,
+        addDate: PropTypes.object.isRequired,
       }),
     ])
   ),

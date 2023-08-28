@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FilterType } from "./FilterType";
 import PropTypes from "prop-types";
-import { formatTimestamp } from "../../helperFns";
 
 const filterOptions = [
   "type",
@@ -122,7 +121,7 @@ function Filter({ clothesArr, setClothesArr }) {
 Filter.propTypes = {
   clothesArr: PropTypes.arrayOf(PropTypes.oneOfType([
     PropTypes.shape({
-      category: PropTypes.string.isRequired,
+      category: PropTypes.string,
         color: PropTypes.string.isRequired,
         size: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
@@ -131,7 +130,7 @@ Filter.propTypes = {
         brand: PropTypes.string.isRequired,
         imgURL: PropTypes.string.isRequired,
         quantity: PropTypes.number.isRequired,
-        addDate: PropTypes.instanceOf(Date).isRequired,
+        addDate: PropTypes.object.isRequired,
     })
   ])),
   setClothesArr: PropTypes.func.isRequired
