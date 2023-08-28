@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 const selectOptions = ["All", "Jackets", "Shirts", "Pants", "Shoes"];
 
 function Burger({ closeCartNav }) {
-  const { clothesArr, setClothesArr, resetClothes, navigate } = useItemsCtx();
+  const { clothesArr, setClothesArr, resetClothes, navigate, loadingClothes } = useItemsCtx();
   const [query, setQuery] = useState("");
 
   function openNav() {

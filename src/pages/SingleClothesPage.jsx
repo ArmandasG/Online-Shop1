@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useItemsCtx } from "../context/ItemsContextProvider";
 import { size, shoeSize } from "../assets/selections";
 import { useAuthCtx } from "../context/AuthProvider";
+import Loader from "../components/ui/Loader";
 
 function SingleClothesPage() {
   const { clothesUid } = useParams();
@@ -14,6 +15,7 @@ function SingleClothesPage() {
     getItemQuantity,
     tempCart,
     navigate,
+    loadingClothes,
   } = useItemsCtx();
   console.log('tempCart ===', tempCart);
   const { ui } = useAuthCtx();
@@ -32,7 +34,7 @@ function SingleClothesPage() {
       : ui.showError("Quantity must be at least 1");
   }
 
-  return (
+  return ( loadingClothes ? <Loader /> :
     <div className="min-h-screen text-3xl space-y-10 container flex flex-col">
       <img
         src={currentClothesObj.img}

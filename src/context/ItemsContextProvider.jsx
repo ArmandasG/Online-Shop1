@@ -23,7 +23,7 @@ const ItemsContextProvider = ({ children }) => {
   const [deliveryMethod, setDeliveryMethod] = useState([]);
   const [shippingInfo, setShippingInfo] = useState({});
   const [quantityLimitError, setQuantityLimitError] = useState(false);
-  const [LoadingClothes, setLoadingClothes] = useState(true)
+  const [loadingClothes, setLoadingClothes] = useState(true)
 
   // temp solution considering that the quantity element will be remade to an input -
   const [currentItemUid, setCurrentItemUid] = useState(null);
@@ -145,6 +145,7 @@ const ItemsContextProvider = ({ children }) => {
     setDeliveryMethod,
     shippingInfo,
     setShippingInfo,
+    loadingClothes,
   };
 
   return (

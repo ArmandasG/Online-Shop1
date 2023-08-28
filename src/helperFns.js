@@ -35,8 +35,8 @@ export async function fetchItemsAndImages(collectionName) {
         ...itemData,
       });
 
-      if (itemData.thumbnail) {
-        const imageRef = ref(storage, itemData.thumbnail);
+      if (itemData.img) {
+        const imageRef = ref(storage, itemData.img);
         const downloadURLPromise = getDownloadURL(imageRef);
         imageURLsPromises.push(downloadURLPromise);
       }
