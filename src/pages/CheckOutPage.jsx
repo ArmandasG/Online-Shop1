@@ -6,7 +6,7 @@ function CheckOutPage({ onOpen, onClose }) {
   const { cartArr } = useItemsCtx();
   return (
     <div className="text-2xl">
-      <h4 className="cursor-pointer" onClick={onOpen}>
+      <h4 className="cursor-pointer lg:text-2xl" onClick={onOpen}>
         CART ({cartArr.length})
       </h4>
       <Cart myCartNav="myCartNav" onClose={onClose} />

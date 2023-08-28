@@ -14,7 +14,7 @@ function SearchBar({ searchValue }) {
     },
   });
   return (
-    <div className="pt-8 text-3xl">
+    <div className="pt-8 text-3xl lg:text-xl">
       <form onSubmit={formik.handleSubmit}>
         <div className="border-b">
           <input

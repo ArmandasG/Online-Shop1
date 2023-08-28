@@ -6,8 +6,8 @@ import { useRespCtx } from "../../context/ResponsiveContextProvider";
 import { useEffect } from "react";
 
 function Header() {
-  const { setCartIsOpen, cartIsOpen } = useItemsCtx();
-  const { windowWidth } = useRespCtx()
+  const { setCartIsOpen, cartIsOpen, navigate } = useItemsCtx();
+  const { windowWidth } = useRespCtx();
 
   function openCartNav() {
     const cartNav = document.getElementById("myCartNav");
@@ -29,24 +29,34 @@ function Header() {
   }
 
   return (
-    <header
-      className={`container flex justify-between pt-4 pb-4 mb-4 items-center ${
+    <header className="container">
+      {windowWidth >= 1024 ? <Link to={'/'}><h1 className="text-center mt-20 text-6xl font-bold">SHOPER</h1></Link> : '' }
+      <div className={`flex justify-between pt-4 pb-4 mb-4 items-center lg:justify-center ${
         cartIsOpen && windowWidth < 1024 ? "sticky top-0 bg-white" : ""
       }`}
       id="myHeader"
     >
       <Burger closeCartNav={closeCartNav} />
       <div>
-        <Link
-          onClick={closeCartNav}
-          className="text-4xl font-bold text-center pl-8"
-          to={"/"}
-        >
-          SHOPER
-        </Link>
+        {windowWidth < 1024 ? (
+          <Link
+            onClick={closeCartNav}
+            className="text-4xl font-bold text-center pl-8"
+            to={"/"}
+          >
+            SHOPER
+          </Link>
+        ) : (
+          ""
+        )}
       </div>
       <div>
         <CheckOutPage onOpen={openCartNav} onClose={closeCartNav} />
+      </div>
+      {windowWidth >= 1024 ? <div onClick={() => {navigate("/login")}} className="ml-20 cursor-pointer flex items-end gap-1 text-2xl hover:underline">
+          <span className=""><i className="fa fa-user-circle" aria-hidden="true"></i></span>
+          <p>Login</p>
+          </div> : ''}
       </div>
     </header>
   );
