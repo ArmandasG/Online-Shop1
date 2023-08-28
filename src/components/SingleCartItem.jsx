@@ -1,10 +1,7 @@
-import React, { useEffect } from "react";
-import { useItemsCtx } from "../context/ItemsContextProvider";
+import React from "react";
 import PropTypes from "prop-types";
-import Loader from "./ui/Loader";
 
 function SingleCartItem({ cartItem, DeleteOfItem, setTempCart, allItems }) {
-  const { loadingClothes } = useItemsCtx()
   const cartItemEl = allItems.find((sItem) => sItem.uid === cartItem.uid);
   
   return (

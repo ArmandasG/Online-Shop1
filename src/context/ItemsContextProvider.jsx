@@ -10,9 +10,8 @@ ItemsContext.displayName = "Items";
 
 const ItemsContextProvider = ({ children }) => {
   const { ui } = useAuthCtx();
-  // const [getClothes, setGetClothes] = useState([])
   const [allItems, setAllItems] = useState([]);
-  const [clothesArr, setClothesArr] = useState(allItems);
+  const [clothesArr, setClothesArr] = useState([]);
   const [cartArr, setCartArr] = useState([]);
   const [tempCart, setTempCart] = useState([]);
   const [cartIsOpen, setCartIsOpen] = useState(false);
@@ -33,6 +32,7 @@ console.log('allItems ===', allItems);
     .then((data) => {
       const clothesObject = Object.values(data);
       setAllItems(clothesObject)
+      setClothesArr(clothesObject)
       setLoadingClothes(false)
       console.log('clothesObject ===', clothesObject);
     })

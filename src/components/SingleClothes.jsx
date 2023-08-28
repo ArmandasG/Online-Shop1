@@ -6,7 +6,7 @@ function SingleClothes({ clothes }) {
   return (
     <li className="p-4">
       <Link className="flex flex-col items-center text-2xl" to={`/clothes/${clothes.uid}`}>
-        <img
+        <img loading="lazy"
           src={clothes.imgURL}
           alt={clothes.brand}
           className="w-60 h-60 object-contain mx-auto"

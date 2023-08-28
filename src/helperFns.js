@@ -2,13 +2,6 @@ import { getDocs, collection } from 'firebase/firestore';
 import { db } from './firebase/firebase';
 import { getDownloadURL, getStorage, ref } from 'firebase/storage';
 
-
-
-
-// export function capitalizeFirstLetter(str) {
-//   return str.charAt(0).toUpperCase() + str.slice(1);
-// }
-
 // export function formatTimestamp(timestamp) {
 //   const dateObj = new Date(timestamp);
 //   const year = dateObj.getFullYear();

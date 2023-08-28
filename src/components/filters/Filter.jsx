@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FilterType } from "./FilterType";
 import PropTypes from "prop-types";
+import { formatTimestamp } from "../../helperFns";
 
 const filterOptions = [
   "type",
@@ -19,15 +20,17 @@ function Filter({ clothesArr, setClothesArr }) {
   const noShow = sortItem === false ? "" : "hidden";
   const noShow2 = sortItem2 === false ? "" : "hidden";
 
+  
+
   function sortByLatest() {
-    sorted.sort((a, b) => b.addDate.getTime() - a.addDate.getTime());
+    sorted.sort((a, b) => b.addDate - a.addDate);
     setSortItem(true);
     setSortItem2(false);
     setClothesArr(sorted);
   }
 
   function sortByOldest() {
-    sorted.sort((a, b) => a.addDate.getTime() - b.addDate.getTime());
+    sorted.sort((a, b) => a.addDate - b.addDate);
     setSortItem2(true);
     setSortItem(false);
     setClothesArr(sorted);
