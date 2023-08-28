@@ -31,7 +31,7 @@ function Header() {
   return (
     <header className="container">
       {windowWidth >= 1024 ? <Link to={'/'}><h1 className="text-center mt-20 text-6xl font-bold">SHOPER</h1></Link> : '' }
-      <div className={`flex justify-between pt-4 pb-4 mb-4 items-center lg:justify-center ${
+      <div className={`flex justify-between pt-4 pb-4 mb-4 items-center lg:justify-center lg:mt-10 ${
         cartIsOpen && windowWidth < 1024 ? "sticky top-0 bg-white" : ""
       }`}
       id="myHeader"

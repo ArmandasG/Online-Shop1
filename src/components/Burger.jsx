@@ -98,7 +98,7 @@ function Burger({ closeCartNav }) {
   }
 
   return (
-    <div className="mb-4">
+    <div className="mb-4 lg:mb-0">
       {windowWidth < 1024 ?
       <span className="cursor-pointer">
         <img
@@ -116,7 +116,7 @@ function Burger({ closeCartNav }) {
         >
           <img src="/icons/Group1419.svg" alt="" />
         </div> : ''}
-        <div className={`${ windowWidth < 1024 ? 'container' : ''} mt-2 ml-2 flex flex-col items-start lg:flex-row lg:items-center lg:gap-3`}>
+        <div className={`${ windowWidth < 1024 ? 'container' : ''} mt-2 ml-2 flex flex-col items-start lg:flex-row lg:items-center lg:gap-10 lg:mt-0`}>
           <div>
           <Disclosure id="disc1">
             {({ open, close }) => (
