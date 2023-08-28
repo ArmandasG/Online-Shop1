@@ -57,7 +57,7 @@ font-size: 62.5%;
 }
 
 .close-icon {
-  z-index: 999;
+  z-index: 30;
 }
 
 .appear-from-right {
