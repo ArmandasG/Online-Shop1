@@ -3,6 +3,7 @@ import React from "react";
 import Directory from "../summary/Directory";
 import { useItemsCtx } from "../../context/ItemsContextProvider";
 import { cities } from "../../assets/cities";
+import { useRespCtx } from "../../context/ResponsiveContextProvider";
 
 function DeliveryInformation() {
   const {
@@ -12,10 +13,11 @@ function DeliveryInformation() {
     setShippingInformation,
     setShippingInfo,
   } = useItemsCtx();
+  const { windowWidth } = useRespCtx()
   function openCartNav() {
     const cartNav = document.getElementById("myCartNav");
     if (cartIsOpen === false) {
-      cartNav.style.width = "100%";
+      windowWidth < 1024 ? cartNav.style.width = "100%" : cartNav.style.width = "30%";
       setCartIsOpen(true);
     }
   }

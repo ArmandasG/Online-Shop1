@@ -21,7 +21,7 @@ function Cart({ myCartNav, onClose }) {
     return total + (item?.price || 0) * cartItem.quantity;
   }, 0);
   return (<div>
-    {cartIsOpen && windowWidth >=1024 ? <div onClick={onClose} className="absolute h-16 w-16 right-[30%] top-[0%] border border-black bg-black text-white close-icon flex justify-center items-center appear-from-right"><span className="text-4xl">x</span></div> : ''}
+    {cartIsOpen && windowWidth >=1024 ? <div onClick={onClose} className="absolute h-16 w-16 right-[30%] top-[0%] border border-black bg-black text-white close-icon flex justify-center items-center appear-from-right cursor-pointer"><span className="text-4xl">x</span></div> : ''}
     <div className={`relative ${windowWidth < 1024 ? 'cartOverlay' : 'cartOverlayLg' }  pt-4`} id={myCartNav}>
       <div className="ml-8 mt-4 mr-8">
         <div className="flex justify-between border-b text-gray-500 lg:hidden">
