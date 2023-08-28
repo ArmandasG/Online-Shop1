@@ -2,17 +2,22 @@ import { Link } from "react-router-dom";
 import Burger from "../Burger";
 import CheckOutPage from "../../pages/CheckOutPage";
 import { useItemsCtx } from "../../context/ItemsContextProvider";
+import { useRespCtx } from "../../context/ResponsiveContextProvider";
 
 function Header() {
   const { setCartIsOpen, cartIsOpen } = useItemsCtx();
+  const { windowWidth } = useRespCtx()
 
   function openCartNav() {
     const cartNav = document.getElementById("myCartNav");
     if (cartIsOpen) {
       cartNav.style.width = "0";
       setCartIsOpen(false);
-    } else {
+    } else if (!cartIsOpen && windowWidth < 1024) {
       cartNav.style.width = "100%";
+      setCartIsOpen(true);
+    } else {
+      cartNav.style.width = "30%";
       setCartIsOpen(true);
     }
   }
@@ -39,7 +44,7 @@ function Header() {
         </Link>
       </div>
       <div>
-      <CheckOutPage onOpen={openCartNav} onClose={closeCartNav} />
+        <CheckOutPage onOpen={openCartNav} onClose={closeCartNav} />
       </div>
     </header>
   );

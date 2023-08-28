@@ -12,7 +12,6 @@ const ItemsContextProvider = ({ children }) => {
   const { ui } = useAuthCtx();
   const [allItems, setAllItems] = useState([]);
   const [clothesArr, setClothesArr] = useState([]);
-  // const [tempCart, setTempCart] = useState([]);
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const navigate = useNavigate();
   const [shippingInformation, setShippingInformation] = useState([]);
@@ -21,6 +20,20 @@ const ItemsContextProvider = ({ children }) => {
   const [shippingInfo, setShippingInfo] = useState({});
   const [quantityLimitError, setQuantityLimitError] = useState(false);
   const [loadingClothes, setLoadingClothes] = useState(true)
+const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+const updateWindowWidth = () => {
+  setWindowWidth(window.innerWidth);
+};
+
+useEffect(() => {
+  // Set up event listener for window resize
+  window.addEventListener('resize', updateWindowWidth);
+  // Clean up the event listener on unmount
+  return () => {
+    window.removeEventListener('resize', updateWindowWidth);
+  };
+}, [windowWidth]);
 
   // temp solution considering that the quantity element will be remade to an input -
   const [currentItemUid, setCurrentItemUid] = useState(null);
@@ -184,6 +197,7 @@ const ItemsContextProvider = ({ children }) => {
     shippingInfo,
     setShippingInfo,
     loadingClothes,
+    windowWidth,
   };
 
   return (
