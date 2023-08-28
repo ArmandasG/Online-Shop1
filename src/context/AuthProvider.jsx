@@ -81,6 +81,7 @@ function AuthProvider({ children }) {
     ui,
     isVisible,
     setIsVisible,
+    setIsLoading,
   };
 
   return (

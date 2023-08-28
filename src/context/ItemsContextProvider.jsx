@@ -12,8 +12,7 @@ const ItemsContextProvider = ({ children }) => {
   const { ui } = useAuthCtx();
   const [allItems, setAllItems] = useState([]);
   const [clothesArr, setClothesArr] = useState([]);
-  const [cartArr, setCartArr] = useState([]);
-  const [tempCart, setTempCart] = useState([]);
+  // const [tempCart, setTempCart] = useState([]);
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const navigate = useNavigate();
   const [shippingInformation, setShippingInformation] = useState([]);
@@ -39,6 +38,48 @@ const ItemsContextProvider = ({ children }) => {
     })
   }, [])
 
+
+  // temp solution for local storage
+  const localShoppingCartKey = 'LOCAL_CART';
+
+  const cartFromLocalStorage = localStorage.getItem(localShoppingCartKey);
+  const [cartArr, setCartArr] = useState(() => {
+    try {
+      return cartFromLocalStorage ? JSON.parse(cartFromLocalStorage) : [];
+    } catch (error) {
+      console.error('Error parsing cart from localStorage:', error);
+
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(localShoppingCartKey, JSON.stringify(cartArr));
+    } catch (error) {
+      console.error('Error storing cart in localStorage:', error);
+    }
+  }, [cartArr]);
+
+  const [tempCart, setTempCart] = useState(() => {
+    try {
+      return cartFromLocalStorage ? JSON.parse(cartFromLocalStorage) : [];
+    } catch (error) {
+      console.error('Error parsing cart from localStorage:', error);
+
+      return [];
+    }
+  });
+  // temp solution for local storage
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(localShoppingCartKey, JSON.stringify(cartArr));
+    } catch (error) {
+      console.error('Error storing cart in localStorage:', error);
+    }
+  }, [cartArr]);
+  
   useEffect(() => {
     quantityLimitError === true ? handleQuantityLimitError() : "";
   }, [quantityLimitError]);

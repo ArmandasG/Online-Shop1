@@ -19,6 +19,8 @@ import CartPayment from './pages/CartPayment';
 import ThankYou from './pages/ThankYou';
 import Feedback from './components/ui/feedback/Feedback';
 import NotFound from './pages/NotFound';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
   const { cartArr, shippingInformation, deliveryMethod } = useItemsCtx();
@@ -52,6 +54,8 @@ function App() {
         </>
       }
         <Route path='/thank-you' element={<ThankYou />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/find-us" element={<FindUsPage />} />
         <Route path="/what-to-know" element={<WhatToKnow />} />
