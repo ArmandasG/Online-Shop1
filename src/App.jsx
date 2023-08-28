@@ -21,6 +21,7 @@ import Feedback from './components/ui/feedback/Feedback';
 import NotFound from './pages/NotFound';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import LeftSideOverlay from './components/ui/feedback/LeftSideOverlay';
 
 function App() {
   const { cartArr, shippingInformation, deliveryMethod } = useItemsCtx();
@@ -28,6 +29,7 @@ function App() {
     <div className="bg-site bg-no-repeat bg-cover">
       <Feedback />
       <Header />
+      <LeftSideOverlay />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUsPage />} />

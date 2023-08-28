@@ -9,18 +9,16 @@ const ResponsiveContextProvider = ({ children }) => {
   
 const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
-const updateWindowWidth = () => {
-  setWindowWidth(window.innerWidth);
-};
 
 useEffect(() => {
-  // Set up event listener for window resize
+    const updateWindowWidth = () => {
+        setWindowWidth(window.innerWidth);
+      };
   window.addEventListener('resize', updateWindowWidth);
-  // Clean up the event listener on unmount
   return () => {
     window.removeEventListener('resize', updateWindowWidth);
   };
-}, [windowWidth]);
+}, []);
 
   const contextValue = {
     windowWidth

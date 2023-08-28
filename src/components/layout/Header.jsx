@@ -3,6 +3,7 @@ import Burger from "../Burger";
 import CheckOutPage from "../../pages/CheckOutPage";
 import { useItemsCtx } from "../../context/ItemsContextProvider";
 import { useRespCtx } from "../../context/ResponsiveContextProvider";
+import { useEffect } from "react";
 
 function Header() {
   const { setCartIsOpen, cartIsOpen } = useItemsCtx();
@@ -10,6 +11,7 @@ function Header() {
 
   function openCartNav() {
     const cartNav = document.getElementById("myCartNav");
+
     if (cartIsOpen) {
       cartNav.style.width = "0";
       setCartIsOpen(false);
@@ -29,7 +31,7 @@ function Header() {
   return (
     <header
       className={`container flex justify-between pt-4 pb-4 mb-4 items-center ${
-        cartIsOpen ? "sticky top-0 bg-white" : ""
+        cartIsOpen && windowWidth < 1024 ? "sticky top-0 bg-white" : ""
       }`}
       id="myHeader"
     >
