@@ -217,6 +217,10 @@ function Burger({ closeCartNav }) {
             )}
           </Disclosure>
           <SearchBar searchValue={searchEl} />
+          <div onClick={() => {navigate("/login"), closeNav()}} className="cursor-pointer flex gap-8 mt-20 text-5xl hover:underline">
+          <span className=""><i className="fa fa-user-circle" aria-hidden="true"></i></span>
+          <p>Login</p>
+          </div>
         </div>
       </section>
     </div>

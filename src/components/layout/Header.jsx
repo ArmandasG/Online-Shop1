@@ -38,7 +38,9 @@ function Header() {
           SHOPER
         </Link>
       </div>
+      <div>
       <CheckOutPage onOpen={openCartNav} onClose={closeCartNav} />
+      </div>
     </header>
   );
 }
