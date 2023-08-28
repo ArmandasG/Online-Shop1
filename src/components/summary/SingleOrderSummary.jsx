@@ -1,14 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useItemsCtx } from "../../context/ItemsContextProvider";
 
-function SingleOrderSummary({ OrderItem, clothesArr }) {
-  const OrderItemEl = clothesArr.find((oItem) => oItem.uid === OrderItem.uid);
+function SingleOrderSummary({ OrderItem, allItems }) {
+  const OrderItemEl = allItems.find((oItem) => oItem.uid === OrderItem.uid);
+  console.log('OrderItem ===', OrderItem);
   return (
     <li className="flex border-t py-4">
       <div className=" basis-28 my-2 relative mr-8">
         <img
           className="w-24 h-24 object-cover"
-          src={OrderItemEl.img}
+          src={OrderItemEl.imgURL}
           alt={OrderItemEl.brand}
         />
         <span className="bg-white text-center text-xl border w-7 h-7 rounded-full absolute -top-3.5 -right-3.5">
@@ -38,7 +40,7 @@ SingleOrderSummary.propTypes = {
         gender: PropTypes.string.isRequired,
         uid: PropTypes.string.isRequired,
         brand: PropTypes.string.isRequired,
-        img: PropTypes.string.isRequired,
+        imgURL: PropTypes.string.isRequired,
         quantity: PropTypes.number.isRequired,
         addDate: PropTypes.instanceOf(Date).isRequired,
       }),

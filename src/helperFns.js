@@ -44,8 +44,8 @@ export async function fetchItemsAndImages(collectionName) {
 
     const downloadURLs = await Promise.all(imageURLsPromises);
     tempItems.forEach((item, index) => {
-      if (item.thumbnail) {
-        item.thumbnailURL = downloadURLs[index];
+      if (item.img) {
+        item.imgURL = downloadURLs[index];
       }
     });
 

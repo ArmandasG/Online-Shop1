@@ -5,9 +5,9 @@ import { useAuthCtx } from "../context/AuthProvider";
 import PropTypes from "prop-types"
 
 function Cart({ myCartNav, onClose }) {
-  const { cartArr, setCartArr, setTempCart, navigate, clothesArr } =
+  const { allItems, cartArr, setCartArr, setTempCart, navigate } =
     useItemsCtx();
-
+console.log('cartArr ===', cartArr);
   const { ui } = useAuthCtx();
   function handleDelete(id) {
     setCartArr((prevItem) =>
@@ -16,7 +16,7 @@ function Cart({ myCartNav, onClose }) {
     ui.showSuccess("Removed From Cart");
   }
   const allCartItemsPrice = cartArr.reduce((total, cartItem) => {
-    const item = clothesArr.find((i) => i.uid === cartItem.uid);
+    const item = allItems.find((i) => i.uid === cartItem.uid);
     return total + (item?.price || 0) * cartItem.quantity;
   }, 0);
   return (
@@ -33,7 +33,8 @@ function Cart({ myCartNav, onClose }) {
         <ul className="grid grid-cols-1">
           {cartArr.map((cObj, uid) => (
             <SingleCartItem
-              key={uid}
+              key={cObj.uid}
+              allItems={allItems}
               cartItem={cObj}
               DeleteOfItem={() => handleDelete(cObj.uid)}
               setTempCart={setTempCart}

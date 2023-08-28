@@ -126,7 +126,7 @@ Filter.propTypes = {
         gender: PropTypes.string.isRequired,
         uid: PropTypes.string.isRequired,
         brand: PropTypes.string.isRequired,
-        img: PropTypes.string.isRequired,
+        imgURL: PropTypes.string.isRequired,
         quantity: PropTypes.number.isRequired,
         addDate: PropTypes.instanceOf(Date).isRequired,
     })

@@ -7,6 +7,7 @@ import Loader from "../components/ui/Loader";
 
 function SingleClothesPage() {
   const { clothesUid } = useParams();
+  console.log('clothesUid ===', clothesUid);
   const {
     clothesArr,
     setCartArr,
@@ -37,7 +38,7 @@ function SingleClothesPage() {
   return ( loadingClothes ? <Loader /> :
     <div className="min-h-screen text-3xl space-y-10 container flex flex-col">
       <img
-        src={currentClothesObj.img}
+        src={currentClothesObj.imgURL}
         alt={currentClothesObj.brand}
         className="max-w-1xl"
       />

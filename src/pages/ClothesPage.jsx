@@ -4,8 +4,7 @@ import Filter from "../components/filters/Filter";
 import { useItemsCtx } from "../context/ItemsContextProvider";
 
 function ClothesPage() {
-  const { clothesArr, setClothesArr } = useItemsCtx();
-
+  const { clothesArr, setClothesArr, loadingClothes } = useItemsCtx();
   return (
     <div className="min-h-screen container">
       <div className="filterBar">

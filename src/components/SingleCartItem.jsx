@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useItemsCtx } from "../context/ItemsContextProvider";
 import PropTypes from "prop-types";
+import Loader from "./ui/Loader";
 
-function SingleCartItem({ cartItem, DeleteOfItem, setTempCart }) {
-  const { allItems } = useItemsCtx();
+function SingleCartItem({ cartItem, DeleteOfItem, setTempCart, allItems }) {
+  const { loadingClothes } = useItemsCtx()
   const cartItemEl = allItems.find((sItem) => sItem.uid === cartItem.uid);
-
+  
   return (
     <li className="border-b pt-2 pb-2">
       <div className="flex">
         <img
           className="h-28 w-28 basis-1/4 mt-2 pr-4 object-contain"
-          src={cartItemEl.img}
+          src={cartItemEl.imgURL}
           alt={cartItemEl.brand}
         />
         <div className="flex flex-col justify-between basis-3/4 gap-3">

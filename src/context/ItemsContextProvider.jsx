@@ -1,5 +1,4 @@
 import { useState, createContext, useContext, useEffect } from "react";
-import { clothes } from "../assets/items";
 import { useNavigate } from "react-router-dom";
 import { useAuthCtx } from "./AuthProvider";
 import PropTypes from 'prop-types'
@@ -11,9 +10,9 @@ ItemsContext.displayName = "Items";
 
 const ItemsContextProvider = ({ children }) => {
   const { ui } = useAuthCtx();
-  const [getClothes, setGetClothes] = useState([])
-  const [allItems, setAllItems] = useState(clothes);
-  const [clothesArr, setClothesArr] = useState(clothes);
+  // const [getClothes, setGetClothes] = useState([])
+  const [allItems, setAllItems] = useState([]);
+  const [clothesArr, setClothesArr] = useState(allItems);
   const [cartArr, setCartArr] = useState([]);
   const [tempCart, setTempCart] = useState([]);
   const [cartIsOpen, setCartIsOpen] = useState(false);
@@ -27,12 +26,13 @@ const ItemsContextProvider = ({ children }) => {
 
   // temp solution considering that the quantity element will be remade to an input -
   const [currentItemUid, setCurrentItemUid] = useState(null);
-
+console.log('allItems ===', allItems);
   useEffect(() => {
+    console.log('Fetching data from Firebase')
     fetchItemsAndImages('clothes')
     .then((data) => {
       const clothesObject = Object.values(data);
-      setGetClothes(clothesObject)
+      setAllItems(clothesObject)
       setLoadingClothes(false)
       console.log('clothesObject ===', clothesObject);
     })
@@ -77,7 +77,7 @@ const ItemsContextProvider = ({ children }) => {
   }, [cartArr]);
 
   const resetClothes = () => {
-    setClothesArr(clothes);
+    setClothesArr(allItems);
   };
 
   const getItemQuantity = (uid) => {

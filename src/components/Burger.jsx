@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 import { Disclosure, Transition } from "@headlessui/react";
 import SearchBar from "./SearchBar";
 import { useItemsCtx } from "../context/ItemsContextProvider";
-import { clothes } from "../assets/items";
 import PropTypes from "prop-types";
 
 const selectOptions = ["All", "Jackets", "Shirts", "Pants", "Shoes"];
 
 function Burger({ closeCartNav }) {
-  const { clothesArr, setClothesArr, resetClothes, navigate, loadingClothes } = useItemsCtx();
+  const { allItems, clothesArr, setClothesArr, resetClothes, navigate } = useItemsCtx();
   const [query, setQuery] = useState("");
 
   function openNav() {
@@ -68,7 +67,7 @@ function Burger({ closeCartNav }) {
     } else {
       resetClothes();
       setQuery("");
-      const filteredOptions = clothes.filter((clothes) =>
+      const filteredOptions = allItems.filter((clothes) =>
         clothes.category.toLowerCase().includes(sObj.toLowerCase())
       );
       setClothesArr(filteredOptions);

@@ -4,9 +4,9 @@ import SingleOrderSummary from "./SingleOrderSummary";
 import { Disclosure, Transition } from "@headlessui/react";
 
 function OrderSummary() {
-  const { cartArr, clothesArr, cartIsOpen, deliveryFee } = useItemsCtx();
+  const { cartArr, allItems, cartIsOpen, deliveryFee } = useItemsCtx();
   const allCartItemsPrice = cartArr.reduce((total, cartItem) => {
-    const item = clothesArr.find((i) => i.uid === cartItem.uid);
+    const item = allItems.find((i) => i.uid === cartItem.uid);
     return total + (item?.price || 0) * cartItem.quantity;
   }, 0);
   const allCartItemsPriceWithDeliveryFee = deliveryFee.map((fObj) =>
@@ -69,11 +69,11 @@ function OrderSummary() {
                         cartIsOpen ? close() : "";
                       }, [cartIsOpen])}
                       <ul className="grid grid-cols-1 pt-4 pb-10">
-                        {cartArr.map((oObj, uid) => (
+                        {cartArr.map((oObj) => (
                           <SingleOrderSummary
-                            key={uid}
+                            key={oObj.uid}
                             OrderItem={oObj}
-                            clothesArr={clothesArr}
+                            allItems={allItems}
                           />
                         ))}
                       </ul>

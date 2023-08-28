@@ -7,7 +7,7 @@ function SingleClothes({ clothes }) {
     <li className="p-4">
       <Link className="flex flex-col items-center text-2xl" to={`/clothes/${clothes.uid}`}>
         <img
-          src={clothes.img}
+          src={clothes.imgURL}
           alt={clothes.brand}
           className="w-60 h-60 object-contain mx-auto"
         />
@@ -29,7 +29,7 @@ SingleClothes.propTypes = {
     gender: PropTypes.string.isRequired,
     uid: PropTypes.string.isRequired,
     brand: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired,
+    imgURL: PropTypes.string.isRequired,
     quantity: PropTypes.number.isRequired,
   })
 }
