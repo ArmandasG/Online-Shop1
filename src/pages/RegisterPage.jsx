@@ -26,10 +26,10 @@ function RegisterPage() {
   return (
     <div className="min-h-screen container items-center gap-32 flex flex-col lg:min-h-[140rem]">
         
-      <h1 className="text-4xl mt-40 font-bold lg:text-8xl">Registration</h1>
+      <h1 className="text-4xl mt-40 font-bold lg:text-6xl">Registration</h1>
       <RegisterForm onRegister={registerToShop} />
       <div className='text-center'>
-      <p className='text-3xl lg:text-6xl'>Already have an account ?</p>
+      <p className='text-3xl lg:text-4xl'>Already have an account ?</p>
       <Link className='font-bold text-3xl mt-4 hover:underline block lg:text-5xl' to={"/login"}>
             {" "}
             <span>Click here to login</span>{" "}

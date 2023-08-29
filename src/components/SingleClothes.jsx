@@ -4,14 +4,16 @@ import PropTypes from 'prop-types'
 
 function SingleClothes({ clothes }) {
   return (
-    <li className="p-4">
-      <Link className="flex flex-col items-center text-2xl" to={`/clothes/${clothes.uid}`}>
+    <li className="h-full w-full lg:hover:scale-90 duration-200">
+      <Link className="flex flex-col items-center text-2xl h-full" to={`/clothes/${clothes.uid}`}>
+        <div className="aspect-w-4 aspect-h-4 w-full h-3/4 lg:aspect-w-16 lg:aspect-h-16 object-cover">
         <img loading="lazy"
           src={clothes.imgURL}
           alt={clothes.brand}
-          className="w-60 h-60 object-contain mx-auto"
+          className="w-full h-full"
         />
-        <div className="mr-24">
+        </div>
+        <div className="items-start w-full">
         <h4>{clothes.brand}</h4>
         <span>{clothes.price.toFixed(2)} €</span>
         </div>

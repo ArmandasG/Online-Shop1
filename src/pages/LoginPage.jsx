@@ -46,10 +46,10 @@ function LoginPage() {
   return (
     <div className="min-h-screen lg:min-h-[170rem] container items-center gap-40 flex flex-col lg:flex-row lg:items-start lg:pt-80">
         <div className="flex flex-col items-center w-full">
-      <h1 className="text-4xl mt-40 font-bold lg:text-6xl">Sign in</h1>
+      <h1 className="text-4xl mt-40 font-bold lg:text-5xl">Sign in</h1>
       <LoginForm onLogin={loginShop} />
       </div>
-      <div className="flex flex-col items-center w-full text-3xl lg:text-6xl lg:pt-[60rem]">
+      <div className="flex flex-col items-center w-full text-3xl lg:text-5xl lg:pt-[50rem]">
         <div className="border border-black rounded-lg p-10 space-y-8">
           {" "}
           <h2 className="text-center font-bold">Not yet registered ?</h2>{" "}
@@ -59,11 +59,11 @@ function LoginPage() {
             <li>* No need to fill the delivery information</li>
             <li>* Future updates might provide more</li>
           </ul>
-          <Link className="border w-full block text-center border-black rounded-md py-4 px-30 hover:bg-black hover:text-white" to={"/register"}>
+          <Link className="border w-full block text-center border-black rounded-md py-4 px-30 hover:bg-black hover:text-white ease-in-out duration-300" to={"/register"}>
         <span className="w-full">Create an account</span>
         </Link>
-          <button onClick={loginWithGoogle} className="border w-full flex justify-center border-black rounded-md py-4 px-30 hover:text-white hover:bg-black">
-        <img className="w-8 mr-2 lg:w-14" src="/google.png" alt="googleIcon" />
+          <button onClick={loginWithGoogle} className="border w-full flex justify-center border-black rounded-md py-4 px-30 hover:text-white hover:bg-black ease-in-out duration-300">
+        <img className="w-8 mr-2 lg:w-12" src="/google.png" alt="googleIcon" />
         <span>Login with Google</span>
       </button>
       </div>

@@ -40,8 +40,8 @@ function Filter() {
   }
 
   return (
-    <div className="flex justify-between lg:flex-none">
-      <div className="pt-4 pb-4 pr-4 lg:border-t lg:p-0">
+    <div className="flex justify-between lg:flex-none lg:w-[30%]">
+      <div className="pt-4 pb-4 pr-4 lg:border-t lg:p-0 lg:w-full">
       {windowWidth < 1024 ? <span className="cursor-pointer text-2xl" onClick={openFilter}>
           Filter({selectedFilter.length})
         </span> : ''}

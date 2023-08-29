@@ -26,7 +26,7 @@ function JoinUsForm() {
     },
   });
   return (
-    <form className="mt-4 space-y-8" onSubmit={formik.handleSubmit}>
+    <form className="mt-4 space-y-8 lg:text-3xl" onSubmit={formik.handleSubmit}>
       <div className="flex flex-col space-y-8">
         <div className="w-full">
           <input
