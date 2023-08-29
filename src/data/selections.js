@@ -4,11 +4,26 @@ export const color = ["white", "black", "brown", "yellow", "blue", "grey"];
 
 export const size = ["XS", "S", "M", "L", "XL", "XXL"];
 
+export const shoeSize = [
+  "35",
+  "36",
+  "37",
+  "38",
+  "39",
+  "40",
+  "41",
+  "42",
+  "43",
+  "44",
+  "45",
+  "46",
+];
+
 export const brand = ["blackIt", "clothesDown", "forestUp", "whiteNat"];
 
 export const gender = ["men", "women", "uni"];
 
-export const priceRange = ['0-150']
+export const priceRange = [20, 40, 60, 80, 100, 120];
 
 export const filters = [
   ["jackets", "pants", "shirts", "shoes"],

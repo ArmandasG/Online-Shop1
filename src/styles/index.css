@@ -12,6 +12,7 @@
     font-family: 'Abel', sans-serif;
 /* font-family: 'Roboto', sans-serif; */
 font-size: 62.5%;
+overflow-y: scroll;
   }
 }
 
@@ -24,19 +25,53 @@ font-size: 62.5%;
   top: 0;
   background-color: #FFFFFF;
   overflow-x: hidden;
-  transition: 0.5s;
+  visibility: visible;
+  transition: width 0.5s, padding-right 0.5s;
+  white-space: nowrap
 }
 
 .cartOverlay {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   right: 0;
   top: 0;
   background-color: #FFFFFF;
   overflow-x: hidden;
   transition: 0.5s;
+  margin-top: 39px;
+  white-space: nowrap;
+}
+
+.cartOverlayLg {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 4;
+  right: 0;
+  top: 0;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+  transition: 0.5s;
+  white-space: nowrap;
+}
+
+.close-icon {
+  z-index: 30;
+}
+
+.appear-from-right {
+  animation: slideTop 0.5s ease-in-out;
+}
+
+@keyframes slideTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .filterOverlay {
@@ -69,3 +104,97 @@ font-size: 62.5%;
   );
   box-shadow: 0px 4.42184px 107.23px rgba(225, 86, 246, 0.51);
 }
+
+.feedback-container {
+  position: fixed;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+  z-index: 10;
+  width: 50%;
+  border-radius: 1rem;
+  transform: translate(50%, -100%);
+  transition: transform 0.3s ease-in-out;
+
+}
+
+.overlay-fade {
+  display: block;
+  opacity: 1;
+  z-index: 3;
+  transform: 'translateX(100%)';
+  transition: 'transform 0.3s ease';
+}
+
+.feedback-container.visible {
+  transform: translate(50%, 0);
+}
+
+.feedback-container .msg {
+  font-size: 2rem;
+}
+
+.feedback-container.success {
+  background-color: #4ce364;
+}
+
+  .feedback-container.error {
+    background-color: #ff5a5a;
+  }
+
+  .feedback-container.info {
+    background-color: #ffc700;
+  }
+
+  .spinner {
+    animation: rotate 2s linear infinite;
+    z-index: 4;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .spinner .path {
+    stroke: hsl(210, 70%, 75%);
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 150;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -124;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .feedback-container {
+      
+      width: 30%;
+      top: 0;
+      left: 20%;
+      transform: translate(50%, -50%)
+    
+    }
+    .container {
+      max-width: 120rem;
+    }
+
+  }
