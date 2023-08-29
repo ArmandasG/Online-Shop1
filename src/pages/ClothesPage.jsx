@@ -5,11 +5,11 @@ import Loader from "../components/ui/Loader";
 import { useItemsCtx } from "../context/ItemsContextProvider";
 
 function ClothesPage() {
-  const { clothesArr, setClothesArr, loadingClothes } = useItemsCtx();
+  const { clothesArr, loadingClothes } = useItemsCtx();
   return (
     <div className="min-h-screen container">
       <div className="filterBar">
-        <Filter clothesArr={clothesArr} setClothesArr={setClothesArr} />
+        <Filter />
       </div>
       {loadingClothes ? <Loader/> :
       <ul className="grid grid-cols-2 gap-4 ml-8 mt-10">
