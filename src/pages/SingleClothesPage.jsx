@@ -34,12 +34,15 @@ function SingleClothesPage() {
   }
 
   return ( loadingClothes ? <Loader /> :
-    <div className="min-h-screen text-3xl space-y-10 container flex flex-col">
+    <div className="min-h-screen lg:min-h-[130rem] text-3xl container flex flex-col w-full lg:flex-row lg:items-start lg:pt-[20rem] lg:gap-20">
+      <div className="w-full lg:w-8/12">
       <img
         src={currentClothesObj.imgURL}
         alt={currentClothesObj.brand}
-        className="max-w-1xl"
+        className="w-full"
       />
+      </div>
+      <div className="flex flex-col space-y-10">
       <h3 className="text-gray-400">
         {currentClothesObj.category.charAt(0).toUpperCase() +
           currentClothesObj.category.slice(1)}{" "}
@@ -57,7 +60,7 @@ function SingleClothesPage() {
       <div className="flex gap-2 text-gray-600">
         <p className="mt-2 mr-3.5">Size: </p>
         <select
-          className="ml-16 p-1.5 border border-black bg-white rounded-none"
+          className="ml-16 p-1.5 border border-black bg-white rounded-none cursor-pointer"
           value={selectedSize}
           type="text"
           name="size"
@@ -141,17 +144,18 @@ function SingleClothesPage() {
           onClick={() =>
             addToCart((tempCart) => [...tempCart, currentClothesObj])
           }
-          className="border py-4 px-40 bg-black text-white"
+          className="cursor-pointer border border-black py-4 w-full bg-black text-white hover:bg-white hover:text-black ease-in-out duration-300"
         >
           Add to Cart
         </button>
         <div className="flex gap-2">
           <i className="fa fa-angle-left mt-0.5" aria-hidden="true"></i>
-          <button onClick={() => navigate(-1)} className="block mb-10">
+          <button onClick={() => navigate(-1)} className="block mb-10 hover:underline">
             Back to shopping
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 }
