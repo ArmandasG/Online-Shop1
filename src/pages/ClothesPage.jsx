@@ -8,7 +8,7 @@ function ClothesPage() {
   const { clothesArr, loadingClothes } = useItemsCtx();
   return (
     <div className="min-h-screen container">
-      <div className="filterBar">
+      <div>
         <Filter />
       </div>
       {loadingClothes ? <Loader/> :
