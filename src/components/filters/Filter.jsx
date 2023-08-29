@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FilterType } from "./FilterType";
 import FilterSort from "./FilterSort";
 import { useRespCtx } from "../../context/ResponsiveContextProvider";
+import { useItemsCtx } from "../../context/ItemsContextProvider";
 
 const filterOptions = [
   "color",
@@ -10,9 +11,12 @@ const filterOptions = [
 ];
 
 function Filter() {
+  const { setClothesArr, clothesArr } = useItemsCtx()
   const [resetFilters, setResetFilters] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState([]);
   const { windowWidth } = useRespCtx()
+
+console.log('clothesArr ===', clothesArr);
 
   function openFilter() {
     document.getElementById("filterEl").style.height = "100%";
@@ -30,7 +34,17 @@ function Filter() {
   };
 
   const applyFilters = () => {
-    console.log('selectedFilter ===', selectedFilter);
+    const filteredClothes = clothesArr.filter(item => {
+      return selectedFilter.every((filter) => {
+        return (
+          item.color.includes(filter) ||
+          item.brand.includes(filter) ||
+          item.gender.includes(filter)
+        )
+      })
+    });
+  
+    setClothesArr(filteredClothes);
   }
 
   function refreshFilters() {

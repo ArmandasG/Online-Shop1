@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { type, color, brand, gender, priceRange } from "../../assets/selections";
 import { useRespCtx } from "../../context/ResponsiveContextProvider";
+import { useItemsCtx } from "../../context/ItemsContextProvider";
 
 const colectedFilters = {
   color,
@@ -11,6 +12,7 @@ const colectedFilters = {
 
 export function FilterType({ fObj, onFilter, resetFilters , setSelectedFilter, setResetFilters }) {
   const [selectedOption, setSelectedOption] = useState([])
+  const { setClothesArr, allItems } = useItemsCtx()
   const { windowWidth } = useRespCtx()
   
   const handleSelectOption = (option) => {
@@ -30,8 +32,9 @@ export function FilterType({ fObj, onFilter, resetFilters , setSelectedFilter, s
 
   function resetStates () {
     setSelectedOption([]);
-    setSelectedFilter([])
-    setResetFilters(false)
+    setSelectedFilter([]);
+    setResetFilters(false);
+    setClothesArr(allItems)
   }
 
   useEffect(() => {resetFilters === true ? resetStates() : ''}, [resetFilters])
