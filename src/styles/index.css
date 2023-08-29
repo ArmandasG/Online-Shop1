@@ -12,6 +12,7 @@
     font-family: 'Abel', sans-serif;
 /* font-family: 'Roboto', sans-serif; */
 font-size: 62.5%;
+overflow-y: scroll;
   }
 }
 
