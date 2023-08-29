@@ -27,8 +27,8 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="pt-8 pb-8 container items-center">
-      <img src={randomImageUrl} alt="cover-photo" className="w-full" />
+    <div className="pt-8 pb-8 container items-center lg:min-h-[90rem] lg:flex lg:justify-center lg:pt-0">
+      <img src={randomImageUrl} alt="cover-photo" className="w-fit h-[80rem]" />
     </div>
   );
 }
