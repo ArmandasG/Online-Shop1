@@ -16,7 +16,7 @@ function RegisterPage() {
       .then((userCredential) => {
         setIsLoading(false);
         ui.showSuccess("User has been successfully registered");
-        navigate('/shops')
+        navigate('/clothes')
       })
       .catch((error) => {
         ui.showError("Registration failed");

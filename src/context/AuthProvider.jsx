@@ -1,5 +1,7 @@
 import { useEffect, useState, useContext, createContext } from "react";
 import PropTypes from 'prop-types'
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase/firebase";
 
 const AuthContext = createContext({
   user: {},
@@ -25,6 +27,12 @@ function AuthProvider({ children }) {
     type: "",
   });
   const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+  }, []);
 
   const { show, msg } = feedback;
   useEffect(() => {

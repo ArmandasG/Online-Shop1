@@ -6,12 +6,16 @@ import SearchBar from "./SearchBar";
 import { useItemsCtx } from "../context/ItemsContextProvider";
 import PropTypes from "prop-types";
 import { useRespCtx } from "../context/ResponsiveContextProvider";
+import { useAuthCtx } from "../context/AuthProvider";
+import { auth } from "../firebase/firebase";
+import { signOut } from "firebase/auth";
 
 const selectOptions = ["All", "Jackets", "Shirts", "Pants", "Shoes"];
 
 function Burger({ closeCartNav }) {
   const { allItems, clothesArr, setClothesArr, resetClothes, navigate } = useItemsCtx();
   const { windowWidth } = useRespCtx()
+  const { isLoggedIn, ui } = useAuthCtx()
   const [query, setQuery] = useState("");
   const [activePanel, setActivePanel] = useState(null)
 
@@ -123,6 +127,17 @@ function Burger({ closeCartNav }) {
   function selectReadMore() {
     navigate("/read-more");
     closeNav();
+  }
+
+  function logoutUserFire() {
+    signOut(auth)
+      .then(() => {
+        isLoggedIn(false);
+        ui.showSuccess("Logged out");
+        navigate('/');
+      })
+      .catch((error) => {});
+      ui.showSuccess("Logged out");
   }
 
   return (
@@ -333,9 +348,13 @@ function Burger({ closeCartNav }) {
           : ""}
           {windowWidth < 1024 ?
           <SearchBar searchValue={searchEl} /> : '' }
-          {windowWidth < 1024 ? <div onClick={() => {navigate("/login"), closeNav()}} className="cursor-pointer flex gap-8 mt-20 text-5xl hover:underline">
+          {windowWidth < 1024 && !isLoggedIn ? <div onClick={() => {navigate("/login"), closeNav()}} className="cursor-pointer flex gap-8 mt-20 text-5xl hover:underline">
           <span className=""><i className="fa fa-user-circle" aria-hidden="true"></i></span>
           <p>Login</p>
+          </div> : ''}
+          {windowWidth < 1024 && isLoggedIn ? <div onClick={() => {logoutUserFire(), closeNav()}} className="cursor-pointer flex gap-8 mt-20 text-5xl hover:underline">
+          <span className=""><i className="fa fa-user-circle text-green-400" aria-hidden="true"></i></span>
+          <p>Logout</p>
           </div> : ''}
         </div>
       </section>

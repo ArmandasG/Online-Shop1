@@ -16,7 +16,7 @@ function LoginPage() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setIsLoading(false);
-        navigate("/shops");
+        navigate("/clothes");
         ui.showSuccess("Logged in");
       })
       .catch((error) => {
@@ -35,7 +35,7 @@ function LoginPage() {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         setIsLoading(false);
-        navigate("/shops");
+        navigate("/clothes");
         ui.showSuccess("Logged in");
       })
       .catch((error) => {

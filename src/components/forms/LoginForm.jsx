@@ -64,7 +64,7 @@ function LoginForm({ onLogin }) {
                 ? "border-red-600 focus-visible:outline-red-600"
                 : ""
             } border p-3 border-black w-full`}
-            type="text"
+            type="password"
             id="password"
             value={formik.values.password}
             onBlur={formik.handleBlur}
