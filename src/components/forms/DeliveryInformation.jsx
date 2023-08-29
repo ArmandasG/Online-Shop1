@@ -2,8 +2,8 @@ import { useFormik } from "formik";
 import React from "react";
 import Directory from "../summary/Directory";
 import { useItemsCtx } from "../../context/ItemsContextProvider";
-import { cities } from "../../assets/cities";
 import { useRespCtx } from "../../context/ResponsiveContextProvider";
+import { cities } from "../../data/cities";
 
 function DeliveryInformation() {
   const {

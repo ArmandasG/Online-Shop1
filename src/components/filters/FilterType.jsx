@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
-import { type, color, brand, gender, priceRange } from "../../assets/selections";
+import { type, color, brand, gender, priceRange } from "../../data/selections";
 import { useRespCtx } from "../../context/ResponsiveContextProvider";
 import { useItemsCtx } from "../../context/ItemsContextProvider";
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useItemsCtx } from "../context/ItemsContextProvider";
-import { size, shoeSize } from "../assets/selections";
+import { size, shoeSize } from "../data/selections";
 import { useAuthCtx } from "../context/AuthProvider";
 import Loader from "../components/ui/Loader";
 
