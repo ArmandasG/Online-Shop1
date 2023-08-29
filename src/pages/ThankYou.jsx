@@ -2,7 +2,7 @@ import React from "react";
 
 function ThankYou() {
   return (
-    <div className="flex flex-col items-center container h-screen">
+    <div className="flex flex-col items-center container h-screen lg:h-[71rem]">
       <div className="bg-no-repeat bg-cover w-96 h-96 bg-center bg-[url('/icons/thankYou.png')]"></div>
       <h1 className="text-center text-4xl py-4 underline">
         Thank you for trying my website project

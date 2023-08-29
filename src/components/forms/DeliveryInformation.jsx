@@ -87,9 +87,9 @@ function DeliveryInformation() {
     });
   }
   return (
-    <div className="">
+    <div className="lg:w-full">
       <Directory />
-      <div className="container py-8 bg-white">
+      <div className="container py-8 bg-white lg:w-full">
         <h2 className="text-2xl text-gray-500">
           {"Contact Information".toUpperCase()}
         </h2>

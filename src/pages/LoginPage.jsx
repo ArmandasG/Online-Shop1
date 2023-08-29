@@ -44,12 +44,12 @@ function LoginPage() {
       });
   }
   return (
-    <div className="min-h-screen lg:min-h-[170rem] container items-center gap-40 flex flex-col lg:flex-row lg:items-start lg:pt-80">
+    <div className="min-h-screen lg:min-h-[71rem] container items-center gap-40 flex flex-col lg:flex-row lg:items-start">
         <div className="flex flex-col items-center w-full">
       <h1 className="text-4xl mt-40 font-bold lg:text-5xl">Sign in</h1>
       <LoginForm onLogin={loginShop} />
       </div>
-      <div className="flex flex-col items-center w-full text-3xl lg:text-5xl lg:pt-[50rem]">
+      <div className="flex flex-col items-center w-full text-3xl lg:text-5xl lg:pt-[30rem] lg:mb-[10rem]">
         <div className="border border-black rounded-lg p-10 space-y-8">
           {" "}
           <h2 className="text-center font-bold">Not yet registered ?</h2>{" "}

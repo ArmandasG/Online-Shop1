@@ -3,7 +3,7 @@ import React from "react";
 
 function FindUsPage() {
   return (
-    <div className="mb-20 min-h-screen container">
+    <div className="mb-20 min-h-screen container lg:min-h-[70rem] lg:mb-20">
       <iframe
         className="w-full h-96 mb-8 lg:h-[60rem]"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9226.288830262565!2d25.280657812072764!3d54.68195764035149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dd9413b1f67c6b%3A0x2600d18d4c454541!2sSenamiestis%2C%20Vilnius%2C%20Vilniaus%20m.%20sav.!5e0!3m2!1slt!2slt!4v1689797760022!5m2!1slt!2slt"

@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useItemsCtx } from "../../context/ItemsContextProvider";
 import SingleOrderSummary from "./SingleOrderSummary";
 import { Disclosure, Transition } from "@headlessui/react";
+import { useRespCtx } from "../../context/ResponsiveContextProvider";
 
 function OrderSummary() {
   const { cartArr, allItems, cartIsOpen, deliveryFee } = useItemsCtx();
+  const { windowWidth } = useRespCtx();
+
   const allCartItemsPrice = cartArr.reduce((total, cartItem) => {
     const item = allItems.find((i) => i.uid === cartItem.uid);
     return total + (item?.price || 0) * cartItem.quantity;
@@ -14,15 +17,16 @@ function OrderSummary() {
   );
 
   return (
-    <Disclosure>
+    <Disclosure defaultOpen={windowWidth >=1024 ? true : false}>
       {({ open }) => (
         <>
-          <div className="py-2">
+          <div className="py-2 lg:w-full lg:border-l">
             <div
               className={`${
                 !open ? "bg-white mx-2 px-6 container" : "container"
               }`}
             >
+              {windowWidth < 1024 ?
               <Disclosure.Button className="flex justify-between pt-6 pb-4 w-full">
                 <div className="flex">
                   <i
@@ -53,7 +57,7 @@ function OrderSummary() {
                     : allCartItemsPriceWithDeliveryFee}{" "}
                   €
                 </span>
-              </Disclosure.Button>
+              </Disclosure.Button> : ''}
               <Transition
                 enter="transition duration-100 ease-out"
                 enterFrom="transform scale-95 opacity-0"
@@ -68,7 +72,7 @@ function OrderSummary() {
                       {useEffect(() => {
                         cartIsOpen ? close() : "";
                       }, [cartIsOpen])}
-                      <ul className="grid grid-cols-1 pt-4 pb-10">
+                      <ul className="grid grid-cols-1 pt-4 pb-10 lg:border-b-2">
                         {cartArr.map((oObj) => (
                           <SingleOrderSummary
                             key={oObj.uid}
@@ -78,23 +82,23 @@ function OrderSummary() {
                         ))}
                       </ul>
 
-                      <div className="flex justify-between py-2 text-gray-500">
-                        <p className="text-xl">Subtotal</p>
+                      <div className="flex justify-between py-2 text-gray-500 lg:mt-10">
+                        <p className="text-xl lg:text-2xl lg:text-black">Subtotal</p>
                         <span className="text-2xl">
                           {allCartItemsPrice.toFixed(2)} €
                         </span>
                       </div>
                       <div className="flex justify-between py-2 border-b-2 text-gray-500">
-                        <p className="text-xl">Shipping</p>
-                        <span className="text-xl">
+                        <p className="text-xl lg:text-2xl lg:text-black">Shipping</p>
+                        <span className="text-xl lg:mb-8">
                           {deliveryFee.length && cartArr.length > 0
                             ? `${deliveryFee.map((fObj) => fObj.toFixed(2))} €`
                             : "Calculated at next step"}
                         </span>
                       </div>
-                      <div className="py-4 flex justify-between font-bold">
-                        <p className="text-xl">Total</p>
-                        <span className="text-xl">
+                      <div className="py-4 flex justify-between font-bold lg:my-6">
+                        <p className="text-xl lg:text-2xl">Total</p>
+                        <span className="text-xl lg:text-2xl">
                           {deliveryFee.length === 0
                             ? allCartItemsPrice.toFixed(2)
                             : allCartItemsPriceWithDeliveryFee}{" "}

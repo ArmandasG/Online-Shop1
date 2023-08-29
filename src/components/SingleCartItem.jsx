@@ -7,7 +7,7 @@ function SingleCartItem({ cartItem, DeleteOfItem, setTempCart, allItems }) {
   const cartItemEl = allItems.find((sItem) => sItem.uid === cartItem.uid);
   return (
     <li className="border-b pt-2 pb-2">
-      <div className="flex lg:">
+      <div className="flex">
         <img
           className="h-28 w-28 basis-1/4 mt-2 pr-4 object-contain"
           src={cartItemEl?.imgURL}

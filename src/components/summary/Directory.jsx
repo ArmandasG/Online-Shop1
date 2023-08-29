@@ -7,7 +7,7 @@ function Directory() {
   const selected = location.pathname.split("/");
   const selectedPart = selected[selected.length - 1];
   return (
-    <ul className="flex gap-4 container bg-white pt-10">
+    <ul className="flex gap-4 container bg-white pt-10 lg:w-full lg:justify-center">
       {elementsToDisplay.map((iObj, index) => (
         <li className="flex gap-4" key={iObj}>
           <p

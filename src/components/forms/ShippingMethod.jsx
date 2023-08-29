@@ -38,9 +38,9 @@ function ShippingMethod() {
     formik.handleChange(event);
   };
   return (
-    <div>
+    <div className="lg:w-full">
       <Directory />
-      <div className="flex flex-col container bg-white pt-10 text-xl">
+      <div className="flex flex-col container bg-white pt-10 text-xl lg:w-full">
         <div className="border border-black px-4">
           <div className="flex justify-between py-5 border-b-2 border-gray-400">
             <h3 className="w-2/12">Contact</h3>
