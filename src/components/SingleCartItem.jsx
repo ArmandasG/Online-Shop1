@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useRespCtx } from "../context/ResponsiveContextProvider";
 
 function SingleCartItem({ cartItem, DeleteOfItem, setTempCart, allItems }) {
-  const { windowWidth } = useRespCtx()
+  const { windowWidth } = useRespCtx();
   const cartItemEl = allItems.find((sItem) => sItem.uid === cartItem.uid);
   return (
     <li className="border-b pt-2 pb-2">
@@ -27,20 +27,35 @@ function SingleCartItem({ cartItem, DeleteOfItem, setTempCart, allItems }) {
               {(cartItemEl?.price * cartItem?.quantity).toFixed(2)} €
             </span>
           </div>
-          { windowWidth < 1024 ? <button
+          {windowWidth < 1024 ? (
+            <button
+              onClick={() => {
+                DeleteOfItem(), setTempCart([]);
+              }}
+              className="flex w-1/4"
+            >
+              <img className="h-8" src="/icons/Group1419.svg" alt="remove" />
+              <span className="underline">Remove</span>
+            </button>
+          ) : (
+            ""
+          )}
+        </div>
+        {windowWidth >= 1024 ? (
+          <button
             onClick={() => {
               DeleteOfItem(), setTempCart([]);
             }}
-            className="flex w-1/4"
           >
-            <img className="h-8" src="/icons/Group1419.svg" alt="remove" />
-            <span className="underline">Remove</span>
-          </button> : ''}
-        </div>
-        { windowWidth >= 1024 ?
-        <button  onClick={() => {
-              DeleteOfItem(), setTempCart([]);
-            }}><img className="h-8 hover:opacity-50" src="/icons/Group1419.svg" alt="remove" /></button> : '' }
+            <img
+              className="h-8 hover:opacity-50"
+              src="/icons/Group1419.svg"
+              alt="remove"
+            />
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </li>
   );

@@ -20,20 +20,23 @@ function LoginForm({ onLogin }) {
     },
     validate: (values) => {
       const errors = {};
-      
-      if(!values.email) {
-        errors.email = 'Email is required'
+
+      if (!values.email) {
+        errors.email = "Email is required";
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
         errors.email = "Invalid email format";
       }
-      if(!values.password) {
-        errors.password = 'Password is required'
+      if (!values.password) {
+        errors.password = "Password is required";
       }
-      return errors
-    }
+      return errors;
+    },
   });
   return (
-    <form className="mt-6 space-y-8 p-10 text-3xl lg:text-4xl" onSubmit={formik.handleSubmit}>
+    <form
+      className="mt-6 space-y-8 p-10 text-3xl lg:text-4xl"
+      onSubmit={formik.handleSubmit}
+    >
       <div className="flex flex-col space-y-8">
         <div className="w-full">
           <input

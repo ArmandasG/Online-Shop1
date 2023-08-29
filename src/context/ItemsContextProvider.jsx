@@ -1,7 +1,7 @@
 import { useState, createContext, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthCtx } from "./AuthProvider";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import { fetchItemsAndImages } from "../helperFns";
 
 const ItemsContext = createContext();
@@ -19,48 +19,47 @@ const ItemsContextProvider = ({ children }) => {
   const [deliveryMethod, setDeliveryMethod] = useState([]);
   const [shippingInfo, setShippingInfo] = useState({});
   const [quantityLimitError, setQuantityLimitError] = useState(false);
-  const [loadingClothes, setLoadingClothes] = useState(true)
-const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [loadingClothes, setLoadingClothes] = useState(true);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-const updateWindowWidth = () => {
-  setWindowWidth(window.innerWidth);
-};
-
-useEffect(() => {
-  // Set up event listener for window resize
-  window.addEventListener('resize', updateWindowWidth);
-  // Clean up the event listener on unmount
-  return () => {
-    window.removeEventListener('resize', updateWindowWidth);
+  const updateWindowWidth = () => {
+    setWindowWidth(window.innerWidth);
   };
-}, [windowWidth]);
+
+  useEffect(() => {
+    // Set up event listener for window resize
+    window.addEventListener("resize", updateWindowWidth);
+    // Clean up the event listener on unmount
+    return () => {
+      window.removeEventListener("resize", updateWindowWidth);
+    };
+  }, [windowWidth]);
 
   // temp solution considering that the quantity element will be remade to an input -
   const [currentItemUid, setCurrentItemUid] = useState(null);
   useEffect(() => {
-    fetchItemsAndImages('clothes')
-    .then((data) => {
-      const clothesObject = Object.values(data);
-      setAllItems(clothesObject)
-      setClothesArr(clothesObject)
-      setLoadingClothes(false)
-    })
-    .catch((error) => {
-      console.error('Error fetching clothes', error);
-      setLoadingClothes(false)
-    })
-  }, [])
-
+    fetchItemsAndImages("clothes")
+      .then((data) => {
+        const clothesObject = Object.values(data);
+        setAllItems(clothesObject);
+        setClothesArr(clothesObject);
+        setLoadingClothes(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching clothes", error);
+        setLoadingClothes(false);
+      });
+  }, []);
 
   // temp solution for local storage
-  const localShoppingCartKey = 'LOCAL_CART';
+  const localShoppingCartKey = "LOCAL_CART";
 
   const cartFromLocalStorage = localStorage.getItem(localShoppingCartKey);
   const [cartArr, setCartArr] = useState(() => {
     try {
       return cartFromLocalStorage ? JSON.parse(cartFromLocalStorage) : [];
     } catch (error) {
-      console.error('Error parsing cart from localStorage:', error);
+      console.error("Error parsing cart from localStorage:", error);
 
       return [];
     }
@@ -70,7 +69,7 @@ useEffect(() => {
     try {
       localStorage.setItem(localShoppingCartKey, JSON.stringify(cartArr));
     } catch (error) {
-      console.error('Error storing cart in localStorage:', error);
+      console.error("Error storing cart in localStorage:", error);
     }
   }, [cartArr]);
 
@@ -78,7 +77,7 @@ useEffect(() => {
     try {
       return cartFromLocalStorage ? JSON.parse(cartFromLocalStorage) : [];
     } catch (error) {
-      console.error('Error parsing cart from localStorage:', error);
+      console.error("Error parsing cart from localStorage:", error);
 
       return [];
     }
@@ -89,10 +88,10 @@ useEffect(() => {
     try {
       localStorage.setItem(localShoppingCartKey, JSON.stringify(cartArr));
     } catch (error) {
-      console.error('Error storing cart in localStorage:', error);
+      console.error("Error storing cart in localStorage:", error);
     }
   }, [cartArr]);
-  
+
   useEffect(() => {
     quantityLimitError === true ? handleQuantityLimitError() : "";
   }, [quantityLimitError]);
@@ -214,4 +213,4 @@ export function useItemsCtx() {
 }
 ItemsContextProvider.propTypes = {
   children: PropTypes.node,
-}
+};

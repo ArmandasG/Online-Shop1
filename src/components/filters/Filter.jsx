@@ -4,17 +4,13 @@ import FilterSort from "./FilterSort";
 import { useRespCtx } from "../../context/ResponsiveContextProvider";
 import { useItemsCtx } from "../../context/ItemsContextProvider";
 
-const filterOptions = [
-  "color",
-  "brand",
-  "gender",
-];
+const filterOptions = ["color", "brand", "gender"];
 
 function Filter() {
-  const { setClothesArr, clothesArr } = useItemsCtx()
+  const { setClothesArr, clothesArr } = useItemsCtx();
   const [resetFilters, setResetFilters] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState([]);
-  const { windowWidth } = useRespCtx()
+  const { windowWidth } = useRespCtx();
 
   function openFilter() {
     document.getElementById("filterEl").style.height = "100%";
@@ -28,44 +24,58 @@ function Filter() {
   }
 
   const gatherFilters = (items) => {
-    setSelectedFilter(items)
+    setSelectedFilter(items);
   };
 
   const applyFilters = () => {
-    const filteredClothes = clothesArr.filter(item => {
+    const filteredClothes = clothesArr.filter((item) => {
       return selectedFilter.every((filter) => {
         return (
           item.color.includes(filter) ||
           item.brand.includes(filter) ||
           item.gender.includes(filter)
-        )
-      })
+        );
+      });
     });
-  
+
     setClothesArr(filteredClothes);
-  }
+  };
 
   function refreshFilters() {
-    setResetFilters(true)
+    setResetFilters(true);
   }
 
   return (
     <div className="flex justify-between lg:flex-none lg:w-[30%]">
       <div className="pt-4 pb-4 pr-4 lg:border-t lg:p-0 lg:w-full">
-      {windowWidth < 1024 ? <span className="cursor-pointer text-2xl" onClick={openFilter}>
-          Filter({selectedFilter.length})
-        </span> : ''}
-        <div className={ windowWidth < 1024 ? 'filterOverlay container' : ''} id="filterEl" style={{width: windowWidth < 1024 ? '100%' : 'auto'}}>
-        {windowWidth < 1024 ? <div onClick={closeFilter} className="closeBtn cursor-pointer mt-4">
-            <img src="/icons/Group1419.svg" alt="" />
-          </div> : ''}
-          <h3 className="text-6xl text-center mb-24 font-bold lg:hidden">Filter</h3>
+        {windowWidth < 1024 ? (
+          <span className="cursor-pointer text-2xl" onClick={openFilter}>
+            Filter({selectedFilter.length})
+          </span>
+        ) : (
+          ""
+        )}
+        <div
+          className={windowWidth < 1024 ? "filterOverlay container" : ""}
+          id="filterEl"
+          style={{ width: windowWidth < 1024 ? "100%" : "auto" }}
+        >
+          {windowWidth < 1024 ? (
+            <div onClick={closeFilter} className="closeBtn cursor-pointer mt-4">
+              <img src="/icons/Group1419.svg" alt="" />
+            </div>
+          ) : (
+            ""
+          )}
+          <h3 className="text-6xl text-center mb-24 font-bold lg:hidden">
+            Filter
+          </h3>
           {filterOptions.map((fObj) => (
             <FilterType
-            resetFilters={resetFilters}
-            setResetFilters={setResetFilters}
-            setSelectedFilter={setSelectedFilter}
-            selectedFilter={selectedFilter}
+              resetFilters={resetFilters}
+              setResetFilters={setResetFilters}
+              setSelectedFilter={setSelectedFilter}
+              selectedFilter={selectedFilter}
               onFilter={gatherFilters}
               className="block"
               key={fObj}
@@ -76,17 +86,26 @@ function Filter() {
             </FilterType>
           ))}
           <div className="mt-20 flex justify-between lg:flex-col-reverse lg:gap-6">
-          <button onClick={refreshFilters} className="ml-4 p-3 border w-2/12 border-black lg:w-full lg:ml-0 hover:text-white hover:bg-black ease-in-out duration-300">
-            <i className="fa fa-refresh text-3xl lg:text-2xl lg:hidden" aria-hidden="true"></i>
-            <span className="hidden lg:block lg:text-2xl">Reset filters</span>
-          </button>
-          <button onClick={() => applyFilters()} className="p-3 text-5xl w-9/12 border border-black bg-black text-white lg:text-2xl lg:w-full hover:bg-white hover:text-black ease-in-out duration-300">
-            Apply filter
-          </button>
+            <button
+              onClick={refreshFilters}
+              className="ml-4 p-3 border w-2/12 border-black lg:w-full lg:ml-0 hover:text-white hover:bg-black ease-in-out duration-300"
+            >
+              <i
+                className="fa fa-refresh text-3xl lg:text-2xl lg:hidden"
+                aria-hidden="true"
+              ></i>
+              <span className="hidden lg:block lg:text-2xl">Reset filters</span>
+            </button>
+            <button
+              onClick={() => applyFilters()}
+              className="p-3 text-5xl w-9/12 border border-black bg-black text-white lg:text-2xl lg:w-full hover:bg-white hover:text-black ease-in-out duration-300"
+            >
+              Apply filter
+            </button>
           </div>
         </div>
       </div>
-      { windowWidth < 1024 ? <FilterSort /> : '' }
+      {windowWidth < 1024 ? <FilterSort /> : ""}
     </div>
   );
 }

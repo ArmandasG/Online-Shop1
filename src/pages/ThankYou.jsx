@@ -18,7 +18,10 @@ function ThankYou() {
         >
           <i className="fa fa-linkedin-square text-5xl" aria-hidden="true"></i>
         </a>
-        <a className="w-8 h-8 hover:opacity-50" href="https://github.com/ArmandasG">
+        <a
+          className="w-8 h-8 hover:opacity-50"
+          href="https://github.com/ArmandasG"
+        >
           <i className="fa fa-github-square text-5xl" aria-hidden="true"></i>
         </a>
       </div>

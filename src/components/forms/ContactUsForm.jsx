@@ -3,7 +3,7 @@ import React from "react";
 import { useAuthCtx } from "../../context/AuthProvider";
 
 function ContactUsForm() {
- const { ui } = useAuthCtx()
+  const { ui } = useAuthCtx();
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -12,7 +12,7 @@ function ContactUsForm() {
       message: "",
     },
     onSubmit: (values) => {
-      ui.showSuccess('Form has been sent')
+      ui.showSuccess("Form has been sent");
     },
     validate: (values) => {
       const errors = {};

@@ -13,11 +13,13 @@ function DeliveryInformation() {
     setShippingInformation,
     setShippingInfo,
   } = useItemsCtx();
-  const { windowWidth } = useRespCtx()
+  const { windowWidth } = useRespCtx();
   function openCartNav() {
     const cartNav = document.getElementById("myCartNav");
     if (cartIsOpen === false) {
-      windowWidth < 1024 ? cartNav.style.width = "100%" : cartNav.style.width = "30%";
+      windowWidth < 1024
+        ? (cartNav.style.width = "100%")
+        : (cartNav.style.width = "30%");
       setCartIsOpen(true);
     }
   }

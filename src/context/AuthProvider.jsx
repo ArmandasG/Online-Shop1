@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext, createContext } from "react";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 
@@ -104,4 +104,4 @@ export function useAuthCtx() {
 }
 AuthProvider.propTypes = {
   children: PropTypes.node,
-}
+};

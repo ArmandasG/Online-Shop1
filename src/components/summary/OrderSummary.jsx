@@ -17,7 +17,7 @@ function OrderSummary() {
   );
 
   return (
-    <Disclosure defaultOpen={windowWidth >=1024 ? true : false}>
+    <Disclosure defaultOpen={windowWidth >= 1024 ? true : false}>
       {({ open }) => (
         <>
           <div className="py-2 lg:w-full lg:border-l">
@@ -26,38 +26,41 @@ function OrderSummary() {
                 !open ? "bg-white mx-2 px-6 container" : "container"
               }`}
             >
-              {windowWidth < 1024 ?
-              <Disclosure.Button className="flex justify-between pt-6 pb-4 w-full">
-                <div className="flex">
-                  <i
-                    className="fa fa-shopping-cart mt-1 mr-2"
-                    aria-hidden="true"
-                  ></i>
-                  {!open ? (
-                    <div className="flex">
-                      <p className="text-xl">Show order summary</p>
-                      <i
-                        className="fa fa-angle-down mt-1 text-sm ml-2"
-                        aria-hidden="true"
-                      ></i>
-                    </div>
-                  ) : (
-                    <div className="flex">
-                      <p className="text-xl">Hide order summary</p>
-                      <i
-                        className="fa fa-angle-up mt-1 text-sm ml-4"
-                        aria-hidden="true"
-                      ></i>
-                    </div>
-                  )}
-                </div>
-                <span className="text-2xl">
-                  {deliveryFee.length === 0
-                    ? allCartItemsPrice.toFixed(2)
-                    : allCartItemsPriceWithDeliveryFee}{" "}
-                  €
-                </span>
-              </Disclosure.Button> : ''}
+              {windowWidth < 1024 ? (
+                <Disclosure.Button className="flex justify-between pt-6 pb-4 w-full">
+                  <div className="flex">
+                    <i
+                      className="fa fa-shopping-cart mt-1 mr-2"
+                      aria-hidden="true"
+                    ></i>
+                    {!open ? (
+                      <div className="flex">
+                        <p className="text-xl">Show order summary</p>
+                        <i
+                          className="fa fa-angle-down mt-1 text-sm ml-2"
+                          aria-hidden="true"
+                        ></i>
+                      </div>
+                    ) : (
+                      <div className="flex">
+                        <p className="text-xl">Hide order summary</p>
+                        <i
+                          className="fa fa-angle-up mt-1 text-sm ml-4"
+                          aria-hidden="true"
+                        ></i>
+                      </div>
+                    )}
+                  </div>
+                  <span className="text-2xl">
+                    {deliveryFee.length === 0
+                      ? allCartItemsPrice.toFixed(2)
+                      : allCartItemsPriceWithDeliveryFee}{" "}
+                    €
+                  </span>
+                </Disclosure.Button>
+              ) : (
+                ""
+              )}
               <Transition
                 enter="transition duration-100 ease-out"
                 enterFrom="transform scale-95 opacity-0"
@@ -83,13 +86,17 @@ function OrderSummary() {
                       </ul>
 
                       <div className="flex justify-between py-2 text-gray-500 lg:mt-10">
-                        <p className="text-xl lg:text-2xl lg:text-black">Subtotal</p>
+                        <p className="text-xl lg:text-2xl lg:text-black">
+                          Subtotal
+                        </p>
                         <span className="text-2xl">
                           {allCartItemsPrice.toFixed(2)} €
                         </span>
                       </div>
                       <div className="flex justify-between py-2 border-b-2 text-gray-500">
-                        <p className="text-xl lg:text-2xl lg:text-black">Shipping</p>
+                        <p className="text-xl lg:text-2xl lg:text-black">
+                          Shipping
+                        </p>
                         <span className="text-xl lg:mb-8">
                           {deliveryFee.length && cartArr.length > 0
                             ? `${deliveryFee.map((fObj) => fObj.toFixed(2))} €`

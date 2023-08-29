@@ -4,7 +4,14 @@ import { useFormik } from "formik";
 import { useItemsCtx } from "../../context/ItemsContextProvider";
 
 function PaymentMethod() {
-  const { navigate, deliveryFee, deliveryMethod, shippingInfo, setCartArr, setTempCart } = useItemsCtx();
+  const {
+    navigate,
+    deliveryFee,
+    deliveryMethod,
+    shippingInfo,
+    setCartArr,
+    setTempCart,
+  } = useItemsCtx();
   const formik = useFormik({
     initialValues: {
       cardNumber: "",
@@ -14,9 +21,8 @@ function PaymentMethod() {
     },
     onSubmit: (values) => {
       navigate("/thank-you");
-      setCartArr([])
-      setTempCart([])
-
+      setCartArr([]);
+      setTempCart([]);
     },
   });
   return (
