@@ -21,6 +21,9 @@ function Header() {
     } else if (!cartIsOpen && windowWidth < 1024) {
       cartNav.style.width = "100%";
       setCartIsOpen(true);
+    } else if (!cartIsOpen && windowWidth >= 1280) {
+      cartNav.style.width = "20%";
+      setCartIsOpen(true);
     } else {
       cartNav.style.width = "30%";
       setCartIsOpen(true);
