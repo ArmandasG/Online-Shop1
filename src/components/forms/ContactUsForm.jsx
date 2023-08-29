@@ -1,7 +1,9 @@
 import { useFormik } from "formik";
 import React from "react";
+import { useAuthCtx } from "../../context/AuthProvider";
 
 function ContactUsForm() {
+ const { ui } = useAuthCtx()
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -10,7 +12,7 @@ function ContactUsForm() {
       message: "",
     },
     onSubmit: (values) => {
-      console.log("values ===", values);
+      ui.showSuccess('Form has been sent')
     },
     validate: (values) => {
       const errors = {};
@@ -32,7 +34,7 @@ function ContactUsForm() {
     },
   });
   return (
-    <form className="mt-4 space-y-6 lg:text-6xl" onSubmit={formik.handleSubmit}>
+    <form className="mt-4 space-y-6 lg:text-4xl" onSubmit={formik.handleSubmit}>
       <div className="flex justify-between gap-3">
         <div className="w-full flex flex-col">
           <input

@@ -16,8 +16,6 @@ function Filter() {
   const [selectedFilter, setSelectedFilter] = useState([]);
   const { windowWidth } = useRespCtx()
 
-console.log('clothesArr ===', clothesArr);
-
   function openFilter() {
     document.getElementById("filterEl").style.height = "100%";
     document.getElementById("filterEl").style.bottom = "0";

@@ -14,7 +14,7 @@ export function FilterType({ fObj, onFilter, resetFilters , setSelectedFilter, s
   const [selectedOption, setSelectedOption] = useState([])
   const { setClothesArr, allItems } = useItemsCtx()
   const { windowWidth } = useRespCtx()
-  
+  // need adjustment
   const handleSelectOption = (option) => {
     setSelectedOption((prevSelected) =>
       prevSelected.includes(option)

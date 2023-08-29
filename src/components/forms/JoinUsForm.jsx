@@ -1,14 +1,16 @@
 import { useFormik } from "formik";
 import React from "react";
+import { useAuthCtx } from "../../context/AuthProvider";
 
 function JoinUsForm() {
+  const { ui } = useAuthCtx()
   const formik = useFormik({
     initialValues: {
       email: "",
       message: "",
     },
     onSubmit: (values) => {
-      console.log("values ===", values);
+      ui.showSuccess('Form has been sent')
     },
     validate: (values) => {
       const errors = {};
