@@ -60,7 +60,7 @@ function LoginForm({ onLogin }) {
         <div className="w-full">
           <input
             className={`${
-              formik.touched.message && formik.errors.message
+              formik.touched.password && formik.errors.password
                 ? "border-red-600 focus-visible:outline-red-600"
                 : ""
             } border p-3 border-black w-full`}

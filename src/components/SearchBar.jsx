@@ -1,9 +1,14 @@
 import { useFormik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 import PropTypes from 'prop-types'
 
 function SearchBar({ searchValue }) {
+  const [placeholderVisible, setPlaceholderVisible] = useState(true)
+
+  const handleInputFocus = () => {
+    setPlaceholderVisible(false);
+  };
   const formik = useFormik({
     initialValues: {
       searchResult: "",
@@ -19,12 +24,13 @@ function SearchBar({ searchValue }) {
           <form onSubmit={formik.handleSubmit}>
             <div className="border-b lg:flex lg:justify-between">
               <input
-                className="pl-2 pr-24 focus:outline-0 lg:w-full lg:placeholder:text-center lg:placeholder:pl-24"
+                className="pl-2 pr-24 focus:outline-0 lg:w-full lg:placeholder:text-center lg:text-center lg:pl-24"
                 id="searchResult"
                 type="text"
                 name="searchResult"
+                onFocus={handleInputFocus}
                 onChange={formik.handleChange}
-                placeholder="Looking for something ?"
+                placeholder={placeholderVisible ? "Looking for something ?" : ''}
                 value={formik.values.searchResult}
               />
               <button type="submit">
