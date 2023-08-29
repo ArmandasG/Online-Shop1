@@ -149,7 +149,7 @@ function Burger({ closeCartNav }) {
             {({ open, close }) => (
               <>
               {windowWidth >= 1024 ?
-                <Disclosure.Button data-disclosure-panel="true" onClick={windowWidth >= 1024 ? () => handleDisclosureChange('clothes') : ''} className="text-6xl mt-8 lg:text-2xl lg:mt-0">
+                <Disclosure.Button data-disclosure-panel="true" onClick={windowWidth >= 1024 ? () => handleDisclosureChange('clothes') : ''} className="text-6xl mt-8 lg:text-2xl lg:mt-0 hover:text-gray-400">
                 {windowWidth < 1024 ? 'Clothes' : 'CLOTHES'}
                 </Disclosure.Button> : <Disclosure.Button onClick={() => handleDisclosureOpen('clothes')} className="text-6xl mt-8 lg:text-2xl lg:mt-0">
                 Clothes
@@ -221,7 +221,7 @@ function Burger({ closeCartNav }) {
               <>
 {windowWidth >= 1024 ?
               
-                <Disclosure.Button data-disclosure-panel="true" onClick={windowWidth >= 1024 ? () => handleDisclosureChange('campaigns') : ''} className="text-6xl lg:text-2xl">
+                <Disclosure.Button data-disclosure-panel="true" onClick={windowWidth >= 1024 ? () => handleDisclosureChange('campaigns') : ''} className="text-6xl lg:text-2xl hover:text-gray-400">
                 {windowWidth < 1024 ? 'Campaigns' : 'CAMPAIGNS'}
                 </Disclosure.Button> : <Disclosure.Button onClick={() => handleDisclosureOpen('campaigns')} className="text-6xl lg:text-2xl">
                 Campaigns

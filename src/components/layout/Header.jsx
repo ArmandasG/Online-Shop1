@@ -76,7 +76,7 @@ function Header() {
   }
 
   return (
-    <header className="container">
+    <header className="container lg:mb-6">
       {windowWidth >= 1024 ? <Link to={'/'}><h1 className="text-center mt-20 text-6xl font-bold">SHOPER</h1></Link> : '' }
       <div className={`flex justify-between pt-4 pb-4 mb-4 items-center lg:justify-center lg:mt-10 ${
         cartIsOpen && windowWidth < 1024 ? "sticky top-0 bg-white" : ""
@@ -84,7 +84,7 @@ function Header() {
       id="myHeader"
     >
       <Burger closeCartNav={closeCartNav} />
-      {windowWidth >= 1024 ? <button onClick={() => setIsExpanded(!isExpanded)} className="ml-10 text-2xl">SEARCH</button> : ''}
+      {windowWidth >= 1024 ? <button onClick={() => setIsExpanded(!isExpanded)} className="ml-10 text-2xl hover:text-gray-400">SEARCH</button> : ''}
       <div>
         {windowWidth < 1024 ? (
           <Link

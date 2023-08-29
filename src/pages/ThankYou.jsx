@@ -7,18 +7,18 @@ function ThankYou() {
       <h1 className="text-center text-4xl py-4 underline">
         Thank you for trying my website project
       </h1>
-      <p className="text-xl text-center">
+      <p className="text-2xl text-center">
         I am currently a Junior FrontEnd Developer looking for opportunities.
         Please do contact me via LinkedIn and check out my Github below
       </p>
       <div className="flex gap-8 pt-8">
         <a
-          className="w-8 h-8"
+          className="w-8 h-8 hover:opacity-50"
           href="https://www.linkedin.com/in/armandas-genys-b4653a176/"
         >
           <i className="fa fa-linkedin-square text-5xl" aria-hidden="true"></i>
         </a>
-        <a className="w-8 h-8" href="https://github.com/ArmandasG">
+        <a className="w-8 h-8 hover:opacity-50" href="https://github.com/ArmandasG">
           <i className="fa fa-github-square text-5xl" aria-hidden="true"></i>
         </a>
       </div>

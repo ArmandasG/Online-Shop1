@@ -136,14 +136,14 @@ function ShippingMethod() {
                 <i className="fa fa-angle-left mt-5" aria-hidden="true"></i>
                 <button
                   onClick={() => navigate(-1)}
-                  className="block underline"
+                  className="block hover:underline"
                   type="button"
                 >
                   Return To Billing
                 </button>
               </div>
               <button
-                className="w-full tracking-wider font-semibold border py-4 bg-black text-white text-lg"
+                className="w-full tracking-wider font-semibold border border-black py-4 bg-black text-white text-lg hover:text-black hover:bg-white ease-in-out duration-300"
                 type="submit"
               >
                 {"Continue to payment".toUpperCase()}

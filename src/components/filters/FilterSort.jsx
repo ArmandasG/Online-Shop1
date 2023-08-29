@@ -26,16 +26,16 @@ function FilterSort() {
     <div>
         <div
           onClick={sortByLatest}
-          className={`${noShow} cursor-pointer pt-4 pb-4 pl-4`}
+          className={`${noShow} cursor-pointer pt-4 pb-4 pl-4 hover:text-gray-400`}
         >
           {" "}
-          <span className="pr-3 text-2xl">Sort by latest</span>
+          <span className="pr-3 text-2xl hover:text-gray-400">Sort by latest</span>
           <i className="fa fa-angle-down" aria-hidden="true"></i>{" "}
         </div>
         {sortItem && (
           <div
             onClick={sortByOldest}
-            className={`${noShow2} cursor-pointer pt-4 pb-4 pl-4`}
+            className={`${noShow2} cursor-pointer pt-4 pb-4 pl-4 hover:text-gray-400`}
           >
             {" "}
             <span className="pr-3 text-2xl">Sort by oldest</span>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FilterType } from "./FilterType";
-import PropTypes from "prop-types";
 import FilterSort from "./FilterSort";
+import { useRespCtx } from "../../context/ResponsiveContextProvider";
 
 const filterOptions = [
   "type",
@@ -14,6 +14,7 @@ const filterOptions = [
 function Filter() {
   const [resetFilters, setResetFilters] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState([]);
+  const { windowWidth } = useRespCtx()
 
   function openFilter() {
     document.getElementById("filterEl").style.height = "100%";
@@ -74,7 +75,7 @@ function Filter() {
           </div>
         </div>
       </div>
-      <FilterSort />
+      { windowWidth < 1024 ? <FilterSort /> : '' }
     </div>
   );
 }

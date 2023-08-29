@@ -59,7 +59,7 @@ function Cart({ myCartNav, onClose }) {
                 setCartArr([]),
                 setTempCart([]);
             }}
-            className="py-4 px-5 mt-4 border border-black mr-4"
+            className="py-4 px-5 mt-4 border border-black mr-4 bg-wgite hover:bg-black hover:text-white"
           >
             <i className="fa fa-refresh" aria-hidden="true"></i>
           </button>
@@ -67,7 +67,7 @@ function Cart({ myCartNav, onClose }) {
             onClick={() => {
               navigate("/cart/information"), onClose();
             }}
-            className="tracking-wider font-semibold  border py-4 px-30 bg-black text-white w-full mt-4"
+            className="tracking-wider font-semibold  border border-black py-4 px-30 bg-black text-white w-full mt-4 hover:bg-white hover:text-black"
           >
             Check Out
           </button>

@@ -59,10 +59,10 @@ function LoginPage() {
             <li>* No need to fill the delivery information</li>
             <li>* Future updates might provide more</li>
           </ul>
-          <Link className="border w-full block text-center border-black rounded-md py-4 px-30" to={"/register"}>
+          <Link className="border w-full block text-center border-black rounded-md py-4 px-30 hover:bg-black hover:text-white" to={"/register"}>
         <span className="w-full">Create an account</span>
         </Link>
-          <button onClick={loginWithGoogle} className="border w-full flex justify-center border-black rounded-md py-4 px-30">
+          <button onClick={loginWithGoogle} className="border w-full flex justify-center border-black rounded-md py-4 px-30 hover:text-white hover:bg-black">
         <img className="w-8 mr-2" src="/google.png" alt="googleIcon" />
         <span>Login with Google</span>
       </button>

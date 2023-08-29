@@ -129,14 +129,14 @@ function PaymentMethod() {
                   <i className="fa fa-angle-left mt-5" aria-hidden="true"></i>
                   <button
                     onClick={() => navigate(-1)}
-                    className="block underline"
+                    className="block hover:underline"
                     type="button"
                   >
                     Return To Shipping
                   </button>
                 </div>
                 <button
-                  className="w-full tracking-wider font-semibold border py-4 bg-black text-white text-lg"
+                  className="w-full tracking-wider font-semibold border border-black py-4 bg-black text-white text-lg hover:bg-white hover:text-black ease-out duration-300"
                   type="submit"
                 >
                   {"Finalize payment".toUpperCase()}

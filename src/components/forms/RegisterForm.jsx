@@ -83,7 +83,7 @@ function RegisterForm({ onRegister }) {
         </div>
       </div>
       <button
-        className="tracking-wider font-semibold  border py-4 px-40 bg-black text-white w-full"
+        className="tracking-wider font-semibold  border border-black py-4 px-40 bg-black text-white w-full hover:bg-white hover:text-black ease-in-out duration-300"
         type="submit"
       >
         SIGN UP

@@ -38,9 +38,9 @@ function SingleCartItem({ cartItem, DeleteOfItem, setTempCart, allItems }) {
           </button> : ''}
         </div>
         { windowWidth >= 1024 ?
-        <button onClick={() => {
+        <button  onClick={() => {
               DeleteOfItem(), setTempCart([]);
-            }} className=""><img className="h-8" src="/icons/Group1419.svg" alt="remove" /></button> : '' }
+            }}><img className="h-8 hover:opacity-50" src="/icons/Group1419.svg" alt="remove" /></button> : '' }
       </div>
     </li>
   );
