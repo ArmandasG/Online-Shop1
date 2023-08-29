@@ -40,16 +40,16 @@ function Filter() {
   }
 
   return (
-    <div className="flex justify-between">
-      <div className="pt-4 pb-4 pr-4">
-        <span className="cursor-pointer text-2xl" onClick={openFilter}>
+    <div className="flex justify-between lg:flex-none">
+      <div className="pt-4 pb-4 pr-4 lg:border-t lg:p-0">
+      {windowWidth < 1024 ? <span className="cursor-pointer text-2xl" onClick={openFilter}>
           Filter({selectedFilter.length})
-        </span>
-        <div className="filterOverlay container" id="filterEl">
-          <div onClick={closeFilter} className="closeBtn cursor-pointer mt-4">
+        </span> : ''}
+        <div className={ windowWidth < 1024 ? 'filterOverlay container' : ''} id="filterEl" style={{width: windowWidth < 1024 ? '100%' : 'auto'}}>
+        {windowWidth < 1024 ? <div onClick={closeFilter} className="closeBtn cursor-pointer mt-4">
             <img src="/icons/Group1419.svg" alt="" />
-          </div>
-          <h3 className="text-6xl text-center mb-24 font-bold">Filter</h3>
+          </div> : ''}
+          <h3 className="text-6xl text-center mb-24 font-bold lg:hidden">Filter</h3>
           {filterOptions.map((fObj) => (
             <FilterType
             resetFilters={resetFilters}
@@ -65,11 +65,12 @@ function Filter() {
               <i className="fa fa-angle-down pl-2" aria-hidden="true"></i>
             </FilterType>
           ))}
-          <div className="mt-20 flex justify-between">
-          <button onClick={refreshFilters} className="ml-4 p-3 border w-2/12 border-black">
-            <i className="fa fa-refresh text-3xl" aria-hidden="true"></i>
+          <div className="mt-20 flex justify-between lg:flex-col-reverse lg:gap-6">
+          <button onClick={refreshFilters} className="ml-4 p-3 border w-2/12 border-black lg:w-full lg:ml-0 hover:text-white hover:bg-black ease-in-out duration-300">
+            <i className="fa fa-refresh text-3xl lg:text-2xl lg:hidden" aria-hidden="true"></i>
+            <span className="hidden lg:block lg:text-2xl">Reset filters</span>
           </button>
-          <button onClick={() => applyFilters()} className="p-3 text-5xl w-9/12 border bg-black text-white">
+          <button onClick={() => applyFilters()} className="p-3 text-5xl w-9/12 border border-black bg-black text-white lg:text-2xl lg:w-full hover:bg-white hover:text-black ease-in-out duration-300">
             Apply filter
           </button>
           </div>

@@ -44,12 +44,12 @@ function LoginPage() {
       });
   }
   return (
-    <div className="min-h-screen container items-center gap-40 flex flex-col">
+    <div className="min-h-screen lg:min-h-[170rem] container items-center gap-40 flex flex-col lg:flex-row lg:items-start lg:pt-80">
         <div className="flex flex-col items-center w-full">
-      <h1 className="text-4xl mt-40 font-bold">Sign in</h1>
+      <h1 className="text-4xl mt-40 font-bold lg:text-6xl">Sign in</h1>
       <LoginForm onLogin={loginShop} />
       </div>
-      <div className="flex flex-col items-center w-full text-3xl">
+      <div className="flex flex-col items-center w-full text-3xl lg:text-6xl lg:pt-[60rem]">
         <div className="border border-black rounded-lg p-10 space-y-8">
           {" "}
           <h2 className="text-center font-bold">Not yet registered ?</h2>{" "}
@@ -63,7 +63,7 @@ function LoginPage() {
         <span className="w-full">Create an account</span>
         </Link>
           <button onClick={loginWithGoogle} className="border w-full flex justify-center border-black rounded-md py-4 px-30 hover:text-white hover:bg-black">
-        <img className="w-8 mr-2" src="/google.png" alt="googleIcon" />
+        <img className="w-8 mr-2 lg:w-14" src="/google.png" alt="googleIcon" />
         <span>Login with Google</span>
       </button>
       </div>

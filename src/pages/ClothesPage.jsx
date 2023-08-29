@@ -22,18 +22,19 @@ function ClothesPage() {
       ) : (
         ""
       )}
-      <div>
+       <div className="lg:flex">
         <Filter />
-      </div>
+      
       {loadingClothes ? (
         <Loader />
       ) : (
-        <ul className="grid grid-cols-2 gap-4 ml-8 mt-10">
+        <ul className="grid grid-cols-2 gap-4 ml-8 mt-10 lg:w-full">
           {clothesArr.map((cObj) => (
             <SingleClothes key={cObj.uid} clothes={cObj} />
           ))}
         </ul>
       )}
+      </div>
     </div>
   );
 }

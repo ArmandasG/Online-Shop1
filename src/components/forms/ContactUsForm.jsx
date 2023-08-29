@@ -32,7 +32,7 @@ function ContactUsForm() {
     },
   });
   return (
-    <form className="mt-4 space-y-6 " onSubmit={formik.handleSubmit}>
+    <form className="mt-4 space-y-6 lg:text-6xl" onSubmit={formik.handleSubmit}>
       <div className="flex justify-between gap-3">
         <div className="w-full flex flex-col">
           <input

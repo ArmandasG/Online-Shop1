@@ -40,7 +40,7 @@ export function FilterType({ fObj, onFilter, resetFilters , setSelectedFilter, s
     <Listbox value={selectedOption} onChange={setSelectedOption} multiple>
       {({ open }) => (
         <>
-          <Listbox.Button className="border-b flex flex-col p-2 w-full items-center text-5xl">
+          <Listbox.Button className="border-b flex flex-col p-2 w-full items-center text-5xl lg:text-base lg:items-start lg:pl-0">
             {selectedOption.length !== 0 ? selectedOption.map(option => typeof option !== "number" ? option.toUpperCase() : option).join(", ") : (fObj !== 'priceRange' ? fObj.toUpperCase() : 'PRICE RANGE')}
           </Listbox.Button>
           <Transition
@@ -52,7 +52,7 @@ export function FilterType({ fObj, onFilter, resetFilters , setSelectedFilter, s
             leaveTo="transform scale-95 opacity-0"
           >
             {open && (
-              <div className="flex flex-col items-center w-full text-4xl">
+              <div className="flex flex-col items-center w-full text-4xl lg:text-xl lg:items-start">
                 <Listbox.Options static>
                   {colectedFilters[fObj].map((selection) => (
                     <Listbox.Option

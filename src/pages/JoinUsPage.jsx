@@ -3,7 +3,7 @@ import JoinUsForm from "../components/forms/JoinUsForm";
 
 function JoinUsPage() {
   return (
-    <div className="min-h-screen container">
+    <div className="min-h-screen lg:min-h-[140rem] container">
       <img src="/icons/join_us.jpg" alt="join us" />
       <h2 className="text-center text-4xl mt-4">Join Us</h2>
       <p className="text-center p-8 text-2xl">

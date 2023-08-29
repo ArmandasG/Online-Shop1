@@ -33,7 +33,7 @@ function LoginForm({ onLogin }) {
     }
   });
   return (
-    <form className="mt-6 space-y-8 p-10 text-3xl" onSubmit={formik.handleSubmit}>
+    <form className="mt-6 space-y-8 p-10 text-3xl lg:text-6xl" onSubmit={formik.handleSubmit}>
       <div className="flex flex-col space-y-8">
         <div className="w-full">
           <input
