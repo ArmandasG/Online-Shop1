@@ -4,11 +4,9 @@ import FilterSort from "./FilterSort";
 import { useRespCtx } from "../../context/ResponsiveContextProvider";
 
 const filterOptions = [
-  "type",
   "color",
   "brand",
   "gender",
-  "priceRange",
 ];
 
 function Filter() {

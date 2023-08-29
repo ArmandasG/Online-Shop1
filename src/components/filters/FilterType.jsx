@@ -7,8 +7,6 @@ const colectedFilters = {
   color,
   brand,
   gender,
-  type,
-  priceRange,
 };
 
 export function FilterType({ fObj, onFilter, resetFilters , setSelectedFilter, setResetFilters }) {
