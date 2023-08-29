@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import * as Yup from "yup";
 import PropTypes from "prop-types";
 
-function SearchBar({ searchValue }) {
+function SearchBar({ searchValue, setIsExpanded }) {
   const [placeholderVisible, setPlaceholderVisible] = useState(true);
 
   const handleInputFocus = () => {
@@ -15,7 +15,7 @@ function SearchBar({ searchValue }) {
     },
     validationSchema: Yup.object({ searchResult: Yup.string() }),
     onSubmit: (values, { resetForm }) => {
-      searchValue(values.searchResult), resetForm();
+      searchValue(values.searchResult), resetForm(), setIsExpanded(false);
     },
   });
   return (

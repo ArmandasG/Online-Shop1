@@ -172,7 +172,7 @@ function Header() {
         )}
       </div>
       {windowWidth >= 1024 && isExpanded ? (
-        <SearchBar searchValue={searchEl} />
+        <SearchBar searchValue={searchEl} setIsExpanded={setIsExpanded} />
       ) : (
         windowWidth >= 1024 && <div className="h-[21px]"></div>
       )}
