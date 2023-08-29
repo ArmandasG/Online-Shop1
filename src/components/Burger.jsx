@@ -12,6 +12,33 @@ function Burger({ closeCartNav }) {
   const { allItems, clothesArr, setClothesArr, resetClothes, navigate } = useItemsCtx();
   const { windowWidth } = useRespCtx()
   const [query, setQuery] = useState("");
+  const [activePanel, setActivePanel] = useState(null)
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        !event.target.closest('[data-disclosure-panel="true"]') && windowWidth >= 1024
+      ) {
+        setActivePanel(null);
+      }
+    };
+  
+    // Attach the click event listener to the document body
+    document.body.addEventListener('click', handleOutsideClick);
+  
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.body.removeEventListener('click', handleOutsideClick);
+    };
+  }, [activePanel]);
+
+  const handleDisclosureChange = (panelId) => {
+    setActivePanel((prevPanel) => (prevPanel === panelId ? null: panelId))
+  };
+
+  const handleDisclosureOpen = (panelId) => {
+    setActivePanel((prevPanel) => prevPanel === panelId ? null : prevPanel, panelId  )
+  }
 
   function openNav() {
     document.getElementById("myNav").style.width = "100%";
@@ -121,10 +148,42 @@ function Burger({ closeCartNav }) {
           <Disclosure id="disc1">
             {({ open, close }) => (
               <>
-                <Disclosure.Button className="text-6xl mt-8 lg:text-2xl lg:mt-0">
+              {windowWidth >= 1024 ?
+                <Disclosure.Button data-disclosure-panel="true" onClick={windowWidth >= 1024 ? () => handleDisclosureChange('clothes') : ''} className="text-6xl mt-8 lg:text-2xl lg:mt-0">
                 {windowWidth < 1024 ? 'Clothes' : 'CLOTHES'}
-                </Disclosure.Button>
+                </Disclosure.Button> : <Disclosure.Button onClick={() => handleDisclosureOpen('clothes')} className="text-6xl mt-8 lg:text-2xl lg:mt-0">
+                Clothes
+                </Disclosure.Button>}
+
+                {windowWidth >= 1024 ? 
                 <Transition
+                show={activePanel === 'clothes'}
+                  enter="transition duration-300 ease-out"
+                  enterFrom="transform scale-y-95 opacity-0"
+                  enterTo="transform scale-y-100 opacity-100"
+                  leave="transition duration-100 ease-in"
+                  leaveFrom="transform scale-y-100 opacity-100"
+                  leaveTo="transform scale-y-95 opacity-0"
+                >
+                  <Disclosure.Panel className={`${
+              windowWidth < 1024 ? "" : "lg:w-auto lg:absolute lg:top-full lg:border lg:bg-gray-100"
+            } `}>
+                    <ul
+                      className={`pl-2 pt-2 flex-col transition-all duration-300 text-3xl lg:text-xl lg:flex-none lg:p-0 lg:text-center `}
+                    >
+                      {selectOptions.map((sObj) => (
+                        <Link
+                          className="block mb-2  lg:hover:bg-white lg:bg-gray-100 lg:mb-0 lg:p-2"
+                          to={"/clothes"}
+                          onClick={() => {selectedOptionFilter(sObj), windowWidth >= 1024 ? close() : ''}}
+                          key={sObj}
+                        >
+                          {sObj}
+                        </Link>
+                      ))}
+                    </ul>
+                  </Disclosure.Panel>
+                </Transition> : <Transition
                   enter="transition duration-300 ease-out"
                   enterFrom="transform scale-y-95 opacity-0"
                   enterTo="transform scale-y-100 opacity-100"
@@ -151,6 +210,7 @@ function Burger({ closeCartNav }) {
                     </ul>
                   </Disclosure.Panel>
                 </Transition>
+}
               </>
             )}
           </Disclosure>
@@ -159,10 +219,45 @@ function Burger({ closeCartNav }) {
           <Disclosure id="disc2">
             {({ open, close }) => (
               <>
-                <Disclosure.Button className="text-6xl lg:text-2xl">
+{windowWidth >= 1024 ?
+              
+                <Disclosure.Button data-disclosure-panel="true" onClick={windowWidth >= 1024 ? () => handleDisclosureChange('campaigns') : ''} className="text-6xl lg:text-2xl">
                 {windowWidth < 1024 ? 'Campaigns' : 'CAMPAIGNS'}
-                </Disclosure.Button>
+                </Disclosure.Button> : <Disclosure.Button onClick={() => handleDisclosureOpen('campaigns')} className="text-6xl lg:text-2xl">
+                Campaigns
+                </Disclosure.Button>}
+
+                {windowWidth >= 1024 ?
                 <Transition
+                show={activePanel === 'campaigns'}
+                  enter="transition duration-300 ease-out"
+                  enterFrom="transform scale-y-95 opacity-0"
+                  enterTo="transform scale-y-100 opacity-100"
+                  leave="transition duration-100 ease-in"
+                  leaveFrom="transform scale-y-100 opacity-100"
+                  leaveTo="transform scale-y-95 opacity-0"
+                >
+                  <Disclosure.Panel className={`${
+              windowWidth < 1024 ? "" : "lg:w-auto lg:absolute lg:top-full lg:border lg:bg-gray-100"
+            } `}>
+                    <ul
+                      className={`pl-2 pt-2 flex-col transition-all duration-300 text-3xl lg:text-xl lg:flex-none lg:p-0 lg:text-center`}
+                    >
+                      <li
+                        onClick={() => {selectJoinUs(), close()}}
+                        className="cursor-pointer block mb-2  lg:hover:bg-white lg:bg-gray-100 lg:mb-0 lg:p-2"
+                      >
+                        Join us
+                      </li>
+                      <li
+                        onClick={() => {selectReadMore(), close()}}
+                        className="cursor-pointer block mb-2  lg:hover:bg-white lg:bg-gray-100 lg:mb-0 lg:p-2"
+                      >
+                        Read more
+                      </li>
+                    </ul>
+                  </Disclosure.Panel>
+                </Transition> : <Transition
                   enter="transition duration-300 ease-out"
                   enterFrom="transform scale-y-95 opacity-0"
                   enterTo="transform scale-y-100 opacity-100"
@@ -191,6 +286,7 @@ function Burger({ closeCartNav }) {
                     </ul>
                   </Disclosure.Panel>
                 </Transition>
+}
               </>
             )}
           </Disclosure>
@@ -234,7 +330,8 @@ function Burger({ closeCartNav }) {
           </Disclosure>
           </div>
           : ""}
-          <SearchBar searchValue={searchEl} />
+          {windowWidth < 1024 ?
+          <SearchBar searchValue={searchEl} /> : '' }
           {windowWidth < 1024 ? <div onClick={() => {navigate("/login"), closeNav()}} className="cursor-pointer flex gap-8 mt-20 text-5xl hover:underline">
           <span className=""><i className="fa fa-user-circle" aria-hidden="true"></i></span>
           <p>Login</p>
