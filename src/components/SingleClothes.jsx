@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
 
-function SingleClothes({ clothes }) {
+function SingleClothes({ clothes, changeGrid }) {
   return (
     <li className="h-full w-full lg:hover:scale-90 duration-200">
       <Link className="flex flex-col items-center text-2xl h-full" to={`/clothes/${clothes.uid}`}>
-        <div className="aspect-w-4 aspect-h-4 w-full h-3/4 lg:aspect-w-16 lg:aspect-h-16 object-cover">
+        <div className={`${!changeGrid ? 'h-3/4' : 'h-[26rem]'} aspect-w-4 aspect-h-4 w-full lg:aspect-w-16 lg:aspect-h-16 object-cover`}>
         <img loading="lazy"
           src={clothes.imgURL}
           alt={clothes.brand}
