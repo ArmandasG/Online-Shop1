@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FilterType } from "./FilterType";
 import FilterSort from "./FilterSort";
 import { useRespCtx } from "../../context/ResponsiveContextProvider";
 import { useItemsCtx } from "../../context/ItemsContextProvider";
+import { brand, color, gender } from "../../data/selections";
 
 const filterOptions = ["color", "brand", "gender"];
 
@@ -27,19 +28,31 @@ function Filter() {
     setSelectedFilter(items);
   };
 
-  const applyFilters = () => {
-    const filteredClothes = clothesArr.filter((item) => {
-      return selectedFilter.every((filter) => {
-        return (
-          item.color.includes(filter) ||
-          item.brand.includes(filter) ||
-          item.gender.includes(filter)
-        );
-      });
-    });
+  const isColorFilters = (colors) => color.includes(colors)
+  const isBrandFilters = (brands) => brand.includes(brands)
+  const isGenderFilters = (genders) => gender.includes(genders)
 
-    setClothesArr(filteredClothes);
-  };
+  const applyFilters = () => {
+    if (!clothesArr) {
+      return [];
+    };
+    if (selectedFilter.length === 0) {
+      return clothesArr;
+    }
+
+const colorFilters = selectedFilter.filter(isColorFilters)
+const brandFilters = selectedFilter.filter(isBrandFilters)
+const genderFilters = selectedFilter.filter(isGenderFilters)
+
+return setClothesArr(clothesArr.filter((item) => {
+  const colorMatch = colorFilters.length === 0 || colorFilters.includes(item.color);
+  const brandMatch = brandFilters.length === 0 || brandFilters.includes(item.brand)
+  const genderMatch = genderFilters.length === 0 || genderFilters.includes(item.gender)
+
+  return colorMatch && brandMatch && genderMatch
+}))
+  }
+
 
   function refreshFilters() {
     setResetFilters(true);
