@@ -5,6 +5,7 @@ import { useRespCtx } from "../../context/ResponsiveContextProvider";
 import { useItemsCtx } from "../../context/ItemsContextProvider";
 
 const colectedFilters = {
+  type,
   color,
   brand,
   gender,

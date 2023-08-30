@@ -3,9 +3,9 @@ import { FilterType } from "./FilterType";
 import FilterSort from "./FilterSort";
 import { useRespCtx } from "../../context/ResponsiveContextProvider";
 import { useItemsCtx } from "../../context/ItemsContextProvider";
-import { brand, color, gender } from "../../data/selections";
+import { brand, color, gender, type } from "../../data/selections";
 
-const filterOptions = ["color", "brand", "gender"];
+const filterOptions = ["type", "color", "brand", "gender"];
 
 function Filter() {
   const { setClothesArr, clothesArr, allItems } = useItemsCtx();
@@ -23,7 +23,8 @@ function Filter() {
     document.getElementById("filterEl").style.bottom = "100%";
     document.getElementById("filterEl").style.position = "";
   }
-
+  console.log('allItems ===', allItems);
+console.log('selectedFilter ===', selectedFilter);
   const gatherFilters = (items) => {
     setSelectedFilter(items);
   };
@@ -31,6 +32,7 @@ function Filter() {
   const isColorFilters = (colors) => color.includes(colors)
   const isBrandFilters = (brands) => brand.includes(brands)
   const isGenderFilters = (genders) => gender.includes(genders)
+  const isTypeFilters = (types) => type.includes(types)
 
   const applyFilters = () => {
     if (!clothesArr) {
@@ -43,13 +45,15 @@ function Filter() {
 const colorFilters = selectedFilter.filter(isColorFilters)
 const brandFilters = selectedFilter.filter(isBrandFilters)
 const genderFilters = selectedFilter.filter(isGenderFilters)
+const typeFilters = selectedFilter.filter(isTypeFilters)
 
 return setClothesArr(allItems.filter((item) => {
   const colorMatch = colorFilters.length === 0 || colorFilters.includes(item.color);
   const brandMatch = brandFilters.length === 0 || brandFilters.includes(item.brand)
   const genderMatch = genderFilters.length === 0 || genderFilters.includes(item.gender)
+  const typeMatch = typeFilters.length === 0 || typeFilters.includes(item.category)
 
-  return colorMatch && brandMatch && genderMatch
+  return colorMatch && brandMatch && genderMatch && typeMatch
 }))
   }
 
