@@ -8,7 +8,7 @@ import { brand, color, gender } from "../../data/selections";
 const filterOptions = ["color", "brand", "gender"];
 
 function Filter() {
-  const { setClothesArr, clothesArr } = useItemsCtx();
+  const { setClothesArr, clothesArr, allItems } = useItemsCtx();
   const [resetFilters, setResetFilters] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState([]);
   const { windowWidth } = useRespCtx();
@@ -44,7 +44,7 @@ const colorFilters = selectedFilter.filter(isColorFilters)
 const brandFilters = selectedFilter.filter(isBrandFilters)
 const genderFilters = selectedFilter.filter(isGenderFilters)
 
-return setClothesArr(clothesArr.filter((item) => {
+return setClothesArr(allItems.filter((item) => {
   const colorMatch = colorFilters.length === 0 || colorFilters.includes(item.color);
   const brandMatch = brandFilters.length === 0 || brandFilters.includes(item.brand)
   const genderMatch = genderFilters.length === 0 || genderFilters.includes(item.gender)
