@@ -7,7 +7,7 @@ import { useItemsCtx } from "../context/ItemsContextProvider";
 import { useRespCtx } from "../context/ResponsiveContextProvider";
 
 function ClothesPage() {
-  const { clothesArr, loadingClothes } = useItemsCtx();
+  const { clothesArr, loadingClothes, allItems, setClothesArr } = useItemsCtx();
   const { windowWidth } = useRespCtx();
   const [changeGrid, setChangeGrid] = useState(false);
 
@@ -55,8 +55,9 @@ function ClothesPage() {
             ))}
           </ul>
         ) : (
-          <div className="w-full flex items-center justify-center text-3xl font-bold">
-            <h3>No Such Items Available</h3>
+          <div className="w-full flex flex-col lg:flex-auto items-center pt-20 gap-8 lg:gap-0 lg:pt-0 justify-center text-3xl">
+            <h3 className="w-full font-bold text-center">No Such Items Available</h3>
+            {windowWidth < 1024 ? <button className="underline pt-20" onClick={() => setClothesArr(allItems)}>Return to All Clothes</button> : ''}
           </div>
         )}
       </div>

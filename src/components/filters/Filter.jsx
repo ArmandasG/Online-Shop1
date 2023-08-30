@@ -87,7 +87,7 @@ function Filter() {
           ))}
           <div className="mt-20 flex justify-between lg:flex-col-reverse lg:gap-6">
             <button
-              onClick={refreshFilters}
+              onClick={() => {refreshFilters(), closeFilter()}}
               className="ml-4 p-3 border w-2/12 border-black lg:w-full lg:ml-0 hover:text-white hover:bg-black ease-in-out duration-300"
             >
               <i
@@ -97,7 +97,7 @@ function Filter() {
               <span className="hidden lg:block lg:text-2xl">Reset filters</span>
             </button>
             <button
-              onClick={() => applyFilters()}
+              onClick={() => {applyFilters(), closeFilter()}}
               className="p-3 text-5xl w-9/12 border border-black bg-black text-white lg:text-2xl lg:w-full hover:bg-white hover:text-black ease-in-out duration-300"
             >
               Apply filter
