@@ -11,3 +11,7 @@
 ## scripts
 
 1. `npm run dev` - starts the application
+
+### Try it out (link):
+
+1. https://armandas-online-1-shop.netlify.app/
