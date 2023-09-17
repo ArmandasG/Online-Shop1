@@ -194,3 +194,26 @@
     max-width: 120rem;
   }
 }
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(2rem);
+  animation: fadeIn 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.fade-in-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
