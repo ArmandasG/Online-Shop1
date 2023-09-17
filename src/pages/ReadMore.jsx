@@ -10,7 +10,7 @@ function ReadMore() {
     });
   }, []);
   return (
-    <div className="lg:min-h-[70rem] container flex flex-col gap-14 lg:flex-row lg:pt-60">
+    <div className="lg:min-h-[70rem] container flex flex-col gap-14 lg:flex-row lg:pt-20">
       <div className="lg:w-1/2 flex items-center"><img className="" src="/icons/nbc-streaming-service-launch-date-april-2020.webp" alt="" /></div>
       <div className="lg:w-1/2">
       <h2 className="text-5xl lg:text-6xl">SHOPPERs Favorite Quotes</h2>
