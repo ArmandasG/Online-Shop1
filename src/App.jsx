@@ -28,10 +28,11 @@ function App() {
   const { cartArr, shippingInformation, deliveryMethod } = useItemsCtx();
   const { isLoggedIn } = useAuthCtx();
   return (
-    <div className="bg-site bg-no-repeat bg-cover">
+    <div className="bg-site bg-no-repeat bg-cover min-h-screen flex flex-col">
       <Feedback />
       <Header />
       <LeftSideOverlay />
+      <div className="flex-grow overflow-y-auto">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUsPage />} />
@@ -98,6 +99,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
         <Route path="/checkout" element={<CheckOutPage />} />
       </Routes>
+      </div>
       <Footer />
     </div>
   );

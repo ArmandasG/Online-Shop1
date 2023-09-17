@@ -6,7 +6,7 @@ function NotFound() {
   return (
     <div
       onClick={() => navigate("/")}
-      className="flex flex-col items-center container h-screen cursor-pointer"
+      className="flex flex-col items-center container cursor-pointer"
     >
       <div className="flex flex-col items-center w-full h-fit mt-40">
         <svg

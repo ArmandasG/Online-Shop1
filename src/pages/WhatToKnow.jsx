@@ -2,7 +2,7 @@ import React from "react";
 
 function WhatToKnow() {
   return (
-    <div className="mb-20 min-h-screen container lg:min-h-[70rem]">
+    <div className="mb-20 container lg:min-h-[70rem]">
       <h2 className="py-10 text-xl font-bold lg:text-5xl lg:text-center">
         We are a company that values:
       </h2>

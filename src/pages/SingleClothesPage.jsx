@@ -36,7 +36,7 @@ function SingleClothesPage() {
   return loadingClothes ? (
     <Loader />
   ) : (
-    <div className="min-h-screen lg:min-h-[130rem] text-3xl container flex flex-col w-full lg:flex-row lg:items-start lg:pt-[20rem] lg:gap-20">
+    <div className="lg:min-h-[130rem] text-3xl container flex flex-col w-full lg:flex-row lg:items-start lg:pt-[20rem] lg:gap-20">
       <div className="w-full lg:w-8/12">
         <img
           src={currentClothesObj.imgURL}

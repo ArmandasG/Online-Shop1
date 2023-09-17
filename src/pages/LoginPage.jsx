@@ -44,7 +44,7 @@ function LoginPage() {
       });
   }
   return (
-    <div className="min-h-screen lg:min-h-[71rem] container items-center gap-40 flex flex-col lg:flex-row lg:items-start">
+    <div className="lg:min-h-[71rem] container items-center gap-40 flex flex-col lg:flex-row lg:items-start">
       <div className="flex flex-col items-center w-full">
         <h1 className="text-4xl mt-40 font-bold lg:text-5xl">Sign in</h1>
         <LoginForm onLogin={loginShop} />

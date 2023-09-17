@@ -2,7 +2,7 @@ import React from "react";
 
 function ReadMore() {
   return (
-    <div className="min-h-screen lg:min-h-[70rem] container">
+    <div className="lg:min-h-[70rem] container">
       <h2>Lorem ipsum dolor sit amet.</h2>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi minima

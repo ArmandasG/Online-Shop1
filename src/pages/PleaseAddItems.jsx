@@ -4,7 +4,7 @@ import { useItemsCtx } from "../context/ItemsContextProvider";
 function PleaseAddItems() {
   const { navigate } = useItemsCtx();
   return (
-    <div className="gap-8 text-5xl flex flex-col items-center justify-center my-80 container h-screen">
+    <div className="gap-8 text-5xl flex flex-col items-center justify-center pt-80 container">
       <h1>Something went wrong:</h1>
       <span>One of the following issues might be the cause:</span>
       <ul>

@@ -12,7 +12,7 @@ function ClothesPage() {
   const [changeGrid, setChangeGrid] = useState(false);
 
   return (
-    <div className="min-h-screen container">
+    <div className="container">
       {windowWidth >= 1024 ? (
         <div className="flex justify-between">
           <span className="text-2xl pt-4 pr-4 pb-4 text-gray-400">Filter</span>

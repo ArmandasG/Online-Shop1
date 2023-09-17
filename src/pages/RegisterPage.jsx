@@ -24,7 +24,7 @@ function RegisterPage() {
       });
   }
   return (
-    <div className="min-h-screen container items-center gap-32 flex flex-col lg:min-h-[71rem]">
+    <div className="container items-center gap-32 flex flex-col lg:min-h-[71rem]">
       <h1 className="text-4xl mt-40 font-bold lg:text-6xl">Registration</h1>
       <RegisterForm onRegister={registerToShop} />
       <div className="text-center">
