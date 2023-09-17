@@ -18,15 +18,15 @@ function ClothesPage() {
           <span className="text-2xl pt-4 pr-4 pb-4 text-gray-400">Filter</span>
           <div className="flex">
             <FilterSort />
-            <button onClick={() => setChangeGrid(false)} className="p-4">
+            <button onClick={() => setChangeGrid(false)} className='p-4'>
               <i
-                className="fa fa-th-large text-2xl hover:text-gray-600"
+                className={`fa fa-th-large text-2xl hover:text-gray-600 ${changeGrid ? '' : 'scale-150'}`}
                 aria-hidden="true"
               ></i>
             </button>
             <button onClick={() => setChangeGrid(true)}>
               <i
-                className="fa fa-th text-2xl hover:text-gray-600"
+                className={`fa fa-th text-2xl hover:text-gray-600 ${changeGrid ? 'scale-150' : ''}`}
                 aria-hidden="true"
               ></i>
             </button>

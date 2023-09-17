@@ -27,8 +27,8 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="pt-8 pb-8 pl-[20px] pr-[20px] items-center min-h-100vh lg:min-h-[90rem] lg:flex lg:justify-center lg:pt-0">
-      <img src={randomImageUrl} alt="cover-photo" className="w-full min-h-fit lg:h-full lg:w-fit" />
+    <div className="pt-8 pl-[20px] pr-[20px] items-center min-h-100vh lg:min-h-[90rem] lg:flex lg:justify-center lg:pt-0">
+      <img src={randomImageUrl} alt="cover-photo" className="w-full object-cover h-full lg:h-full lg:w-fit" />
     </div>
   );
 }
