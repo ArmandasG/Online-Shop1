@@ -224,13 +224,13 @@ function DeliveryInformation() {
               />
               <div className="h-1"></div>
             </div>
-            <div className="w-full">
+            <div className="w-full h-full">
               <select
                 className={`${
                   formik.touched.country && formik.errors.country
                     ? "border-red-600 focus-visible:outline-red-600"
                     : ""
-                } p-4 border border-black w-full rounded bg-white`}
+                } p-4 border border-black w-full rounded bg-white h-full`}
                 type="text"
                 id="country"
                 name="country"
@@ -239,12 +239,12 @@ function DeliveryInformation() {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               >
-                <option value="" disabled>
+                <option className="p-4" value="" disabled>
                   Select Country *
                 </option>
 
-                <option value="Lithuania">Lithuania</option>
-                <option value="" disabled>
+                <option className="p-4" value="Lithuania">Lithuania</option>
+                <option className="p-4" value="" disabled>
                   Great Britain (available soon)
                 </option>
               </select>
@@ -263,7 +263,7 @@ function DeliveryInformation() {
                     formik.touched.city && formik.errors.city
                       ? "border-red-600 focus-visible:outline-red-600"
                       : ""
-                  } p-4 border border-black w-full rounded bg-white`}
+                  } p-4 border border-black w-full rounded bg-white h-full`}
                   type="text"
                   id="city"
                   name="city"
@@ -297,7 +297,7 @@ function DeliveryInformation() {
                     formik.touched.postalCode && formik.errors.postalCode
                       ? "border-red-600 focus-visible:outline-red-600"
                       : ""
-                  } p-4 border border-black w-full`}
+                  } p-4 border border-black w-full h-full`}
                   placeholder="Postal code *"
                   type="number"
                   id="postalCode"
