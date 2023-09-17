@@ -1,6 +1,6 @@
 function AboutUsPage() {
   return (
-    <div className="container lg:pt-[30rem]">
+    <div className="container lg:pt-[10rem]">
       <div className="w-full">
       <img className="w-full"
         src="./icons/Touched_by_His_Noodly_Appendage_HD.jpg"
