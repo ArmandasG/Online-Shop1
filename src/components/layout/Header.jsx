@@ -98,7 +98,9 @@ function Header() {
   }
 
   return (
-    <header className="container lg:mb-6">
+    <header className={`container lg:mb-6 ${
+      cartIsOpen && windowWidth < 1024 ? "sticky top-0 bg-white" : ""
+    }`}>
       {windowWidth >= 1024 ? (
         <Link to={"/"}>
           <h1 className="text-center mt-20 text-6xl font-bold">SHOPER</h1>
@@ -107,9 +109,7 @@ function Header() {
         ""
       )}
       <div
-        className={`flex justify-between pt-4 pb-4 mb-4 items-center lg:justify-center lg:mt-10 ${
-          cartIsOpen && windowWidth < 1024 ? "sticky top-0 bg-white" : ""
-        }`}
+        className={`flex justify-between pt-4 pb-4 mb-4 items-center lg:justify-center lg:mt-10`}
         id="myHeader"
       >
         <Burger closeCartNav={closeCartNav} />
