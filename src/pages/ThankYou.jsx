@@ -20,7 +20,7 @@ function ThankYou() {
         </a>
         <a
           className="w-8 h-8 hover:opacity-50"
-          href="https://github.com/ArmandasG"
+          href="https://github.com/ArmandasG/Online-Shop1"
         >
           <i className="fa fa-github-square text-5xl" aria-hidden="true"></i>
         </a>
