@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@babel/core": "^7.23.2",
     "@headlessui/react": "^1.7.14",
     "firebase": "^10.3.0",
     "formik": "^2.2.9",
