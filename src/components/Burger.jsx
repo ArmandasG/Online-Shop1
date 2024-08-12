@@ -44,8 +44,7 @@ function Burger({ closeCartNav }) {
 
   const handleDisclosureOpen = (panelId) => {
     setActivePanel(
-      (prevPanel) => (prevPanel === panelId ? null : prevPanel),
-      panelId
+      (prevPanel) => (prevPanel === panelId ? null : prevPanel)
     );
   };
 
@@ -204,7 +203,7 @@ function Burger({ closeCartNav }) {
                   )}
 
                   {windowWidth >= 1024 ? (
-                    <Transition
+                    <Transition className='absolute'
                       show={activePanel === "clothes"}
                       enter="transition duration-300 ease-out"
                       enterFrom="transform scale-y-95 opacity-0"
@@ -305,7 +304,7 @@ function Burger({ closeCartNav }) {
                   )}
 
                   {windowWidth >= 1024 ? (
-                    <Transition
+                    <Transition className='absolute w-[100%]'
                       show={activePanel === "campaigns"}
                       enter="transition duration-300 ease-out"
                       enterFrom="transform scale-y-95 opacity-0"
