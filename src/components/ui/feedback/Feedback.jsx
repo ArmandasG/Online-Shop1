@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import "../../../styles/index.css";
 import { useAuthCtx } from "../../../context/AuthProvider";
 
 function Feedback() {
-  const { feedback, isVisible, setIsVisible } = useAuthCtx();
+  const { feedback, isVisible, setIsVisible, feedbackQueue } = useAuthCtx();
   const { show, type, msg } = feedback;
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsVisible(false);
-    }, 1200);
-  }, [isVisible]);
+    if (feedbackQueue && feedbackQueue.length > 0 && !isVisible) {
+      setIsVisible(true);
+    }
+  }, [isVisible, feedbackQueue]);
 
-  return show ? (
-    <div className={`feedback-container ${type} ${isVisible ? "visible" : ""}`}>
+  return (
+    <div className={`feedback-container ${type} ${feedbackQueue.length > 0 ? "visible" : "not-visible"}`}>
       <p className="msg">{msg}</p>
     </div>
-  ) : null;
+  ) 
 }
 
 export default Feedback;

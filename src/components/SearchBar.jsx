@@ -32,7 +32,7 @@ function SearchBar({ searchValue, setIsExpanded }) {
             onChange={formik.handleChange}
             placeholder={placeholderVisible ? "Looking for something ?" : ""}
             value={formik.values.searchResult}
-            autocomplete="off"
+            autoComplete="off"
           />
           <button type="submit">
             <i className="fa fa-search" aria-hidden="true"></i>

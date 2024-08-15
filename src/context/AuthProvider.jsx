@@ -8,11 +8,14 @@ const AuthContext = createContext({
   token: {},
   isLoggedIn: false,
   isLoading: false,
+  feedbackQueue: [],
   feedback: {
     show: false,
     message: "",
     type: "",
   },
+  setIsVisible: () => {},
+  setFeedback: () => {},
   ui: {},
 });
 
@@ -21,6 +24,7 @@ AuthContext.displayName = "Authentification";
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [feedbackQueue, setFeedbackQueue] = useState([]);
   const [feedback, setFeedback] = useState({
     show: false,
     msg: "",
@@ -34,43 +38,49 @@ function AuthProvider({ children }) {
     });
   }, []);
 
-  const { show, msg } = feedback;
   useEffect(() => {
-    if (show === true && msg !== "Loading") {
+    if (feedbackQueue.length > 0 && !isVisible) {
+      const currentFeedback = feedbackQueue[0];
+      setFeedback({
+        show: true,
+        msg: currentFeedback.msg,
+        type: currentFeedback.type,
+      });
       setIsVisible(true);
-      setTimeout(() => {
-        setFeedback({
-          show: false,
-          msg: "",
-          type: "",
-        });
-      }, 1500);
     }
-  }, [show, msg]);
+  }, [feedbackQueue, isVisible]);
+
+  useEffect(() => {
+      const timeoutDuration = feedbackQueue.length > 0 ? 1200 : 1200;
+      const timer = setTimeout(() => {
+        setIsVisible(false);
+        setFeedbackQueue((prevQueue) => prevQueue.slice(1));
+      }, timeoutDuration);
+
+      return () => clearTimeout(timer);
+  }, [isVisible]);
 
   const ui = {
     showSuccess(msg = "") {
-      setFeedback({
-        show: true,
-        msg: msg || "Success",
-        type: "success",
-      });
+      setFeedbackQueue((prevQueue) => [
+        ...prevQueue,
+        { show: true, msg: msg || "Success", type: "success" },
+      ]);
     },
     showError(msg = "") {
-      setFeedback({
-        show: true,
-        msg: msg || "Error",
-        type: "error",
-      });
+      setFeedbackQueue((prevQueue) => [
+        ...prevQueue,
+        { show: true, msg: msg || "Error", type: "error" },
+      ]);
     },
     showLoading(msg = "") {
-      setFeedback({
-        show: true,
-        msg: msg || "Loading...",
-        type: "info",
-      });
+      setFeedbackQueue((prevQueue) => [
+        ...prevQueue,
+        { show: true, msg: msg || "Loading...", type: "info" },
+      ]);
     },
     closeAlert() {
+      setIsVisible(false);
       setFeedback({
         show: false,
         msg: "",
@@ -90,6 +100,8 @@ function AuthProvider({ children }) {
     isVisible,
     setIsVisible,
     setIsLoading,
+    feedbackQueue,
+    setFeedbackQueue
   };
 
   return (

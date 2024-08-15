@@ -12,6 +12,7 @@ function DeliveryInformation() {
     navigate,
     setShippingInformation,
     setShippingInfo,
+    shippingInfo
   } = useItemsCtx();
   const { windowWidth } = useRespCtx();
   function openCartNav() {
@@ -25,17 +26,17 @@ function DeliveryInformation() {
   }
   const formik = useFormik({
     initialValues: {
-      email: "",
-      keepMeUpdated: false,
-      mobilePhoneNumber: "",
-      firstName: "",
-      lastName: "",
-      address: "",
-      addressExtra: "",
-      city: "",
-      country: "",
-      postalCode: "",
-      saveInformation: false,
+      email: shippingInfo.email || "",
+      keepMeUpdated: shippingInfo.keepMeUpdated || false,
+      mobilePhoneNumber: shippingInfo.mobilePhoneNumber || "",
+      firstName: shippingInfo.firstName || "",
+      lastName: shippingInfo.lastName || "",
+      address: shippingInfo.address || "",
+      addressExtra: shippingInfo.addressExtra || "",
+      city: shippingInfo.city || "",
+      country: shippingInfo.country || "",
+      postalCode: shippingInfo.postalCode || "",
+      saveInformation: shippingInfo.saveInformation || false,
     },
     onSubmit: (values, { resetForm, setSubmitting }) => {
       setShippingInformation([values]);
