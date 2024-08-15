@@ -54,11 +54,16 @@ function AuthProvider({ children }) {
       const timeoutDuration = feedbackQueue.length > 1 ? 2000 : 1200;
       const timer = setTimeout(() => {
         setIsVisible(false);
+        if (feedbackQueue.length >= 3) {
+          setFeedbackQueue((prevQueue) => prevQueue.slice(-2));
+        }
         setFeedbackQueue((prevQueue) => prevQueue.slice(1));
       }, timeoutDuration);
 
       return () => clearTimeout(timer);
   }, [isVisible]);
+
+  console.log(feedbackQueue)
 
   const ui = {
     showSuccess(msg = "") {
