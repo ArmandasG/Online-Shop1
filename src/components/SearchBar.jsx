@@ -19,7 +19,7 @@ function SearchBar({ searchValue, setIsExpanded }) {
     },
   });
   return (
-    <div className="pt-8 text-3xl lg:text-2xl lg:pt-0 text-black">
+    <div data-search-panel="true" className="pt-8 text-3xl lg:text-2xl lg:pt-0 text-black">
       <div className="relative"></div>
       <form onSubmit={formik.handleSubmit}>
         <div className="border-b lg:flex lg:justify-between">
