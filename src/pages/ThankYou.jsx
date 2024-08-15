@@ -8,8 +8,7 @@ function ThankYou() {
         Thank you for trying my website project
       </h1>
       <p className="text-2xl text-center">
-        I am currently a Junior FrontEnd Developer looking for opportunities.
-        Please do contact me via LinkedIn and check out my Github below
+        You can connect with me via LinkedIn and also check out my Github below
       </p>
       <div className="flex gap-8 pt-8">
         <a
