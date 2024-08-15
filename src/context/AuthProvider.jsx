@@ -51,7 +51,7 @@ function AuthProvider({ children }) {
   }, [feedbackQueue, isVisible]);
 
   useEffect(() => {
-      const timeoutDuration = feedbackQueue.length > 0 ? 1200 : 1200;
+      const timeoutDuration = feedbackQueue.length > 1 ? 2000 : 1200;
       const timer = setTimeout(() => {
         setIsVisible(false);
         setFeedbackQueue((prevQueue) => prevQueue.slice(1));
