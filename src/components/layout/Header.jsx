@@ -78,6 +78,23 @@ function Header() {
     setClothesArr(filteredClothes);
   }, [query]);
 
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (
+        !event.target.closest('[data-search-panel="true"]') &&
+        windowWidth >= 1024
+      ) {
+        setIsExpanded(false);
+      }
+    };
+
+    document.body.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.body.removeEventListener("click", handleOutsideClick);
+    };
+  }, [isExpanded]);
+
   function searchEl(newSearchEl) {
     const searchElement = newSearchEl.toLowerCase();
     setQuery(searchElement);
@@ -115,6 +132,7 @@ function Header() {
         <Burger closeCartNav={closeCartNav} />
         {windowWidth >= 1024 ? (
           <button
+            data-search-panel="true"
             onClick={() => setIsExpanded(!isExpanded)}
             className="ml-10 text-2xl hover:text-gray-400"
           >
