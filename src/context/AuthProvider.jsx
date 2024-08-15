@@ -63,8 +63,6 @@ function AuthProvider({ children }) {
       return () => clearTimeout(timer);
   }, [isVisible]);
 
-  console.log(feedbackQueue)
-
   const ui = {
     showSuccess(msg = "") {
       setFeedbackQueue((prevQueue) => [
